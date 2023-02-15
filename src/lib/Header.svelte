@@ -41,20 +41,7 @@
         {/if}
             <Nav
                 class={[
-                    'fixed',
-                    'gap-x-12',
-                    'gap-y-4',
-                    'py-5',
-                    'px-8',
-                    'top-0',
-                    'w-full',
-                    'text-white',
-                    'bg-midnight',
-                    'flex-wrap',
-                    'items-center',
-                    'justify-center',
-                    'z-50',
-                    'transition-transform',
+                    'fixed gap-x-12 gap-y-4 py-5 px-8 top-0 w-full text-white bg-midnight flex-wrap items-center justify-center z-50 transition-transform',
                     floatingNavVisible ? '' : '-translate-y-full',
                 ].join(' ')}
                 navItems={ALL_NAV_ITEMS}

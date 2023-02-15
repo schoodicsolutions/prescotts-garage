@@ -2,7 +2,7 @@
     import type { NavItem } from '$types/NavItem';
     import { page } from '$app/stores';
     export let ariaLabel: string;
-    export let ariaHidden: boolean;
+    export let ariaHidden: boolean | undefined = undefined;
     export let navItems: NavItem[];
 
     let className: string | undefined = undefined;
