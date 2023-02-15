@@ -2,6 +2,7 @@
     import type { NavItem } from '$types/NavItem';
     import { page } from '$app/stores';
     export let ariaLabel: string;
+    export let ariaHidden: boolean;
     export let navItems: NavItem[];
 
     let className: string | undefined = undefined;
@@ -11,6 +12,7 @@
 <nav
     class='main-nav'
     aria-label={ariaLabel}
+    aria-hidden={ariaHidden}
 >
     <ul 
         class={["flex", className].join(' ')}

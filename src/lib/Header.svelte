@@ -1,13 +1,19 @@
-<script>
+<script lang="ts">
     import { ALL_NAV_ITEMS, LEFT_NAV_ITEMS, RIGHT_NAV_ITEMS } from "../constants";
     import Logo from "./Logo.svelte";
     import Nav from "./Nav.svelte";
     
 	import MediaQuery from 'svelte-media-queries';
+
+    let scrollY: number;
+
+    $: floatingNavVisible = scrollY > 160;
 </script>
 
+<svelte:window bind:scrollY />
+
 <MediaQuery query={'(max-width: 1600px)'} let:matches>
-    <header class="py-8 shadow-xl bg-midnight">
+    <header class="shadow-xl bg-midnight min-h-40 py-8 flex-col items-center">
         <div class="flex gap-16 items-center justify-center">
 
                 {#if !matches}
@@ -33,5 +39,27 @@
                 ariaLabel='Main Nav' 
             />
         {/if}
+            <Nav
+                class={[
+                    'fixed',
+                    'gap-x-12',
+                    'gap-y-4',
+                    'py-5',
+                    'px-8',
+                    'top-0',
+                    'w-full',
+                    'text-white',
+                    'bg-midnight',
+                    'flex-wrap',
+                    'items-center',
+                    'justify-center',
+                    'z-50',
+                    'transition-transform',
+                    floatingNavVisible ? '' : '-translate-y-full',
+                ].join(' ')}
+                navItems={ALL_NAV_ITEMS}
+                ariaLabel='Main Nav'
+                ariaHidden={!floatingNavVisible}
+            />
     </header>
 </MediaQuery>

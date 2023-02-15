@@ -11,7 +11,10 @@ module.exports = {
       },
       dropShadow: {
         'hero': '0 10px 8px rgba(0, 0, 0, 1)'
-      }
+      },
+      backgroundImage: {
+        'shop': "url('/bg-placeholder.jpg')",
+      },
     },
   },
   plugins: [],

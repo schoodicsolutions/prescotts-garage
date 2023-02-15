@@ -5,10 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    background: url('/bg-placeholder.jpg');
-}
-
 @layer components {
     nav.main-nav {
         font-family: 'Rubik';
