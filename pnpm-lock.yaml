@@ -1,16 +1,24 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@fontsource/kameron': ^4.5.8
+  '@fontsource/rubik': ^4.5.14
   '@sveltejs/adapter-auto': ^2.0.0
   '@sveltejs/kit': ^1.5.0
   autoprefixer: ^10.4.13
   postcss: ^8.4.21
   svelte: ^3.54.0
   svelte-check: ^3.0.1
+  svelte-media-queries: ^1.5.2
   tailwindcss: ^3.2.4
   tslib: ^2.4.1
   typescript: ^4.9.3
   vite: ^4.0.0
+
+dependencies:
+  '@fontsource/kameron': 4.5.8
+  '@fontsource/rubik': 4.5.14
+  svelte-media-queries: 1.5.2
 
 devDependencies:
   '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.0
@@ -223,6 +231,14 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@fontsource/kameron/4.5.8:
+    resolution: {integrity: sha512-1cQEwRC3p4Zkcyru8Cm7VmMP8vPXNwSucl9lHx6XJisL4JpjSdtUMv0RYCn4AmNsvZI66gQ+myfOC9vU08DBeg==}
+    dev: false
+
+  /@fontsource/rubik/4.5.14:
+    resolution: {integrity: sha512-EvMK3kkeAgKkk8qAeT4PjpyAYyu72pIlJm+SXJ5vR/xhCX2yj2xoq3+YS38rPmPcCAnrAVONoQ3ezLxVm6jhBA==}
+    dev: false
 
   /@jridgewell/resolve-uri/3.1.0:
     resolution: {integrity: sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==}
@@ -1076,6 +1092,10 @@ packages:
     dependencies:
       svelte: 3.55.1
     dev: true
+
+  /svelte-media-queries/1.5.2:
+    resolution: {integrity: sha512-/E3NSpxVF+ObjhpkU3wv5xhRaA/Irqic0eN/LqBNPANIic8uWu9pjVMgjMZRXpsU3SMdbK0e6c62Z78bT7TL7w==}
+    dev: false
 
   /svelte-preprocess/5.0.1_k4bhxdknaltjvjwprbm23edr5q:
     resolution: {integrity: sha512-0HXyhCoc9rsW4zGOgtInylC6qj259E1hpFnJMJWTf+aIfeqh4O/QHT31KT2hvPEqQfdjmqBR/kO2JDkkciBLrQ==}

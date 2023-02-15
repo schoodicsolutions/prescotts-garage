@@ -7,6 +7,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			$types: path.resolve('src/types'),
+			$constants: path.resolve('src/constants'),
 		}
 	}
 });

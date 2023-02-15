@@ -1,7 +1,17 @@
+@import "@fontsource/rubik/500.css";
+@import "@fontsource/kameron/700.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    background-color: #ccc;
+    background: url('/bg-placeholder.jpg');
+}
+
+@layer components {
+    nav.main-nav {
+        font-family: 'Rubik';
+        font-weight: 500;
+    }
 }

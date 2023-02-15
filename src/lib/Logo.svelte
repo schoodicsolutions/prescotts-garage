@@ -9,7 +9,7 @@
    viewBox="0 0 48 30"
    version="1.1"
    xmlns="http://www.w3.org/2000/svg"
-   class={['w-auto', className].join(' ')}
+   class={['h-auto', className].join(' ')}
    style:display="block"
 >
     <g aria-label="Prescott's Garage">

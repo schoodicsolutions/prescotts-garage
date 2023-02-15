@@ -3,13 +3,17 @@
     import { page } from '$app/stores';
     export let ariaLabel: string;
     export let navItems: NavItem[];
+
+    let className: string | undefined = undefined;
+    export { className as class };
 </script>
 
-<nav 
+<nav
+    class='main-nav'
     aria-label={ariaLabel}
 >
     <ul 
-        class="flex gap-8 font-semibold" 
+        class={["flex", className].join(' ')}
     >
         {#each navItems as navItem}
             <li class="flex flex-col mt-1">
