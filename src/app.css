@@ -6,6 +6,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    box-sizing: border-box;
+}
+
 @layer components {
     nav.main-nav {
         font-family: 'Rubik';

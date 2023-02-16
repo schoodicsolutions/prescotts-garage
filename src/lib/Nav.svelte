@@ -18,7 +18,7 @@
         class={["flex", className].join(' ')}
     >
         {#each navItems as navItem}
-            <li class="flex flex-col mt-1">
+            <li class="flex flex-col mt-1 transition hover:text-brand">
                 <a 
                     class="navlink"
                     href={navItem.pathname}

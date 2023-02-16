@@ -1,5 +1,9 @@
 <script lang="ts">
     export let poster: string = '#000000';
+    export let leftOffset: number = 0;
+    export let topOffset: number = 0;
+    export let minHeight: number = 0;
+    export let videoId: string;
 
     import YouTube, { type PlayerObject } from 'svelte-youtube';
     import { onDestroy } from 'svelte';
@@ -8,7 +12,9 @@
     
     let player: PlayerObject | null = null;
     $: player;
-    $: iframe = player ? player.getIframe() : null;
+
+    let iframe: HTMLIFrameElement | null = null;
+    $: iframe;
 
     const interval = setInterval(
         () => {
@@ -28,16 +34,9 @@
     function stateChange(event: CustomEvent<{target: PlayerObject, data?: number}>) {
         const { data: state } = event.detail;
         player = event.detail.target;
-
+        iframe = player.getIframe();
         if (state === -1) {
-            if (iframe) {
-                iframe.style.width = '200vw';
-                iframe.style.height = 'calc(100vw * 0.5625)';
-                iframe.style.transform = 'translate(-50%, -50%)';
-                iframe.style.position = 'absolute';
-                iframe.style.left = '50%';
-                iframe.style.top = '50%';
-            }
+            onResize();
         } else if (state === 5) {
             player.mute();
             player.playVideo();
@@ -46,26 +45,27 @@
         }
     }
 
-    function onResize(event: UIEvent & {
-        currentTarget: EventTarget & Window;
-    }) {
+    function onResize() {
         if (iframe) {
-            if (event.currentTarget.innerWidth < 1024) {
-                iframe.style.height = 'calc(100vh / 0.5625)';
-            } else {
-                iframe.style.height = 'calc(100vw * 0.5625)';
-            }
+            iframe.style.transform = 'translate(-50%, -50%)';
+            iframe.style.position = 'absolute';
+            iframe.style.left = iframe.parentElement?.clientWidth ? (iframe.parentElement?.clientWidth / 2 + leftOffset) + 'px' : '50%';
+            iframe.style.top = iframe.parentElement?.clientHeight ? (iframe.parentElement?.clientHeight / 2 + topOffset) + 'px' : '50%';
+            iframe.style.width = '150vw';
+            iframe.style.minWidth = '2000px';
+            iframe.style.height = Math.max(window.innerWidth * 0.5625, minHeight) + 'px';
+            console.log(iframe.style.height)
         }
     }
 </script>
 
 <svelte:window on:resize={onResize} />
 
-<div class='fixed top-0 h-[800px]' style:background={poster}>
-    <div class='w-screen h-screen overflow-hidden' style:opacity style='transition: opacity 2s;'>  
+<div class='fixed top-0 h-screen w-screen overflow-hidden' style:background={poster}>
+    <div class='w-full h-full' style:opacity style='transition: opacity 2s;'>  
         <YouTube
-        videoId="ZOOQ4O7LsBg"
-        class="w-full h-full"
+        {videoId}
+        class="w-full h-full relative"
         options={{
             playerVars: {
                 disablekb: 1,

@@ -5,6 +5,7 @@
     
 	import MediaQuery from 'svelte-media-queries';
     import { slide } from "svelte/transition";
+  import MenuIcon from "./icons/MenuIcon.svelte";
 
     let scrollY: number;
 
@@ -13,27 +14,32 @@
 
 <svelte:window bind:scrollY />
 
-<MediaQuery query={'(max-width: 1600px)'} let:matches>
-    <header class="shadow-xl bg-midnight min-h-40 py-8 flex-col items-center relative w-full z-50">
+<MediaQuery query={['(min-width: 1600px)', '(max-width: 1600px) and (min-width: 640px)', '(max-width: 640px)']} let:matchesArray={[xxl, between, sm]}>
+    <header class="shadow-xl bg-midnight min-h-20 sm:min-h-40 py-4 sm:py-8 flex-col items-center relative w-full z-50 text-white">
         <div class="flex gap-16 items-center justify-center">
-
-                {#if !matches}
+                {#if xxl}
                 <Nav
-                    class="justify-around w-[640px] text-white"
+                    class="justify-around w-[640px]"
                     navItems={LEFT_NAV_ITEMS}
                     ariaLabel='Left Main Nav' 
                 />
+                {:else if sm}
+                    <div class='grow'/>
                 {/if}
-                <Logo class="w-36" />
-                {#if !matches}
+                <Logo class="w-20 sm:w-36" />
+                {#if xxl}
                 <Nav
                     class="justify-around w-[640px] text-white"
                     navItems={RIGHT_NAV_ITEMS}
                     ariaLabel='Right Main Nav' 
                 />
+                {:else if sm}
+                    <div class='grow'>
+                        <MenuIcon />
+                    </div>
                 {/if}
         </div>
-        {#if matches}
+        {#if between}
             <Nav
                 class="gap-x-12 gap-y-4 pt-8 px-8 text-white flex-wrap items-center justify-center"
                 navItems={ALL_NAV_ITEMS}
