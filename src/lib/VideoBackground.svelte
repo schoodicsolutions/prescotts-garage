@@ -40,7 +40,7 @@
 
 <svelte:window on:blur={blur} on:focus={focus}/>
 
-<div class='bg-shop w-screen h-screen fixed top-0'>
+<div class='bg-shop w-screen h-screen fixed top-0 brightness-50'>
     <div class='w-screen overflow-hidden transition-opacity delay-[2000ms]' style:opacity>  
         <YouTube
         videoId="ZOOQ4O7LsBg"
