@@ -3,6 +3,7 @@
     export let leftOffset: number = 0;
     export let topOffset: number = 0;
     export let minHeight: number = 0;
+    export let maxScroll: number = 0;
     export let videoId: string;
 
     import YouTube, { type PlayerObject } from 'svelte-youtube';
@@ -10,6 +11,8 @@
 
     $: opacity = 0;
     
+    $: playing = false;
+
     let player: PlayerObject | null = null;
     $: player;
 
@@ -40,6 +43,7 @@
         } else if (state === 5) {
             player.mute();
             player.playVideo();
+            playing = true;
         } else if (state === 1) {
             opacity = 1;
         }
@@ -57,9 +61,23 @@
             console.log(iframe.style.height)
         }
     }
+
+    function onScroll() {
+        if (!maxScroll || !player) {
+            return;
+        }
+
+        if (window.scrollY > maxScroll && playing) {
+            player.pauseVideo();
+            playing = false;
+        } else if (window.scrollY <= maxScroll && !playing) {
+            player.playVideo();
+            playing = true;
+        }
+    }
 </script>
 
-<svelte:window on:resize={onResize} />
+<svelte:window on:resize={onResize} on:scroll|passive={onScroll}/>
 
 <div class='fixed top-0 h-screen w-screen overflow-hidden' style:background={poster}>
     <div class='w-full h-full' style:opacity style='transition: opacity 2s;'>  

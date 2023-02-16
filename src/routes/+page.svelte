@@ -7,15 +7,14 @@
     videoId="ZOOQ4O7LsBg"
     poster="url('/bg-placeholder.jpg')"
     minHeight={750}
+    maxScroll={750}
 >
     <div class="flex h-[500px] max-h-[500px] overflow-hidden justify-center items-center flex-col gap-12">
-        <h1 class="text-white font-kameron text-7xl font-bold text-center drop-shadow-hero">
+        <h1 class="text-white font-kameron text-4xl md:text-5xl lg:text-7xl font-bold text-center drop-shadow-hero">
             We're Your #1 For<br />
             Auto Repair In The<br/>
             Machias Bay Area<br/>
         </h1>
-
-        <h2 class="text-white font-kameron text-5xl font-normal text-center drop-shadow-hero">What Can We Do For You?</h2>
     </div>
     {#each sections as section}
         <section class="flex flex-col py-12 px-12 justify-center items-center text-white" class:bg-midnight={section % 2 === 0} class:bg-storm={section % 2}>

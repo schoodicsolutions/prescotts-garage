@@ -47,7 +47,7 @@
             />
         {/if}
     </header>
-    {#if floatingNavVisible}
+    {#if !sm && floatingNavVisible}
         <div
             in:slide={{duration: 200}}
             out:slide={{duration: 200}}
