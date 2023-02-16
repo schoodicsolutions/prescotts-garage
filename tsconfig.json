@@ -16,7 +16,10 @@
 			"$constants/*": ["./src/types/*"],
 			"$lib": ["./src/lib/"],
 			"$lib/*": ["./src/lib/*"],
-		}
+		},
+		"typeRoots": [
+			"src/types/"
+		]
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//

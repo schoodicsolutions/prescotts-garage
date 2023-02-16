@@ -13,7 +13,7 @@
 <svelte:window bind:scrollY />
 
 <MediaQuery query={'(max-width: 1600px)'} let:matches>
-    <header class="shadow-xl bg-midnight min-h-40 py-8 flex-col items-center">
+    <header class="shadow-xl bg-midnight min-h-40 py-8 flex-col items-center z-50 absolute w-full">
         <div class="flex gap-16 items-center justify-center">
 
                 {#if !matches}
