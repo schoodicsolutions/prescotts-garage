@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         'midnight': '#10080F',
+        'storm': '#665e65',
       },
       fontFamily: {
         'kameron': ['Kameron'],

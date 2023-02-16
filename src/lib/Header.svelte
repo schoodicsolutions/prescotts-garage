@@ -4,6 +4,7 @@
     import Nav from "./Nav.svelte";
     
 	import MediaQuery from 'svelte-media-queries';
+    import { slide } from "svelte/transition";
 
     let scrollY: number;
 
@@ -13,7 +14,7 @@
 <svelte:window bind:scrollY />
 
 <MediaQuery query={'(max-width: 1600px)'} let:matches>
-    <header class="shadow-xl bg-midnight min-h-40 py-8 flex-col items-center z-50 absolute w-full">
+    <header class="shadow-xl bg-midnight min-h-40 py-8 flex-col items-center relative w-full z-50">
         <div class="flex gap-16 items-center justify-center">
 
                 {#if !matches}
@@ -39,14 +40,18 @@
                 ariaLabel='Main Nav' 
             />
         {/if}
+    </header>
+    {#if floatingNavVisible}
+        <div
+            in:slide={{duration: 200}}
+            out:slide={{duration: 200}}
+            class="py-5 px-8 fixed bg-midnight z-50 w-full top-0"
+        >
             <Nav
-                class={[
-                    'fixed gap-x-12 gap-y-4 py-5 px-8 top-0 w-full text-white bg-midnight flex-wrap items-center justify-center z-50 transition-transform',
-                    floatingNavVisible ? '' : '-translate-y-full',
-                ].join(' ')}
+                class="gap-x-12 gap-y-4 text-white flex-wrap items-center justify-center "
                 navItems={ALL_NAV_ITEMS}
                 ariaLabel='Main Nav'
-                ariaHidden={!floatingNavVisible}
             />
-    </header>
+        </div>
+    {/if}
 </MediaQuery>

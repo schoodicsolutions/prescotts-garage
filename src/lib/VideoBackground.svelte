@@ -1,84 +1,84 @@
 <script lang="ts">
+    export let poster: string = '#000000';
+
     import YouTube, { type PlayerObject } from 'svelte-youtube';
     import { onDestroy } from 'svelte';
 
-    function onInterval(callback: () => void, milliseconds: number) {
-        const interval = setInterval(callback, milliseconds);
-
-        onDestroy(() => {
-            clearInterval(interval);
-        });
-    }
-
     $: opacity = 0;
-
+    
     let player: PlayerObject | null = null;
     $: player;
+    $: iframe = player ? player.getIframe() : null;
 
-    onInterval(() => {
-        if (player) {
-            const secondsLeft = player.getDuration() - player.getCurrentTime();
-            console.log(secondsLeft);
-            if (secondsLeft <= 3) {
-                opacity = 0;
+    const interval = setInterval(
+        () => {
+            // Poor man's loop
+            if (player) {
+                const aboutToEnd = (player.getDuration() - player.getCurrentTime()) <= 1;
+                if (aboutToEnd) {
+                    player.seekTo(1, true);
+                    player.playVideo();
+                }
             }
         }
-    }, 500);
+    , 500);
 
-    function blur() {
-        if (player) {
-            player.pauseVideo();
+    onDestroy(() => clearInterval(interval));
+
+    function stateChange(event: CustomEvent<{target: PlayerObject, data?: number}>) {
+        const { data: state } = event.detail;
+        player = event.detail.target;
+
+        if (state === -1) {
+            if (iframe) {
+                iframe.style.width = '200vw';
+                iframe.style.height = 'calc(100vw * 0.5625)';
+                iframe.style.transform = 'translate(-50%, -50%)';
+                iframe.style.position = 'absolute';
+                iframe.style.left = '50%';
+                iframe.style.top = '50%';
+            }
+        } else if (state === 5) {
+            player.mute();
+            player.playVideo();
+        } else if (state === 1) {
+            opacity = 1;
         }
     }
 
-    function focus() {
-        if (player) {
-            player.playVideo();
+    function onResize(event: UIEvent & {
+        currentTarget: EventTarget & Window;
+    }) {
+        if (iframe) {
+            if (event.currentTarget.innerWidth < 1024) {
+                iframe.style.height = 'calc(100vh / 0.5625)';
+            } else {
+                iframe.style.height = 'calc(100vw * 0.5625)';
+            }
         }
     }
 </script>
 
-<svelte:window on:blur={blur} on:focus={focus}/>
+<svelte:window on:resize={onResize} />
 
-<div class='bg-shop w-screen h-screen fixed top-0 brightness-50'>
-    <div class='w-screen overflow-hidden transition-opacity delay-[2000ms]' style:opacity>  
+<div class='fixed top-0 h-[800px]' style:background={poster}>
+    <div class='w-screen h-screen overflow-hidden' style:opacity style='transition: opacity 2s;'>  
         <YouTube
         videoId="ZOOQ4O7LsBg"
-        class="w-[200vw] h-[calc(100vh+160px)] -translate-x-1/4"
+        class="w-full h-full"
         options={{
             playerVars: {
                 disablekb: 1,
                 controls: 0,
                 fs: 0,
-                loop: 1,
-                rel: 0,
-                playlist: 'ZOOQ4O7LsBg',
                 modestbranding: 1,
             }
         }}
-        on:stateChange={(event) => {
-            const { data: state } = event.detail;
-
-            console.log(state);
-
-            if (state === 5 || state === 0) {
-                player = null;
-                setTimeout(() => {
-                    player = event.detail.target;
-                    opacity = 1;
-                    player.mute();
-                    player.playVideo();
-                }, state ? 0 : 2000)
-            } else if (state === 1) {
-                player = event.detail.target;
-                player.getIframe().classList.add('w-full', 'h-[calc(100vh+160px)]');
-            } else if (state === 2) {
-                player = event.detail.target;
-            } else {
-                player = null;
-            }
-        }}
+        on:stateChange={stateChange}
         />
         <div class='w-full h-full absolute z-50 top-0' />
     </div>
+</div>
+<div class="relative">
+    <slot />
 </div>
