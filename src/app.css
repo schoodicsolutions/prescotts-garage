@@ -41,11 +41,11 @@
     }
 
     .mobile-nav {
-        @apply flex-col gap-y-4 pt-8 px-8 items-center justify-center;
+        @apply flex-col gap-y-4 pt-4 px-8 items-center justify-center;
     }
 
     .mobile-nav-drawer {
-        @apply pb-5 px-8 bg-midnight z-50 w-full top-0 text-white;
+        @apply fixed top-20 pb-8 bg-midnight z-50 w-full text-white;
     }
 
     .button {

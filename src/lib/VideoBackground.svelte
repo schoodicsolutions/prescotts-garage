@@ -82,17 +82,17 @@
 <div class='fixed top-0 h-screen w-screen overflow-hidden' style:background={poster}>
     <div class='w-full h-full' style:opacity style='transition: opacity 2s;'>  
         <YouTube
-        {videoId}
-        class="w-full h-full relative"
-        options={{
-            playerVars: {
-                disablekb: 1,
-                controls: 0,
-                fs: 0,
-                modestbranding: 1,
-            }
-        }}
-        on:stateChange={stateChange}
+            {videoId}
+            class="w-full h-full relative"
+            options={{
+                playerVars: {
+                    disablekb: 1,
+                    controls: 0,
+                    fs: 0,
+                    modestbranding: 1,
+                }
+            }}
+            on:stateChange={stateChange}
         />
         <div class='w-full h-full absolute z-50 top-0' />
     </div>

@@ -89,7 +89,7 @@
       />
     </g>
     <rect
-       style="fill:#f85f00;"
+       style="fill:currentColor"
        id="rect3549"
        width="41.957485"
        height="0.7921558"

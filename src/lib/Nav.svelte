@@ -1,11 +1,15 @@
 <script lang="ts">
     import type { NavItem } from '$types/NavItem';
     import { page } from '$app/stores';
+    import { createEventDispatcher } from 'svelte';
     export let ariaLabel: string;
     export let ariaHidden: boolean | undefined = undefined;
     export let navItems: NavItem[];
 
     let className: string | undefined = undefined;
+
+    const dispatch = createEventDispatcher();
+
     export { className as class };
 </script>
 
@@ -21,6 +25,9 @@
                 <a 
                     class="navlink"
                     href={navItem.pathname}
+                    on:click={() => {
+                        dispatch('navigate', navItem)
+                    }}
                 >
                     {navItem.label}
                 </a>
