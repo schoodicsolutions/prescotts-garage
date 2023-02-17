@@ -15,8 +15,8 @@
 <svelte:window bind:scrollY />
 
 <MediaQuery query={['(min-width: 1600px)', '(max-width: 1600px) and (min-width: 640px)', '(max-width: 640px)']} let:matchesArray={[xxl, between, sm]}>
-    <header class="shadow-xl bg-midnight min-h-20 sm:min-h-40 py-4 sm:py-8 flex-col items-center relative w-full z-50 text-white">
-        <div class="flex gap-16 items-center justify-center">
+    <header class="shadow-xl bg-midnight min-h-20 sm:min-h-40 py-4 sm:py-8 flex-col items-center sticky top-0 sm:relative w-full z-50 text-white">
+        <div class="flex gap-16 items-center justify-around sm:justify-center">
                 {#if xxl}
                 <Nav
                     class="justify-around w-[640px]"
@@ -24,9 +24,9 @@
                     ariaLabel='Left Main Nav' 
                 />
                 {:else if sm}
-                    <div class='grow'/>
+                    <div class="w-8"/>
                 {/if}
-                <Logo class="w-20 sm:w-36" />
+                <Logo class="w-20 sm:w-36 shrink-0" />
                 {#if xxl}
                 <Nav
                     class="justify-around w-[640px] text-white"
@@ -34,7 +34,7 @@
                     ariaLabel='Right Main Nav' 
                 />
                 {:else if sm}
-                    <div class='grow'>
+                    <div class="w-8">
                         <MenuIcon />
                     </div>
                 {/if}
