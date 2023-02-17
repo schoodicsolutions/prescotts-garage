@@ -10,12 +10,11 @@
 </script>
 
 <nav
-    class='main-nav'
     aria-label={ariaLabel}
     aria-hidden={ariaHidden}
 >
     <ul 
-        class={["flex", className].join(' ')}
+        class={className}
     >
         {#each navItems as navItem}
             <li class="flex flex-col mt-1 transition hover:text-brand">

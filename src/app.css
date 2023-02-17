@@ -11,8 +11,51 @@
 }
 
 @layer components {
-    nav.main-nav {
+    .main-header {
+        @apply shadow-xl bg-midnight text-white py-4 sm:py-8 flex-col items-center sticky top-0 sm:relative w-full z-50;
+    }
+
+    nav {
         font-family: 'Rubik';
-        font-weight: 500;
+        @apply font-medium;
+    }
+
+    nav ul {
+        @apply flex;
+    }
+
+    .flank-nav {
+        @apply justify-around w-[640px];
+    }
+
+    .below-nav {
+        @apply gap-x-12 gap-y-4 pt-8 px-8 flex-wrap items-center justify-center;
+    }
+
+    .floating-nav {
+        @apply gap-x-12 gap-y-4 px-8 flex-wrap items-center justify-center;
+    }
+
+    .floating-header {
+        @apply py-5 px-8 fixed bg-midnight z-50 w-full top-0 text-white;
+    }
+
+    .mobile-nav {
+        @apply flex-col gap-y-4 pt-8 px-8 items-center justify-center;
+    }
+
+    .mobile-nav-drawer {
+        @apply pb-5 px-8 bg-midnight z-50 w-full top-0 text-white;
+    }
+
+    .button {
+        @apply inline-block px-6 py-0 h-12 rounded-md text-lg font-bold leading-[48px] w-fit;
+        @apply hover:no-underline;
+        @apply transition-colors enabled:hover:bg-white/25;
+        appearance: button;
+    }
+
+    .button-icon {
+        @apply p-0 h-12 w-12 flex rounded-full justify-center items-center;
     }
 }

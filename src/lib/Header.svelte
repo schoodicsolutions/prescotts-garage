@@ -10,54 +10,75 @@
     let scrollY: number;
 
     $: floatingNavVisible = scrollY > 160;
+    $: mobileNavVisible = false;
+
+    function toggleMobileNav() {
+        mobileNavVisible = !mobileNavVisible;
+    }
 </script>
 
 <svelte:window bind:scrollY />
 
 <MediaQuery query={['(min-width: 1600px)', '(max-width: 1600px) and (min-width: 640px)', '(max-width: 640px)']} let:matchesArray={[xxl, between, sm]}>
-    <header class="shadow-xl bg-midnight min-h-20 sm:min-h-40 py-4 sm:py-8 flex-col items-center sticky top-0 sm:relative w-full z-50 text-white">
-        <div class="flex gap-16 items-center justify-around sm:justify-center">
+    <header class="main-header" aria-label="Main Header">
+        <div class="flex gap-16 items-center justify-between sm:justify-center">
                 {#if xxl}
                 <Nav
-                    class="justify-around w-[640px]"
+                    class="flank-nav"
                     navItems={LEFT_NAV_ITEMS}
                     ariaLabel='Left Main Nav' 
                 />
                 {:else if sm}
-                    <div class="w-8"/>
+                    <div class="w-16 h-12 pl-4"/>
                 {/if}
                 <Logo class="w-20 sm:w-36 shrink-0" />
                 {#if xxl}
                 <Nav
-                    class="justify-around w-[640px] text-white"
+                    class="flank-nav"
                     navItems={RIGHT_NAV_ITEMS}
                     ariaLabel='Right Main Nav' 
                 />
                 {:else if sm}
-                    <div class="w-8">
-                        <MenuIcon />
+                    <div class="w-16 pr-4">
+                        <button class="button button-icon" on:click={toggleMobileNav}>
+                            <MenuIcon />
+                        </button>
                     </div>
                 {/if}
         </div>
         {#if between}
             <Nav
-                class="gap-x-12 gap-y-4 pt-8 px-8 text-white flex-wrap items-center justify-center"
+                class="below-nav"
                 navItems={ALL_NAV_ITEMS}
                 ariaLabel='Main Nav' 
             />
         {/if}
-    </header>
-    {#if !sm && floatingNavVisible}
+        {#if mobileNavVisible}
         <div
             in:slide={{duration: 200}}
             out:slide={{duration: 200}}
-            class="py-5 px-8 fixed bg-midnight z-50 w-full top-0"
+            class="mobile-nav-drawer"
         >
             <Nav
-                class="gap-x-12 gap-y-4 text-white flex-wrap items-center justify-center "
+                class="mobile-nav"
                 navItems={ALL_NAV_ITEMS}
                 ariaLabel='Main Nav'
             />
         </div>
+        {/if}
+    </header>
+    {#if !sm && floatingNavVisible}
+        <header
+            in:slide={{duration: 200}}
+            out:slide={{duration: 200}}
+            aria-label="Floating Header"
+            class="floating-header"
+        >
+            <Nav
+                class="floating-nav"
+                navItems={ALL_NAV_ITEMS}
+                ariaLabel='Main Nav'
+            />
+        </header>
     {/if}
 </MediaQuery>
