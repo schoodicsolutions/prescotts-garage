@@ -23,9 +23,9 @@
         () => {
             // Poor man's loop
             if (player) {
-                const aboutToEnd = (player.getDuration() - player.getCurrentTime()) <= 1;
+                const aboutToEnd = (player.getDuration() - player.getCurrentTime()) <= .5;
                 if (aboutToEnd) {
-                    player.seekTo(1, true);
+                    player.seekTo(0, true);
                     player.playVideo();
                 }
             }

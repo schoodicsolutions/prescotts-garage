@@ -7,7 +7,7 @@
     videoId="ZOOQ4O7LsBg"
     poster="url('/bg-placeholder.jpg')"
     minHeight={750}
-    maxScroll={750}
+    maxScroll={660}
 >
     <div class="flex h-[500px] max-h-[500px] overflow-hidden justify-center items-center flex-col gap-12">
         <h1 class="text-white font-kameron text-4xl md:text-5xl lg:text-7xl font-bold text-center drop-shadow-hero">
