@@ -1,6 +1,6 @@
-@import "@fontsource/rubik/500.css";
+@import "@fontsource/archivo/600.css";
 @import "@fontsource/kameron/700.css";
-@import "@fontsource/raleway/700.css";
+@import "@fontsource/poppins/600.css";
 
 @tailwind base;
 @tailwind components;
@@ -20,8 +20,7 @@ html {
     }
 
     nav {
-        font-family: 'Rubik';
-        @apply font-medium;
+        @apply font-semibold font-archivo;
     }
 
     nav ul {
@@ -53,7 +52,7 @@ html {
     }
 
     .button {
-        @apply inline-block px-6 py-0 h-12 text-lg font-bold leading-[48px] w-fit;
+        @apply inline-block px-6 py-0 h-12 text-lg font-poppins font-semibold leading-[48px] w-fit;
         @apply hover:no-underline;
         @apply transition-colors enabled:hover:bg-white/25;
         appearance: button;

@@ -22,7 +22,7 @@
         class={className}
     >
         {#each navItems as navItem}
-            <li class="flex flex-col -mt-1 transition hover:text-brand items-center">
+            <li class="flex flex-col -mt-1 transition hv:hover:text-brand items-center">
                 <a 
                     class="navlink"
                     href={navItem.pathname}

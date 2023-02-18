@@ -11,7 +11,8 @@ module.exports = {
       },
       fontFamily: {
         'kameron': ['Kameron'],
-        'raleway': ['Raleway'],
+        'poppins': ['poppins'],
+        'archivo': ['Archivo']
       },
       dropShadow: {
         'hero': '0 0 2px rgba(0, 0, 0, 1)'
