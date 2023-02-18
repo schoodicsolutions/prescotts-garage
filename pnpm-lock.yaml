@@ -12,6 +12,7 @@ specifiers:
   svelte: ^3.54.0
   svelte-check: ^3.0.1
   svelte-media-queries: ^1.5.2
+  svelte-scroll-nav: ^1.0.7
   svelte-youtube: ^0.0.2
   tailwindcss: ^3.2.4
   tslib: ^2.4.1
@@ -24,6 +25,7 @@ dependencies:
   '@fontsource/rubik': 4.5.14
   '@sveltejs/adapter-netlify': 2.0.5_@sveltejs+kit@1.5.0
   svelte-media-queries: 1.5.2
+  svelte-scroll-nav: 1.0.7
   svelte-youtube: 0.0.2_svelte@3.55.1
 
 devDependencies:
@@ -1119,6 +1121,10 @@ packages:
       svelte: 3.55.1
       typescript: 4.9.5
     dev: true
+
+  /svelte-scroll-nav/1.0.7:
+    resolution: {integrity: sha512-N3P+3LAbikkC4Q2vISbo364wGKTqZyqK/1MZsZhUH2gtBJC0AuoRS/WX9IarmL9bErIrQy24Zq8YMkO6gj4PuQ==}
+    dev: false
 
   /svelte-youtube/0.0.2_svelte@3.55.1:
     resolution: {integrity: sha512-uwHG0MiLwlB9MU9WP2/5drrT5YyXpcf4dAi/titwPQyrYXjk7EVcpL6ZmEwSAA7CAcfAXpsnyFPzJJeoyKxx+A==}

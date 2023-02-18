@@ -28,6 +28,7 @@
 		"@fontsource/rubik": "^4.5.14",
 		"@sveltejs/adapter-netlify": "^2.0.5",
 		"svelte-media-queries": "^1.5.2",
+		"svelte-scroll-nav": "^1.0.7",
 		"svelte-youtube": "^0.0.2"
 	}
 }
