@@ -8,6 +8,7 @@
     <VideoBackground
         videoId="ZOOQ4O7LsBg"
         poster="url('/bg-placeholder.jpg')"
+        loop={true}
         minHeight={sm ? 500 : 800}
         maxScroll={sm ? 460 : 660}
         topOffset={sm || xxl ? -160 : 0}

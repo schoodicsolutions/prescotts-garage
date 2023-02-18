@@ -6,7 +6,7 @@
     export let maxScroll: number = 0;
     export let fadeDuration: number = 2;
     export let videoId: string;
-    export let loop: boolean;
+    export let loop: boolean = false;
 
     let className: string | undefined;
     export { className as class };
