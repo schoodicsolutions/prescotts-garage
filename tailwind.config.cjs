@@ -19,6 +19,9 @@ module.exports = {
       backgroundImage: {
         'shop': "url('/bg-placeholder.jpg')",
       },
+      screens: {
+        'hv': {'raw': '(hover: hover)'},
+      }
     },
   },
   plugins: [],

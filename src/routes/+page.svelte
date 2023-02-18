@@ -1,7 +1,8 @@
 <script lang="ts">
   import VideoBackground from "$lib/VideoBackground.svelte";
   import MediaQuery from "svelte-media-queries";
-  const sections = Array(20).fill(null).map((_, i) => i);
+  import { scrollRef } from "svelte-scroll-nav";
+  const sections = ['about', 'portfolio', 'testimonials', 'contact', 'customs', 'alignments', 'rust', 'maintenance', 'diagnostics']
 
   let scrollY: number = 0;
 </script>
@@ -14,7 +15,7 @@
         poster="/bg-placeholder.jpg"
         loop={true}
         minHeight={sm ? 500 : 800}
-        maxScroll={600}
+        maxScroll={1200}
         topOffset={(sm || xxl ? -160 : 0)}
         verticalParallax={200}
         class="brightness-75"
@@ -27,8 +28,8 @@
             </h1>
             <button class="button button-brand">Learn What We Do</button>
         </div>
-        {#each sections as section}
-            <section class="flex flex-col py-12 px-12 justify-center items-center text-white" class:bg-midnight={section % 2 === 0} class:bg-storm={section % 2}>
+        {#each sections as section, i}
+            <section class="flex flex-col py-12 px-12 justify-center items-center text-white" class:bg-midnight={i % 2 === 0} class:bg-storm={i % 2} use:scrollRef={section}>
                 <h2 class=" font-kameron text-5xl font-bold text-center drop-shadow-hero">
                     Section Title
                 </h2>
@@ -37,6 +38,5 @@
                 </p>
             </section>
         {/each}
-
     </VideoBackground>
 </MediaQuery>

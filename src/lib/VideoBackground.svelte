@@ -96,7 +96,7 @@
 
     function calculateParallax() {
         if (iframe) {
-            const offsetX = leftOffset /* - hParallaxAmount */
+            const offsetX = leftOffset;
             const offsetY = topOffset - vParallaxAmount;
             iframe.style.transform = `translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px)`;
         }

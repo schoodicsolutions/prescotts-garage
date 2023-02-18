@@ -1,19 +1,19 @@
 import type { NavItem } from "$types/NavItem";
 
 export const LEFT_NAV_ITEMS: NavItem[] = [
-    { label: 'Home', pathname: '/' },
-    { label: 'About Us', pathname: '/' },
-    { label: 'Portfolio', pathname: '/' },
-    { label: 'Testimonials', pathname: '/' },
-    { label: 'Contact Us', pathname: '/' },
+    { label: 'Home', pathname: '/', scrollTo: '+top' },
+    { label: 'About Us', pathname: '/', scrollTo: 'about' },
+    { label: 'Portfolio', pathname: '/', scrollTo: 'portfolio' },
+    { label: 'Testimonials', pathname: '/', scrollTo: 'testimonials' },
+    { label: 'Contact Us', pathname: '/', scrollTo: 'contact' },
 ];
 
 export const RIGHT_NAV_ITEMS: NavItem[] = [
-    { label: 'Customs', pathname: '/' },
-    { label: 'Alignments', pathname: '/' },
-    { label: 'Rust Repair', pathname: '/' },
-    { label: 'Maintenance', pathname: '/' },
-    { label: 'Diagnostics', pathname: '/' },
+    { label: 'Customs', pathname: '/', scrollTo: 'customs' },
+    { label: 'Alignments', pathname: '/', scrollTo: 'alignments' },
+    { label: 'Rust Repair', pathname: '/', scrollTo: 'rust' },
+    { label: 'Maintenance', pathname: '/', scrollTo: 'maintenance' },
+    { label: 'Diagnostics', pathname: '/', scrollTo: 'diagnostics' },
 ];
 
 export const ALL_NAV_ITEMS: NavItem[] = [

@@ -9,7 +9,7 @@
 
     let scrollY: number;
 
-    $: floatingNavVisible = scrollY > 160;
+    $: floatingNavVisible = scrollY > 320;
     $: mobileNavVisible = false;
 
     function toggleMobileNav() {

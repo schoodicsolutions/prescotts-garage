@@ -61,7 +61,7 @@ html {
 
     .button-brand {
         @apply bg-brand text-white transition-all;
-        @apply enabled:hover:bg-brand hover:shadow-[0_0_0_4px_white];
+        @apply enabled:hv:hover:bg-brand hv:hover:shadow-[0_0_0_4px_white];
         @apply enabled:active:bg-burnt active:translate-y-0.5 active:shadow-none;
     }
 
