@@ -12,7 +12,7 @@ module.exports = {
         'kameron': ['Kameron'],
       },
       dropShadow: {
-        'hero': '0 10px 8px rgba(0, 0, 0, 1)'
+        'hero': '0 0 2px rgba(0, 0, 0, 1)'
       },
       backgroundImage: {
         'shop': "url('/bg-placeholder.jpg')",

@@ -4,8 +4,13 @@
     export let topOffset: number = 0;
     export let minHeight: number = 0;
     export let maxScroll: number = 0;
+    export let fadeDuration: number = 2;
     export let videoId: string;
+    export let loop: boolean;
 
+    let className: string | undefined;
+    export { className as class };
+    
     import YouTube, { type PlayerObject } from 'svelte-youtube';
     import { onDestroy } from 'svelte';
 
@@ -18,19 +23,24 @@
 
     let iframe: HTMLIFrameElement | null = null;
     $: iframe;
-
+    
     const interval = setInterval(
         () => {
-            // Poor man's loop
+            const endstop = loop ? 0.5 : fadeDuration;
+            // Poor man's loop / fade-out
             if (player) {
-                const aboutToEnd = (player.getDuration() - player.getCurrentTime()) <= 1;
+                const aboutToEnd = (player.getDuration() - player.getCurrentTime()) <= endstop;
                 if (aboutToEnd) {
-                    player.seekTo(0, true);
-                    player.playVideo();
+                    if (loop) {
+                        player.seekTo(0, true);
+                        player.playVideo();
+                    } else {
+                        opacity = 0;
+                    }
                 }
             }
         }
-    , 500);
+    , 100);
 
     onDestroy(() => clearInterval(interval));
 
@@ -79,8 +89,8 @@
 
 <svelte:window on:resize={onResize} on:scroll|passive={onScroll}/>
 
-<div class='fixed top-0 h-screen w-screen overflow-hidden' style:background={poster}>
-    <div class='w-full h-full' style:opacity style='transition: opacity 2s;'>  
+<div class={['fixed top-0 h-screen w-screen overflow-hidden', className].join(' ')} style:background={poster}>
+    <div class='w-full h-full' style:opacity style={`transition: opacity ${fadeDuration}s;`}>  
         <YouTube
             {videoId}
             class="w-full h-full relative"
