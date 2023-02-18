@@ -53,8 +53,8 @@
         if (iframe) {
             iframe.style.transform = 'translate(-50%, -50%)';
             iframe.style.position = 'absolute';
-            iframe.style.left = iframe.parentElement?.clientWidth ? (iframe.parentElement?.clientWidth / 2 + leftOffset) + 'px' : '50%';
-            iframe.style.top = iframe.parentElement?.clientHeight ? (iframe.parentElement?.clientHeight / 2 + topOffset) + 'px' : '50%';
+            iframe.style.left = leftOffset ? (iframe.parentElement?.clientWidth ? (iframe.parentElement?.clientWidth / 2 + leftOffset) + 'px' : '50%') : '50%';
+            iframe.style.top = topOffset ? (iframe.parentElement?.clientHeight ? (iframe.parentElement?.clientHeight / 2 + topOffset) + 'px' : '50%') : '50%';
             iframe.style.width = '150vw';
             iframe.style.minWidth = '2000px';
             iframe.style.height = Math.max(window.innerWidth * 0.5625, minHeight) + 'px';

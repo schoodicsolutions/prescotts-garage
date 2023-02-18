@@ -10,6 +10,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 @layer components {
     .main-header {
         @apply shadow-xl bg-midnight text-white py-4 sm:py-8 flex-col items-center sticky top-0 sm:relative w-full z-50;

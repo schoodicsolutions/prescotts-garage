@@ -4,9 +4,8 @@
     import Nav from "./Nav.svelte";
     
 	import MediaQuery from 'svelte-media-queries';
-    import { slide } from "svelte/transition";
-  import MenuIcon from "./icons/MenuIcon.svelte";
-  import Cover from "./Cover.svelte";
+    import { fade, slide } from "svelte/transition";
+    import MenuIcon from "./icons/MenuIcon.svelte";
 
     let scrollY: number;
 
@@ -77,7 +76,13 @@
         </header>
     {/if}
     {#if sm && mobileNavVisible}
-        <Cover />
+        <div 
+            aria-hidden
+            class="bg-black/50 fixed w-screen h-screen z-40 cursor-pointer"
+            in:fade={{duration: 100}}
+            out:fade={{duration: 100}}
+            on:click={toggleMobileNav}
+        />
         <div
             in:slide={{duration: 200}}
             out:slide={{duration: 200}}
