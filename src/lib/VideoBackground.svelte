@@ -70,7 +70,6 @@
             iframe.style.width = '150vw';
             iframe.style.minWidth = '2000px';
             iframe.style.height = Math.max(window.innerWidth * 0.5625, minHeight) + 'px';
-            console.log(iframe.style.height)
         }
     }
 
@@ -98,7 +97,6 @@
     function calculateVerticalParallax() {
         if (iframe) {
             iframe.style.top = topOffset ? (iframe.parentElement?.clientHeight ? ((iframe.parentElement?.clientHeight / 2 + topOffset) - parallaxAmount) + 'px' : '50%') : '50%';
-            console.log(parallaxAmount, iframe.style.top, scrollY);
         }
     }
 
