@@ -16,7 +16,7 @@ html {
 
 @layer components {
     .main-header {
-        @apply shadow-xl bg-midnight text-white py-4 sm:py-8 flex-col items-center sticky top-0 sm:relative w-full z-50;
+        @apply shadow-xl h-20 sm:h-auto bg-midnight text-white py-4 sm:py-8 flex-col items-center sticky top-0 sm:relative w-full z-50;
     }
 
     nav {
