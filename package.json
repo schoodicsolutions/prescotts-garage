@@ -24,6 +24,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/kameron": "^4.5.8",
+		"@fontsource/raleway": "^4.5.12",
 		"@fontsource/rubik": "^4.5.14",
 		"@sveltejs/adapter-netlify": "^2.0.5",
 		"svelte-media-queries": "^1.5.2",

@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@fontsource/kameron': ^4.5.8
+  '@fontsource/raleway': ^4.5.12
   '@fontsource/rubik': ^4.5.14
   '@sveltejs/adapter-auto': ^2.0.0
   '@sveltejs/adapter-netlify': ^2.0.5
@@ -19,6 +20,7 @@ specifiers:
 
 dependencies:
   '@fontsource/kameron': 4.5.8
+  '@fontsource/raleway': 4.5.12
   '@fontsource/rubik': 4.5.14
   '@sveltejs/adapter-netlify': 2.0.5_@sveltejs+kit@1.5.0
   svelte-media-queries: 1.5.2
@@ -216,6 +218,10 @@ packages:
 
   /@fontsource/kameron/4.5.8:
     resolution: {integrity: sha512-1cQEwRC3p4Zkcyru8Cm7VmMP8vPXNwSucl9lHx6XJisL4JpjSdtUMv0RYCn4AmNsvZI66gQ+myfOC9vU08DBeg==}
+    dev: false
+
+  /@fontsource/raleway/4.5.12:
+    resolution: {integrity: sha512-uKs13d6NFWU4vf5LSDHK/cbaAw+UXkzz03fKjyvkKq8Nop+CeB6o8STEDkZD9/uOo3v3sgm59Wyw8uGWvxoCiA==}
     dev: false
 
   /@fontsource/rubik/4.5.14:

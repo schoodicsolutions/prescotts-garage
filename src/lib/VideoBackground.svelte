@@ -1,12 +1,14 @@
 <script lang="ts">
-    export let poster: string = '#000000';
+    export let poster: string | undefined = undefined;
     export let leftOffset: number = 0;
     export let topOffset: number = 0;
     export let minHeight: number = 0;
     export let maxScroll: number = 0;
     export let fadeDuration: number = 2;
-    export let videoId: string;
+    export let verticalParallax = 0;
     export let loop: boolean = false;
+    export let videoId: string;
+
 
     let className: string | undefined;
     export { className as class };
@@ -64,7 +66,7 @@
             iframe.style.transform = 'translate(-50%, -50%)';
             iframe.style.position = 'absolute';
             iframe.style.left = leftOffset ? (iframe.parentElement?.clientWidth ? (iframe.parentElement?.clientWidth / 2 + leftOffset) + 'px' : '50%') : '50%';
-            iframe.style.top = topOffset ? (iframe.parentElement?.clientHeight ? (iframe.parentElement?.clientHeight / 2 + topOffset) + 'px' : '50%') : '50%';
+            calculateVerticalParallax();
             iframe.style.width = '150vw';
             iframe.style.minWidth = '2000px';
             iframe.style.height = Math.max(window.innerWidth * 0.5625, minHeight) + 'px';
@@ -77,6 +79,10 @@
             return;
         }
 
+        if (window.scrollY <= maxScroll) {
+            calculateVerticalParallax();
+        }
+
         if (window.scrollY > maxScroll && playing) {
             player.pauseVideo();
             playing = false;
@@ -85,11 +91,23 @@
             playing = true;
         }
     }
+
+    let scrollY: number;
+    $: parallaxAmount = verticalParallax ? (verticalParallax * (Math.min(scrollY, maxScroll) / maxScroll)) : 0;
+
+    function calculateVerticalParallax() {
+        if (iframe) {
+            iframe.style.top = topOffset ? (iframe.parentElement?.clientHeight ? ((iframe.parentElement?.clientHeight / 2 + topOffset) - parallaxAmount) + 'px' : '50%') : '50%';
+            console.log(parallaxAmount, iframe.style.top, scrollY);
+        }
+    }
+
+
 </script>
 
-<svelte:window on:resize={onResize} on:scroll|passive={onScroll}/>
+<svelte:window on:resize={onResize} on:scroll|passive={onScroll} bind:scrollY />
 
-<div class={['fixed top-0 h-screen w-screen overflow-hidden', className].join(' ')} style:background={poster}>
+<div class={['fixed top-0 h-screen w-screen overflow-hidden', className].join(' ')} style:background={poster ? `url('${poster}')` : undefined}>
     <div class='w-full h-full' style:opacity style={`transition: opacity ${fadeDuration}s;`}>  
         <YouTube
             {videoId}

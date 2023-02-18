@@ -1,6 +1,6 @@
 @import "@fontsource/rubik/500.css";
-@import "@fontsource/kameron/400.css";
 @import "@fontsource/kameron/700.css";
+@import "@fontsource/raleway/700.css";
 
 @tailwind base;
 @tailwind components;
@@ -53,10 +53,16 @@ html {
     }
 
     .button {
-        @apply inline-block px-6 py-0 h-12 rounded-md text-lg font-bold leading-[48px] w-fit;
+        @apply inline-block px-6 py-0 h-12 text-lg font-bold leading-[48px] w-fit;
         @apply hover:no-underline;
         @apply transition-colors enabled:hover:bg-white/25;
         appearance: button;
+    }
+
+    .button-brand {
+        @apply bg-brand text-white transition-all;
+        @apply enabled:hover:bg-brand hover:shadow-[0_0_0_4px_white];
+        @apply enabled:active:bg-burnt active:translate-y-0.5 active:shadow-none;
     }
 
     .button-icon {
