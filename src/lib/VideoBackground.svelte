@@ -8,7 +8,9 @@
     export let verticalParallax = 0;
     export let loop: boolean = false;
     export let videoId: string;
+    export let downSample: number = 1;
 
+    $: quality = Math.min(1, 1 / downSample);
 
     let className: string | undefined;
     export { className as class };
@@ -16,7 +18,7 @@
     import YouTube, { type PlayerObject } from 'svelte-youtube';
     import { onDestroy } from 'svelte';
 
-    $: opacity = 0;
+    $: opacity = 1;
     
     $: playing = false;
 
@@ -37,7 +39,7 @@
                         player.seekTo(0, true);
                         player.playVideo();
                     } else {
-                        opacity = 0;
+                        opacity = 1;
                     }
                 }
             }
@@ -57,7 +59,7 @@
             player.playVideo();
             playing = true;
         } else if (state === 1) {
-            opacity = 1;
+            opacity = 0;
         }
     }
 
@@ -66,10 +68,11 @@
             iframe.style.position = 'absolute';
             iframe.style.left = '50%';
             iframe.style.top = '50%';
+            iframe.style.width = (400 * quality) + 'vw';
+            iframe.style.minWidth = (2000 * quality) + 'px';
+            iframe.style.height = Math.max((window.innerWidth * 0.5625) * quality, minHeight * quality) + 'px';
+            iframe.style.transformOrigin = '50% 50%';
             calculateParallax();
-            iframe.style.width = '150vw';
-            iframe.style.minWidth = '2000px';
-            iframe.style.height = Math.max(window.innerWidth * 0.5625, minHeight) + 'px';
         }
     }
 
@@ -96,9 +99,9 @@
 
     function calculateParallax() {
         if (iframe) {
-            const offsetX = leftOffset;
-            const offsetY = topOffset - vParallaxAmount;
-            iframe.style.transform = `translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px)`;
+            const offsetX = leftOffset; // * quality;
+            const offsetY = (topOffset - vParallaxAmount); // * quality;
+            iframe.style.transform = ` translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px) scale(${downSample})`;
         }
     }
 
@@ -107,8 +110,8 @@
 
 <svelte:window on:resize={onResize} on:scroll|passive={onScroll} bind:scrollY />
 
-<div class={['fixed top-0 h-screen w-screen overflow-hidden', className].join(' ')} style:background={poster ? `url('${poster}')` : undefined}>
-    <div class='w-full h-full' style:opacity style={`transition: opacity ${fadeDuration}s;`}>  
+<div class={['fixed top-0 h-screen w-screen overflow-hidden', className].join(' ')}>
+    <div class='w-full h-full'>  
         <YouTube
             {videoId}
             class="w-full h-full relative"
@@ -122,7 +125,7 @@
             }}
             on:stateChange={stateChange}
         />
-        <div class='w-full h-full absolute z-50 top-0' />
+        <div class='w-full h-full absolute z-50 top-0' style:background={poster ? `url('${poster}')` : undefined} style:opacity style={`transition: opacity ${fadeDuration}s;`}/>
     </div>
 </div>
 <div class="relative">
