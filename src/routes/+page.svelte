@@ -18,7 +18,7 @@
         maxScroll={1200}
         topOffset={(sm || xxl ? -160 : 0)}
         verticalParallax={200}
-        downSample={1}
+        downSample={4}
         class="brightness-75"
     >
         <div class="flex h-[400px] sm:h-[500px] sm:max-h-[500px] overflow-hidden justify-center items-center flex-col gap-6 px-4 sm:px-8">
