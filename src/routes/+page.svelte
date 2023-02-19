@@ -1,7 +1,7 @@
 <script lang="ts">
   import VideoBackground from "$lib/VideoBackground.svelte";
   import MediaQuery from "svelte-media-queries";
-  import { scrollRef } from "svelte-scroll-nav";
+  import { scrollRef, scrollTo } from "svelte-scroll-nav";
   const sections = ['about', 'portfolio', 'testimonials', 'contact', 'customs', 'alignments', 'rust', 'maintenance', 'diagnostics']
 
   let scrollY: number = 0;
@@ -27,17 +27,41 @@
                 Auto Repair In The<br/>
                 Machias Bay Area<br/>
             </h1>
-            <button class="button button-brand">Learn What We Do</button>
-        </div>
-        {#each sections as section, i}
-            <section class="flex flex-col py-12 px-12 justify-center items-center text-white" class:bg-midnight={i % 2 === 0} class:bg-storm={i % 2} use:scrollRef={section}>
-                <h2 class=" font-kameron text-5xl font-bold text-center drop-shadow-hero">
-                    Section Title
+            <a class="button button-brand" use:scrollTo={{section: "about"}} href="/">Learn What We Do</a>
+        </div>4
+        <div class="section-container">
+            <section use:scrollRef={"about"}>
+                <h2 class="font-kameron text-5xl font-bold text-center drop-shadow-hero">
+                    About Us
                 </h2>
                 <p class="max-w-[500px]">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </section>
-        {/each}
+            <section use:scrollRef={"portfolio"}>
+                <h2 class="font-kameron text-5xl font-bold text-center drop-shadow-hero">
+                    About Us
+                </h2>
+                <p class="max-w-[500px]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </section>
+            <section use:scrollRef={"testimonials"}>
+                <h2 class="font-kameron text-5xl font-bold text-center drop-shadow-hero">
+                    About Us
+                </h2>
+                <p class="max-w-[500px]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </section>
+            <section use:scrollRef={"contact"}>
+                <h2 class="font-kameron text-5xl font-bold text-center drop-shadow-hero">
+                    About Us
+                </h2>
+                <p class="max-w-[500px]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </section>
+        </div>
     </VideoBackground>
 </MediaQuery>
