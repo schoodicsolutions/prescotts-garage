@@ -68,7 +68,7 @@
             iframe.style.position = 'absolute';
             iframe.style.left = '50%';
             iframe.style.top = '50%';
-            iframe.style.width = (400 * quality) + 'vw';
+            iframe.style.width = '200vw';
             iframe.style.minWidth = (2000 * quality) + 'px';
             iframe.style.height = Math.max((window.innerWidth * 0.5625) * quality, minHeight * quality) + 'px';
             iframe.style.transformOrigin = '50% 50%';
@@ -125,7 +125,12 @@
             }}
             on:stateChange={stateChange}
         />
-        <div class='w-full h-full absolute z-50 top-0' style:background={poster ? `url('${poster}')` : undefined} style:opacity style={`transition: opacity ${fadeDuration}s;`}/>
+        <div
+            class='w-full h-full absolute z-50 top-0'
+            style:background={poster ? `url('${poster}')` : undefined}
+            style:filter={`opacity(${opacity})`}
+            style={`transition: filter ${fadeDuration}s;`}
+        />
     </div>
 </div>
 <div class="relative">
