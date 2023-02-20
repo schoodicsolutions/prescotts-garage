@@ -12,15 +12,14 @@
 
 <MediaQuery query={['(min-width: 1600px)', '(max-width: 640px)']} let:matchesArray={[sm, xxl]}>
     <VideoBackground
-        videoId="ZOOQ4O7LsBg"
-        poster="/bg-placeholder.jpg"
+        videoId="Lupj8t_N03I"
+        poster="/img/bg-shop.webp"
         loop={true}
         minHeight={sm ? 500 : 800}
         maxScroll={1200}
-        topOffset={(sm || xxl ? -160 : 0)}
-        verticalParallax={200}
         downSample={4}
-        class="brightness-75"
+        verticalParallax={200}
+        class="brightness-50"
     >
         <div class="flex h-[400px] sm:h-[500px] sm:max-h-[500px] overflow-hidden justify-center items-center flex-col gap-6 px-4 sm:px-8">
             <h1 class="text-white font-kameron text-4xl sm:text-5xl lg:text-7xl font-bold text-center drop-shadow-hero">
@@ -32,8 +31,10 @@
         </div>4
         <div class="section-container">
             <section use:scrollRef={"about"} class="flex">
-                <div class="flex flex-row gap-12 max-w-[1000px]">
+                <div class="flex flex-col lg:flex-row gap-12 max-w-[1000px]">
+                    <div class="order-1 lg:order-none">
                     <Image src="/img/wagons.jpg" aspect="4:3" height="400px" />
+                    </div>
                     <div class="flex flex-col gap-4">
                         <h2 class="font-kameron text-5xl font-bold text-center drop-shadow-hero">
                             About Us
