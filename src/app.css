@@ -76,12 +76,17 @@ body {
         @apply p-0 h-12 w-12 flex rounded-full justify-center items-center;
     }
 
-    .section-container section {
-        @apply bg-midnight flex flex-col py-12 px-12 justify-center items-center text-white;
+    section.section {
+        @apply odd:bg-midnight bg-storm text-white even:image-order-even;
+        @apply flex flex-col py-12 px-12 justify-center items-center;
         @apply scroll-m-24
     }
 
-    .section-container {
-        @apply [&>*:nth-child(even)]:bg-storm
+    .section-image {
+        @apply order-1 lg:order-none lg:w-1/2 shrink-0
+    }
+
+    .image-order-even .section-image {
+        @apply order-1 lg:order-1;
     }
 }

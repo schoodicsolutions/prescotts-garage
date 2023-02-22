@@ -1,5 +1,6 @@
 <script lang="ts">
     import Image from "$lib/Image.svelte";
+  import Section from "$lib/Section.svelte";
   import VideoBackground from "$lib/VideoBackground.svelte";
   import MediaQuery from "svelte-media-queries";
   import { scrollRef, scrollTo } from "svelte-scroll-nav";
@@ -28,57 +29,53 @@
                 Machias Bay Area<br/>
             </h1>
             <a class="button button-brand" use:scrollTo={{section: "about"}} href="/">Learn What We Do</a>
-        </div>4
-        <div class="section-container">
-            <section use:scrollRef={"about"} class="flex">
-                <div class="flex flex-col lg:flex-row gap-12 max-w-[1000px]">
-                    <div class="order-1 lg:order-none">
-                    <Image src="/img/wagons.jpg" aspect="4:3" height="400px" />
-                    </div>
-                    <div class="flex flex-col gap-4">
-                        <h2 class="font-kameron text-5xl font-bold text-center drop-shadow-hero">
-                            About Us
-                        </h2>
-                        <p class="text-justify">
-                            Harold Prescott started Prescott's Garage in 2005 with one mission:
-                            to provide reliable, honest auto repair services to the Greater Machias area.
-                            Since then, our shop has become a trusted name in the community, 
-                            thanks to Harold's dedication to his customers and his passion for his work. 
-                        </p>
-                        <p class="text-justify">
-                            We take pride in providing top-quality auto services at affordable prices.
-                            From routine maintenance to complex repairs, our skilled mechanics have the
-                            expertise to get you back on the road safely and efficiently. 
-                            Come visit us at 67 Main St East Machias, ME 04630, 
-                            and experience the difference that sets us apart.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section use:scrollRef={"portfolio"}>
-                <h2 class="font-kameron text-5xl font-bold text-center drop-shadow-hero">
-                    About Us
-                </h2>
-                <p class="max-w-[500px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div>
+            <Section scrollRef="about" heading="About Us" image="/img/wagons.jpg">
+                <p class="text-justify">
+                    Harold Prescott started Prescott's Garage in 2005 with one mission:
+                    to provide reliable, honest auto repair services to the Greater Machias area.
+                    Since then, our shop has become a trusted name in the community, 
+                    thanks to Harold's dedication to his customers and his passion for his work. 
                 </p>
-            </section>
-            <section use:scrollRef={"testimonials"}>
-                <h2 class="font-kameron text-5xl font-bold text-center drop-shadow-hero">
-                    About Us
-                </h2>
-                <p class="max-w-[500px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <p class="text-justify">
+                    We take pride in providing top-quality auto services at affordable prices.
+                    From routine maintenance to complex repairs, our skilled mechanics have the
+                    expertise to get you back on the road safely and efficiently. 
+                    Come visit us at 67 Main St East Machias, ME 04630, 
+                    and experience the difference that sets us apart.
                 </p>
-            </section>
-            <section use:scrollRef={"contact"}>
-                <h2 class="font-kameron text-5xl font-bold text-center drop-shadow-hero">
-                    About Us
-                </h2>
-                <p class="max-w-[500px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Section>
+            <Section scrollRef="about" heading="About Us" image="/img/wagons.jpg">
+                <p class="text-justify">
+                    Harold Prescott started Prescott's Garage in 2005 with one mission:
+                    to provide reliable, honest auto repair services to the Greater Machias area.
+                    Since then, our shop has become a trusted name in the community, 
+                    thanks to Harold's dedication to his customers and his passion for his work. 
                 </p>
-            </section>
+                <p class="text-justify">
+                    We take pride in providing top-quality auto services at affordable prices.
+                    From routine maintenance to complex repairs, our skilled mechanics have the
+                    expertise to get you back on the road safely and efficiently. 
+                    Come visit us at 67 Main St East Machias, ME 04630, 
+                    and experience the difference that sets us apart.
+                </p>
+            </Section>
+            <Section scrollRef="about" heading="About Us" image="/img/wagons.jpg">
+                <p class="text-justify">
+                    Harold Prescott started Prescott's Garage in 2005 with one mission:
+                    to provide reliable, honest auto repair services to the Greater Machias area.
+                    Since then, our shop has become a trusted name in the community, 
+                    thanks to Harold's dedication to his customers and his passion for his work. 
+                </p>
+                <p class="text-justify">
+                    We take pride in providing top-quality auto services at affordable prices.
+                    From routine maintenance to complex repairs, our skilled mechanics have the
+                    expertise to get you back on the road safely and efficiently. 
+                    Come visit us at 67 Main St East Machias, ME 04630, 
+                    and experience the difference that sets us apart.
+                </p>
+            </Section>
         </div>
     </VideoBackground>
 </MediaQuery>
