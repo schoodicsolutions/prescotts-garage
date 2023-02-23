@@ -5,6 +5,7 @@
     export let minHeight: number = 0;
     export let maxScroll: number = 0;
     export let fadeDuration: number = 2;
+    export let fadeOnLoop: boolean = false;
     export let verticalParallax = 0;
     export let loop: boolean = false;
     export let videoId: string;
@@ -28,16 +29,28 @@
     let iframe: HTMLIFrameElement | null = null;
     $: iframe;
     
+    function restartVideo() {
+        if (player) {
+            opacity = 0;
+            player.seekTo(0, true);
+            player.playVideo();
+        }
+    }
+
     const interval = setInterval(
         () => {
-            const endstop = loop ? 0.5 : fadeDuration;
+            const endstop = loop && !fadeOnLoop ? 0.5 : fadeDuration;
             // Poor man's loop / fade-out
             if (player) {
                 const aboutToEnd = (player.getDuration() - player.getCurrentTime()) <= endstop;
                 if (aboutToEnd) {
                     if (loop) {
-                        player.seekTo(0, true);
-                        player.playVideo();
+                        if (fadeOnLoop) {
+                            opacity = 1;
+                            setTimeout(() => restartVideo(), fadeDuration * 2000);
+                        } else {
+                            restartVideo();
+                        }
                     } else {
                         opacity = 1;
                     }

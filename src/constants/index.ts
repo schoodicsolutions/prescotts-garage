@@ -3,7 +3,7 @@ import type { NavItem } from "$types/NavItem";
 export const LEFT_NAV_ITEMS: NavItem[] = [
     { label: 'Home', pathname: '/', scrollTo: '+top' },
     { label: 'About Us', pathname: '/', scrollTo: 'about' },
-    { label: 'Portfolio', pathname: '/', scrollTo: 'portfolio' },
+    { label: 'Services', pathname: '/', scrollTo: 'services' },
     { label: 'Testimonials', pathname: '/', scrollTo: 'testimonials' },
     { label: 'Contact Us', pathname: '/', scrollTo: 'contact' },
 ];
