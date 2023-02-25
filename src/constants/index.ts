@@ -12,7 +12,7 @@ export const RIGHT_NAV_ITEMS: NavItem[] = [
     { label: 'Customs', pathname: '/', scrollTo: 'customs' },
     { label: 'Alignments', pathname: '/', scrollTo: 'alignments' },
     { label: 'Rust Repair', pathname: '/', scrollTo: 'rust' },
-    { label: 'Maintenance', pathname: '/', scrollTo: 'maintenance' },
+    { label: 'Air Conditioning', pathname: '/', scrollTo: 'maintenance' },
     { label: 'Diagnostics', pathname: '/', scrollTo: 'diagnostics' },
 ];
 

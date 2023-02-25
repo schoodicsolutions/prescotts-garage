@@ -1,9 +1,8 @@
 <script lang="ts">
-    import Image from "$lib/Image.svelte";
   import Section from "$lib/Section.svelte";
   import VideoBackground from "$lib/VideoBackground.svelte";
   import MediaQuery from "svelte-media-queries";
-  import { scrollRef, scrollTo } from "svelte-scroll-nav";
+  import { scrollTo } from "svelte-scroll-nav";
   const sections = ['about', 'portfolio', 'testimonials', 'contact', 'customs', 'alignments', 'rust', 'maintenance', 'diagnostics']
 
   let scrollY: number = 0;
@@ -29,10 +28,10 @@
                 Auto Repair In The<br/>
                 Machias Bay Area<br/>
             </h1>
-            <a class="button button-brand" use:scrollTo={{section: "about"}} href="/">Learn What We Do</a>
+            <a class="button button-brand" use:scrollTo={{section: "about"}} href="/">Learn Who We Are</a>
         </div>
         <div>
-            <Section scrollRef="about" heading="About Us" image="/img/wagons.jpg">
+            <Section scrollRef="about" heading="About Us" image="/img/wagons.webp">
                 <p class="text-justify">
                     Harold Prescott started Prescott's Garage in 2005 with one mission:
                     to provide reliable, honest auto repair services to the Greater Machias area.
@@ -43,11 +42,13 @@
                     We take pride in providing top-quality auto services at affordable prices.
                     From routine maintenance to complex repairs, our skilled mechanics have the
                     expertise to get you back on the road safely and efficiently. 
-                    Come visit us at 67 Main St East Machias, ME 04630, 
-                    and experience the difference that sets us apart.
                 </p>
+
+                <div class="w-full flex gap-4">
+                    <a class="button button-brand grow"  use:scrollTo={{section: "contact"}} href="/">Book Now</a>
+                </div>
             </Section>
-            <Section scrollRef="gallery" heading="gallery">
+            <Section scrollRef="services" heading="Services" image="/img/jeep.webp">
                 <p class="text-justify">
                     Harold Prescott started Prescott's Garage in 2005 with one mission:
                     to provide reliable, honest auto repair services to the Greater Machias area.

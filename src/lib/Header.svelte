@@ -24,7 +24,7 @@
     {/if}
 </svelte:head>
 
-<MediaQuery query={['(min-width: 1600px)', '(max-width: 1600px) and (min-width: 640px)', '(max-width: 640px)']} let:matchesArray={[xxl, between, sm]}>
+<MediaQuery query={['(min-width: 1600px)', '(max-width: 1599px) and (min-width: 640px)', '(max-width: 640px)']} let:matchesArray={[xxl, between, sm]}>
     <header class="main-header" aria-label="Main Header">
         <div class="flex gap-16 items-center justify-between sm:justify-center">
                 {#if xxl}

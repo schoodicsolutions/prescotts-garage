@@ -17,7 +17,7 @@
         {/if}
         <div class="flex flex-col gap-4">
             {#if heading}
-                <h2 class="font-kameron text-5xl font-bold text-center drop-shadow-hero">
+                <h2 class="font-poppins text-5xl font-bold text-center">
                     { heading }
                 </h2>
             {/if}

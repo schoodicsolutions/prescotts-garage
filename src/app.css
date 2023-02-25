@@ -3,6 +3,7 @@
 @import "@fontsource/archivo/600.css";
 @import "@fontsource/kameron/700.css";
 @import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
 
 @tailwind base;
 @tailwind components;
@@ -67,7 +68,7 @@ body {
     }
 
     .button-brand {
-        @apply bg-brand text-white transition-all;
+        @apply bg-brand text-white text-center transition-all;
         @apply enabled:hv:hover:bg-brand hv:hover:shadow-[0_0_0_4px_white];
         @apply enabled:active:bg-burnt active:translate-y-0.5 active:shadow-none;
     }
