@@ -8,7 +8,7 @@
 <svg
   {width}
   {height}
-  class={className}
+  class={[className, 'inline-block'].join('')}
   viewBox="0 0 24 24"
 >
   <slot></slot>

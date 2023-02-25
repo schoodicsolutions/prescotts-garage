@@ -1,5 +1,6 @@
 <script lang="ts">
-  import Review from "$lib/Review.svelte";
+  import MessengerIcon from "$lib/icons/MessengerIcon.svelte";
+import Review from "$lib/Review.svelte";
   import Section from "$lib/Section.svelte";
   import VideoBackground from "$lib/VideoBackground.svelte";
   import MediaQuery from "svelte-media-queries";
@@ -87,20 +88,15 @@
                     </Review>
                 </div>
             </Section>
-            <Section scrollRef="contact" heading="Contact Us" image="/img/wagons.jpg">
-                <p class="text-justify">
-                    Harold Prescott started Prescott's Garage in 2005 with one mission:
-                    to provide reliable, honest auto repair services to the Greater Machias area.
-                    Since then, our shop has become a trusted name in the community, 
-                    thanks to Harold's dedication to his customers and his passion for his work. 
-                </p>
-                <p class="text-justify">
-                    We take pride in providing top-quality auto services at affordable prices.
-                    From routine maintenance to complex repairs, our skilled mechanics have the
-                    expertise to get you back on the road safely and efficiently. 
-                    Come visit us at 67 Main St East Machias, ME 04630, 
-                    and experience the difference that sets us apart.
-                </p>
+            <Section scrollRef="contact" heading="Contact Us">
+                <a class="button button-messenger w-full" href="https://m.me/100057455889767">
+                    <MessengerIcon width="32" height="32"/>
+                    Connect with us on Messenger
+                </a>
+                <a class="button button-brand w-full" href="tel:12072593360">
+                    <MessengerIcon width="32" height="32"/>
+                    Call now for a quote
+                </a>
             </Section>
         </div>
     </VideoBackground>

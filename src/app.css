@@ -74,6 +74,13 @@ body {
         @apply enabled:active:bg-burnt active:translate-y-0.5 active:shadow-none;
     }
 
+    .button-messenger {
+        @apply bg-[#0a7cff] text-white text-center transition-all;
+        @apply enabled:hv:hover:bg-[#4d4dff] hv:hover:shadow-[0_0_0_4px_white];
+        @apply enabled:active:bg-[#4d4dff] active:translate-y-0.5 active:shadow-none;
+    }
+
+
     .button-icon {
         @apply p-0 h-12 w-12 flex rounded-full justify-center items-center;
     }
