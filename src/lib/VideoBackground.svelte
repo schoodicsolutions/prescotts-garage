@@ -1,7 +1,7 @@
 <script lang="ts">
     export let poster: string | undefined = undefined;
-    export let leftOffset: number = 0;
-    export let topOffset: number = 0;
+    export let leftOffset: number | string = 0;
+    export let topOffset: number | string = 0;
     export let minHeight: number = 0;
     export let maxScroll: number = 0;
     export let fadeDuration: number = 2;
@@ -29,6 +29,12 @@
     let iframe: HTMLIFrameElement | null = null;
     $: iframe;
     
+    let innerHeight: number;
+    let innerWidth: number;
+
+    $: calculatedScaledHeight = Math.max((innerWidth * 0.5625) * quality, minHeight * quality) + 'px';
+    $: calculatedHeight = Math.max((innerWidth * 0.5625), minHeight) + 'px';
+
     function restartVideo() {
         if (player) {
             opacity = 0;
@@ -83,7 +89,7 @@
             iframe.style.top = '50%';
             iframe.style.width = '200vw';
             iframe.style.minWidth = (2000 * quality) + 'px';
-            iframe.style.height = Math.max((window.innerWidth * 0.5625) * quality, minHeight * quality) + 'px';
+            iframe.style.height = calculatedScaledHeight;
             iframe.style.transformOrigin = '50% 50%';
             calculateParallax();
         }
@@ -112,16 +118,14 @@
 
     function calculateParallax() {
         if (iframe) {
-            const offsetX = leftOffset; // * quality;
-            const offsetY = (topOffset - vParallaxAmount); // * quality;
-            iframe.style.transform = ` translate(-50%, -50%) translate(${offsetX}px, ${offsetY}px) scale(${downSample})`;
+            iframe.style.transform = ` translate(-50%, -50%) translate(${leftOffset}, ${topOffset}) translateY(${vParallaxAmount}) scale(${downSample})`;
         }
     }
 
 
 </script>
 
-<svelte:window on:resize={onResize} on:scroll|passive={onScroll} bind:scrollY />
+<svelte:window on:resize={onResize} on:scroll|passive={onScroll} bind:scrollY bind:innerHeight bind:innerWidth />
 
 <div class={['fixed top-0 h-screen w-screen overflow-hidden', className].join(' ')}>
     <div class='w-full h-full'>  
@@ -139,10 +143,11 @@
             on:stateChange={stateChange}
         />
         <div
-            class='w-full h-full absolute z-50 top-0'
-            style:background={poster ? `url('${poster}')` : undefined}
+            class='w-screen absolute top-0 bg-cover bg-center'
+            style:height={calculatedHeight}
+            style:background-image={poster ? `url('${poster}')` : undefined}
             style:filter={`opacity(${opacity})`}
-            style={`transition: filter ${fadeDuration}s;`}
+            style:transition={`filter ${fadeDuration}s`}
         />
     </div>
 </div>
