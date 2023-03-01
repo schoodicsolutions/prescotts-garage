@@ -90,8 +90,8 @@ import Review from "$lib/Review.svelte";
             </Section>
             <Section scrollRef="contact" heading="Contact Us">
                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
-                    <div class="flex flex-col gap-4">
-                        <p class="text-center font-poppins text-2xl">Ready to make an appointment?</p>
+                    <div class="flex flex-col gap-4 flex-1">
+                        <p class="text-center font-poppins text-2xl">Ready to book?</p>
                         <div>
                             <p class="text-center font-poppins text-lg">Hours of Operation</p>
                             <div class="grid grid-cols-2 text-center">
@@ -125,7 +125,7 @@ import Review from "$lib/Review.svelte";
                         </a>
 
                     </div>
-                    <div>
+                    <div class="flex-1">
                         <p class="text-center font-poppins text-2xl">Come visit us!</p>
                         <address class="text-center text-xl">
                             67 Main St, East Machias, ME 04630

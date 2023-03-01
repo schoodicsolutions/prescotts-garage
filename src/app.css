@@ -73,7 +73,7 @@ body {
     }
 
     .button-shrink {
-        @apply text-sm leading-[48px] lg:leading-[48px] lg:text-lg;
+        @apply px-4 sm:px-6 text-sm leading-[48px] lg:leading-[48px] lg:text-lg;
     }
 
     .button-brand {
