@@ -108,7 +108,6 @@ import Review from "$lib/Review.svelte";
                         <div>
                             <p class="text-lg font-medium text-center">or, call us at</p>
                             <p class="text-3xl font-black text-center tracking-tight font-poppins">(207) 259-3360</p>
-                            <p class="text-xl font-bold text-center tracking-tight">Mon &ndash; Fri &nbsp; 8am &ndash; 5pm</p>
                         </div>
                     </DeviceDetector>
                 </div>
