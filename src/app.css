@@ -68,6 +68,10 @@ body {
         appearance: button;
     }
 
+    .button-shrink {
+        @apply text-sm leading-[48px] lg:leading-[48px] lg:text-lg;
+    }
+
     .button-brand {
         @apply bg-brand text-white text-center transition-all;
         @apply enabled:hv:hover:bg-brand hv:hover:shadow-[0_0_0_4px_white];
@@ -87,7 +91,7 @@ body {
 
     section.section {
         @apply odd:bg-midnight bg-storm text-white even:image-order-even;
-        @apply flex flex-col py-12 px-12 justify-center items-center;
+        @apply flex flex-col py-12 px-8 sm:px-12 justify-center items-center;
         @apply scroll-m-24
     }
 

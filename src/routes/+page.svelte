@@ -1,8 +1,10 @@
 <script lang="ts">
   import MessengerIcon from "$lib/icons/MessengerIcon.svelte";
+  import PhoneIcon from "$lib/icons/PhoneIcon.svelte";
 import Review from "$lib/Review.svelte";
   import Section from "$lib/Section.svelte";
   import VideoBackground from "$lib/VideoBackground.svelte";
+  import DeviceDetector from "svelte-device-detector";
   import MediaQuery from "svelte-media-queries";
   import { scrollTo } from "svelte-scroll-nav";
   const sections = ['about', 'portfolio', 'testimonials', 'contact', 'customs', 'alignments', 'rust', 'maintenance', 'diagnostics']
@@ -85,19 +87,25 @@ import Review from "$lib/Review.svelte";
                 </div>
             </Section>
             <Section scrollRef="contact" heading="Contact Us">
-                <a class="button button-messenger w-full" href="https://m.me/100057455889767">
+                <p class="text-center">Ready to make an appointment?</p>
+                <a class="button button-shrink button-messenger w-full" href="https://m.me/100057455889767">
                     <MessengerIcon width="32" height="32"/>
                     Connect with us on Messenger
                 </a>
-                <p class="text-center">&mdash; or &mdash;</p>
-                {#if sm}
-                    <a class="button button-brand w-full" href="tel:12072593360">
-                        <MessengerIcon width="32" height="32"/>
-                        Call now for a quote
+                <DeviceDetector showInDevice="mobile">
+                    <a class="button button-shrink button-brand w-full" href="tel:12072593360">
+                        <PhoneIcon width="32" height="32"/>
+                        Call (207) 259-3360
                     </a>
-                {:else}
-                    Call us today for a quote!
-                {/if}
+                </DeviceDetector>
+
+                <DeviceDetector showInDevice="desktop">
+                    <div>
+                        <p class="text-lg font-medium text-center">or, call us at</p>
+                        <p class="text-3xl font-black text-center tracking-tight font-poppins">(207) 259-3360</p>
+                        <p class="text-xl font-bold text-center tracking-tight">Mon &ndash; Fri &nbsp; 8am &ndash; 5pm</p>
+                    </div>
+                </DeviceDetector>
             </Section>
         </div>
     </VideoBackground>

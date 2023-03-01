@@ -29,6 +29,7 @@
 		"@fontsource/raleway": "^4.5.12",
 		"@fontsource/rubik": "^4.5.14",
 		"@sveltejs/adapter-netlify": "^2.0.5",
+		"svelte-device-detector": "^0.2.2",
 		"svelte-media-queries": "^1.5.2",
 		"svelte-scroll-nav": "^1.0.8",
 		"svelte-youtube": "^0.0.2"
