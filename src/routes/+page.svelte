@@ -68,7 +68,7 @@ import Review from "$lib/Review.svelte";
                 </ul>
             </Section>
             <Section scrollRef="testimonials" heading="Testimonials">
-                <div class="flex flex-col max-w-full lg:flex-row gap-10">
+                <div class="flex flex-col max-w-full lg:flex-row lg:py-12 gap-10">
                     <Review rating={5} author="John N.">
                         Last year, my car broke
                         down in the middle of town, I was towed to Prescott's Garage.

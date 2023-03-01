@@ -15,7 +15,7 @@
         <span class="text-sm">&nbsp;( { ratingToFixed } )</span>
     </div>
 
-    <div class="flex gap-2 mb-4">
+    <div class="flex gap-2 mb-4 -ml-4">
         <div class="flex flex-col text-brand justify-center items-center">
             <div class="w-0.5 bg-[currentColor] grow" />
             <span class="text-4xl -mt-5 mb-1">&bdquo;</span>
