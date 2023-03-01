@@ -104,10 +104,7 @@ import Review from "$lib/Review.svelte";
                                 <p class="font-bold">Saturday</p> <p class="font-medium">CLOSED</p>
                             </div>  
                         </div>
-                        <a class="button button-shrink button-messenger w-full" href="https://m.me/100057455889767">
-                            <MessengerIcon width="32" height="32"/>
-                            Connect with us on Messenger
-                        </a>
+
                         <DeviceDetector showInDevice="mobile">
                             <a class="button button-shrink button-brand w-full" href="tel:12072593360">
                                 <PhoneIcon width="32" height="32"/>
@@ -116,15 +113,21 @@ import Review from "$lib/Review.svelte";
                         </DeviceDetector>
         
                         <DeviceDetector showInDevice="desktop">
-                            <div>
-                                <p class="text-lg font-medium text-center">or, call us at</p>
+                            <div class="mb-0.5">
+                                <p class="text-lg font-medium text-center">Call us at</p>
                                 <p class="text-3xl font-black text-center tracking-tight font-poppins">(207) 259-3360</p>
                             </div>
                         </DeviceDetector>
+
+                        <a class="button button-shrink button-messenger w-full" href="https://m.me/100057455889767">
+                            <MessengerIcon width="32" height="32"/>
+                            Connect with us on Messenger
+                        </a>
+
                     </div>
                     <div>
                         <p class="text-center font-poppins text-2xl">Come visit us!</p>
-                        <address class="font-poppins text-center text-xl">
+                        <address class="text-center text-xl">
                             67 Main St, East Machias, ME 04630
                         </address>
 
