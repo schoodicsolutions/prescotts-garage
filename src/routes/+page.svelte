@@ -1,4 +1,5 @@
 <script lang="ts">
+  import MapIcon from "$lib/icons/MapIcon.svelte";
   import MessengerIcon from "$lib/icons/MessengerIcon.svelte";
   import PhoneIcon from "$lib/icons/PhoneIcon.svelte";
 import Review from "$lib/Review.svelte";
@@ -87,25 +88,50 @@ import Review from "$lib/Review.svelte";
                 </div>
             </Section>
             <Section scrollRef="contact" heading="Contact Us">
-                <p class="text-center">Ready to make an appointment?</p>
-                <a class="button button-shrink button-messenger w-full" href="https://m.me/100057455889767">
-                    <MessengerIcon width="32" height="32"/>
-                    Connect with us on Messenger
-                </a>
-                <DeviceDetector showInDevice="mobile">
-                    <a class="button button-shrink button-brand w-full" href="tel:12072593360">
-                        <PhoneIcon width="32" height="32"/>
-                        Call (207) 259-3360
+                <div>
+                    <p class="text-center font-poppins text-2xl mt-4">Ready to make an appointment?</p>
+                    <p class="text-xl font-bold text-center">We're open:&nbsp; Mon &ndash; Fri &nbsp; 8am &ndash; 5pm</p>
+                </div>
+                <div>
+                    <a class="button button-shrink button-messenger w-full mb-4" href="https://m.me/100057455889767">
+                        <MessengerIcon width="32" height="32"/>
+                        Connect with us on Messenger
                     </a>
-                </DeviceDetector>
-
-                <DeviceDetector showInDevice="desktop">
+                    <DeviceDetector showInDevice="mobile">
+                        <a class="button button-shrink button-brand w-full" href="tel:12072593360">
+                            <PhoneIcon width="32" height="32"/>
+                            Call (207) 259-3360
+                        </a>
+                    </DeviceDetector>
+    
+                    <DeviceDetector showInDevice="desktop">
+                        <div>
+                            <p class="text-lg font-medium text-center">or, call us at</p>
+                            <p class="text-3xl font-black text-center tracking-tight font-poppins">(207) 259-3360</p>
+                            <p class="text-xl font-bold text-center tracking-tight">Mon &ndash; Fri &nbsp; 8am &ndash; 5pm</p>
+                        </div>
+                    </DeviceDetector>
+                </div>
                     <div>
-                        <p class="text-lg font-medium text-center">or, call us at</p>
-                        <p class="text-3xl font-black text-center tracking-tight font-poppins">(207) 259-3360</p>
-                        <p class="text-xl font-bold text-center tracking-tight">Mon &ndash; Fri &nbsp; 8am &ndash; 5pm</p>
+                        <p class="text-center text-lg">Come visit us at</p>
+                        <address class="font-poppins text-center text-xl">
+                            67 Main St, East Machias, ME 04630
+                        </address>
+
+                        <iframe 
+                            title="Google Maps"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d211.91813531765126!2d-67.35627059451087!3d44.74880618891189!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ca8cdeced67e90d%3A0xa1c9cbe11461026a!2sPrescott&#39;s%20Garage!5e1!3m2!1sen!2sus!4v1677690932106!5m2!1sen!2sus"
+                            class="max-w-full w-[400px] h-[300px] my-4"
+                            style="border:0;"
+                            allowfullscreen={true} 
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                        />
+                        <a class="button button-shrink button-brand w-full" href="https://maps.apple.com/?daddr=Prescott%27s+Garage,+67+Main+Street,+East+Machias,+ME">
+                            <MapIcon width="32" height="32"/>
+                            Get directions
+                        </a>
                     </div>
-                </DeviceDetector>
             </Section>
         </div>
     </VideoBackground>
