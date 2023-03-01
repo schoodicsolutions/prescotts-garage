@@ -118,7 +118,7 @@
 
     function calculateParallax() {
         if (iframe) {
-            iframe.style.transform = ` translate(-50%, -50%) translate(${leftOffset}, ${topOffset}) translateY(${vParallaxAmount}) scale(${downSample})`;
+            iframe.style.transform = `translate(-50%, -50%) translate(${leftOffset}, ${topOffset}) translateY(${vParallaxAmount}px) scale(${downSample})`;
         }
     }
 
@@ -148,6 +148,7 @@
             style:background-image={poster ? `url('${poster}')` : undefined}
             style:filter={`opacity(${opacity})`}
             style:transition={`filter ${fadeDuration}s`}
+            style:transform={`translate(${leftOffset}, ${topOffset}) translateY(${vParallaxAmount}px)`}
         />
     </div>
 </div>

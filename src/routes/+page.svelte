@@ -22,8 +22,9 @@ import Review from "$lib/Review.svelte";
         fadeOnLoop={true}
         loop={true}
         minHeight={sm ? 600 : 800}
-        topOffset={sm ? '-75px' : '0'}
+        topOffset={'-75px'}
         maxScroll={1200}
+        verticalParallax={-200}
         downSample={4}
         class="brightness-50"
     >
@@ -88,31 +89,41 @@ import Review from "$lib/Review.svelte";
                 </div>
             </Section>
             <Section scrollRef="contact" heading="Contact Us">
-                <div>
-                    <p class="text-center font-poppins text-2xl mt-4">Ready to make an appointment?</p>
-                    <p class="text-xl font-bold text-center">We're open:&nbsp; Mon &ndash; Fri &nbsp; 8am &ndash; 5pm</p>
-                </div>
-                <div>
-                    <a class="button button-shrink button-messenger w-full mb-4" href="https://m.me/100057455889767">
-                        <MessengerIcon width="32" height="32"/>
-                        Connect with us on Messenger
-                    </a>
-                    <DeviceDetector showInDevice="mobile">
-                        <a class="button button-shrink button-brand w-full" href="tel:12072593360">
-                            <PhoneIcon width="32" height="32"/>
-                            Call (207) 259-3360
-                        </a>
-                    </DeviceDetector>
-    
-                    <DeviceDetector showInDevice="desktop">
+                <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+                    <div class="flex flex-col gap-4">
+                        <p class="text-center font-poppins text-2xl">Ready to make an appointment?</p>
                         <div>
-                            <p class="text-lg font-medium text-center">or, call us at</p>
-                            <p class="text-3xl font-black text-center tracking-tight font-poppins">(207) 259-3360</p>
+                            <p class="text-center font-poppins text-lg">Hours of Operation</p>
+                            <div class="grid grid-cols-2 text-center">
+                                <p class="font-bold">Sunday</p> <p class="font-medium">CLOSED</p>
+                                <p class="font-bold">Monday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
+                                <p class="font-bold">Tuesday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
+                                <p class="font-bold">Wednesday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
+                                <p class="font-bold">Thursday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
+                                <p class="font-bold">Friday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
+                                <p class="font-bold">Saturday</p> <p class="font-medium">CLOSED</p>
+                            </div>  
                         </div>
-                    </DeviceDetector>
-                </div>
+                        <a class="button button-shrink button-messenger w-full" href="https://m.me/100057455889767">
+                            <MessengerIcon width="32" height="32"/>
+                            Connect with us on Messenger
+                        </a>
+                        <DeviceDetector showInDevice="mobile">
+                            <a class="button button-shrink button-brand w-full" href="tel:12072593360">
+                                <PhoneIcon width="32" height="32"/>
+                                Call (207) 259-3360
+                            </a>
+                        </DeviceDetector>
+        
+                        <DeviceDetector showInDevice="desktop">
+                            <div>
+                                <p class="text-lg font-medium text-center">or, call us at</p>
+                                <p class="text-3xl font-black text-center tracking-tight font-poppins">(207) 259-3360</p>
+                            </div>
+                        </DeviceDetector>
+                    </div>
                     <div>
-                        <p class="text-center text-lg">Come visit us at</p>
+                        <p class="text-center font-poppins text-2xl">Come visit us!</p>
                         <address class="font-poppins text-center text-xl">
                             67 Main St, East Machias, ME 04630
                         </address>
@@ -120,7 +131,7 @@ import Review from "$lib/Review.svelte";
                         <iframe 
                             title="Google Maps"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d211.91813531765126!2d-67.35627059451087!3d44.74880618891189!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ca8cdeced67e90d%3A0xa1c9cbe11461026a!2sPrescott&#39;s%20Garage!5e1!3m2!1sen!2sus!4v1677690932106!5m2!1sen!2sus"
-                            class="max-w-full w-[400px] h-[300px] my-4"
+                            class="max-w-full w-[400px] h-[250px] my-4"
                             style="border:0;"
                             allowfullscreen={true} 
                             loading="lazy"
@@ -131,6 +142,7 @@ import Review from "$lib/Review.svelte";
                             Get directions
                         </a>
                     </div>
+                </div>
             </Section>
         </div>
     </VideoBackground>
