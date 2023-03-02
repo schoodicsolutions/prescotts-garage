@@ -43,19 +43,27 @@
         }
     }
 
+    let timeout: NodeJS.Timeout | number;
+
     const interval = setInterval(
         () => {
-            const endstop = loop && !fadeOnLoop ? 0.5 : fadeDuration;
             // Poor man's loop / fade-out
-            if (player) {
+            if (!timeout && player) {
+                const endstop = loop && !fadeOnLoop ? 1 : fadeDuration;
                 const aboutToEnd = (player.getDuration() - player.getCurrentTime()) <= endstop;
                 if (aboutToEnd) {
                     if (loop) {
                         if (fadeOnLoop) {
                             opacity = 1;
-                            setTimeout(() => restartVideo(), fadeDuration * 2000);
+                            timeout = setTimeout(() => {
+                                restartVideo();
+                                clearTimeout(timeout);
+                            }, fadeDuration * 2000);
                         } else {
-                            restartVideo();
+                            timeout = setTimeout(() => {
+                                restartVideo();
+                                clearTimeout(timeout);
+                            }, 0.5);
                         }
                     } else {
                         opacity = 1;
