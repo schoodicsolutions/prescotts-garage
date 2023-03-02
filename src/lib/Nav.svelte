@@ -23,15 +23,15 @@
     >
         {#each navItems as navItem}
             <li class="flex flex-col -mt-1 transition hv:hover:text-brand items-center">
-                <a 
+                <a
                     class="navlink"
                     href={navItem.pathname}
-                    use:scrollTo={{
+                    use:scrollTo={navItem.scrollTo ? {
                         section: navItem.scrollTo,
                         onNavigate: () => {
                             dispatch('navigate', navItem)
                         },
-                    }}
+                    } : undefined}
                 >
                     {navItem.label}
                 </a>

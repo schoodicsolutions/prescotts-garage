@@ -34,7 +34,7 @@ import Review from "$lib/Review.svelte";
                 Auto Repair In The<br/>
                 Machias Bay Area<br/>
             </h1>
-            <a class="button button-brand" use:scrollTo={{section: "about"}} href="/">Learn Who We Are</a>
+            <a class="button button-brand" use:scrollTo={{section: "contact"}} href="/">Book An Appointment</a>
         </div>
         <div>
             <Section scrollRef="about" heading="About Us" image="/img/wagons.webp">
@@ -50,7 +50,7 @@ import Review from "$lib/Review.svelte";
                     expertise to get you back on the road safely and efficiently. 
                 </p>
 
-                <a class="button button-brand w-full"  use:scrollTo={{section: "contact"}} href="/">Book Now</a>
+                <a class="button button-brand w-full"  use:scrollTo={{section: "contact"}} href="/">Get In Touch</a>
             </Section>
             <Section scrollRef="services" heading="Services" image="/img/jeep.webp">
                 <p class="text-justify">
@@ -58,7 +58,7 @@ import Review from "$lib/Review.svelte";
                     keep your vehicle running smoothly and efficiently.
                     Here are some of the services we offer:
                 </p>
-                <ul class="w-full text-center font-medium text-lg grid grid-cols-1 sm:grid-cols-2 sm:text-lg">
+                <ul class="w-full text-center font-bold text-lg grid grid-cols-1 sm:grid-cols-2 sm:text-lg gap-y-4">
                     <li>Oil Changes</li>
                     <li>State Inspections</li>
                     <li>Brake Service</li>
@@ -70,6 +70,7 @@ import Review from "$lib/Review.svelte";
                     <li>Exhaust System Repair</li>
                     <li>Custom & Performance</li>
                 </ul>
+                <a class="button button-brand w-full" use:scrollTo={{section: "contact"}} href="/">Get In Touch</a>
             </Section>
             <Section scrollRef="testimonials" heading="Testimonials">
                 <div class="flex flex-col max-w-full lg:flex-row lg:py-12 gap-10">

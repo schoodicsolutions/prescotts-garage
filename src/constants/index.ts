@@ -9,11 +9,11 @@ export const LEFT_NAV_ITEMS: NavItem[] = [
 ];
 
 export const RIGHT_NAV_ITEMS: NavItem[] = [
-    { label: 'Customs', pathname: '/', scrollTo: 'customs' },
-    { label: 'Alignments', pathname: '/', scrollTo: 'alignments' },
-    { label: 'Rust Repair', pathname: '/', scrollTo: 'rust' },
-    { label: 'Air Conditioning', pathname: '/', scrollTo: 'maintenance' },
-    { label: 'Diagnostics', pathname: '/', scrollTo: 'diagnostics' },
+    { label: 'Customs', pathname: '/customs' },
+    { label: 'Alignments', pathname: '/alignments' },
+    { label: 'Rust Repair', pathname: '/rust' },
+    { label: 'Air Conditioning', pathname: '/maintenance' },
+    { label: 'Diagnostics', pathname: '/diagnostics' },
 ];
 
 export const ALL_NAV_ITEMS: NavItem[] = [

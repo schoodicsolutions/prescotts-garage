@@ -9,10 +9,10 @@
     export { scrollRefName as scrollRef };
 </script>
 <section use:scrollRef={scrollRefName} class="section">
-    <div class="flex flex-col lg:flex-row gap-12 max-w-[1000px] m-auto">
+    <div class="flex flex-col lg:flex-row gap-12 max-w-[1000px] m-auto lg:items-center">
         {#if image}
             <div class="section-image">
-                <Image src={image} aspect="4:3" width="100%"/>
+                <Image src={image} aspect="10:9" width="100%"/>
             </div>
         {/if}
         <div class="flex flex-col gap-4">
