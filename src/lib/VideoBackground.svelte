@@ -17,7 +17,7 @@
     export { className as class };
     
     import YouTube, { type PlayerObject } from 'svelte-youtube';
-    import { onDestroy } from 'svelte';
+    import { onDestroy, onMount } from 'svelte';
 
     $: opacity = 1;
     
@@ -77,6 +77,7 @@
 
     function stateChange(event: CustomEvent<{target: PlayerObject, data?: number}>) {
         const { data: state } = event.detail;
+        console.log(state);
         player = event.detail.target;
         iframe = player.getIframe();
         if (state === -1) {
@@ -130,26 +131,37 @@
         }
     }
 
-
+    $: mounted = false;
+    onMount(() => {
+        mounted = true;
+    })
 </script>
 
-<svelte:window on:resize={onResize} on:scroll|passive={onScroll} bind:scrollY bind:innerHeight bind:innerWidth />
+<svelte:window 
+    on:resize={onResize}
+    on:scroll|passive={onScroll}
+    bind:scrollY
+    bind:innerHeight
+    bind:innerWidth
+/>
 
 <div class={['fixed top-0 h-screen w-screen overflow-hidden', className].join(' ')}>
     <div class='w-full h-full'>  
-        <YouTube
-            {videoId}
-            class="w-full h-full relative"
-            options={{
-                playerVars: {
-                    disablekb: 1,
-                    controls: 0,
-                    fs: 0,
-                    modestbranding: 1,
-                }
-            }}
-            on:stateChange={stateChange}
-        />
+        {#if mounted}
+            <YouTube
+                {videoId}
+                class="w-full h-full relative"
+                options={{
+                    playerVars: {
+                        disablekb: 1,
+                        controls: 0,
+                        fs: 0,
+                        modestbranding: 1,
+                    }
+                }}
+                on:stateChange={stateChange}
+            />
+        {/if}
         <div
             class='w-screen absolute top-0 bg-cover bg-center'
             style:height={calculatedHeight}
