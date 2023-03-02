@@ -134,14 +134,16 @@
     }
 
     $: mounted = false;
-    onMount(() => {
+
+    function onLoadListener() {
         mounted = true;
-    })
+    }
 </script>
 
 <svelte:window 
     on:resize={onResize}
     on:scroll|passive={onScroll}
+    on:load={onLoadListener}
     bind:scrollY
     bind:innerHeight
     bind:innerWidth
