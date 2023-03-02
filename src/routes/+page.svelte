@@ -22,7 +22,7 @@ import Review from "$lib/Review.svelte";
         fadeOnLoop={true}
         loop={true}
         minHeight={sm ? 600 : 800}
-        topOffset={'-75px'}
+        topOffset={sm ? '-75px' : 0}
         maxScroll={1200}
         verticalParallax={-200}
         downSample={4}
