@@ -58,11 +58,13 @@
                             timeout = setTimeout(() => {
                                 restartVideo();
                                 clearTimeout(timeout);
+                                timeout = 0;
                             }, fadeDuration * 2000);
                         } else {
                             timeout = setTimeout(() => {
                                 restartVideo();
                                 clearTimeout(timeout);
+                                timeout = 0;
                             }, 0.5);
                         }
                     } else {
