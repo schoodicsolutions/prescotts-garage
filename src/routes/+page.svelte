@@ -26,6 +26,7 @@
         maxScroll={1200}
         verticalParallax={-200}
         downSample={4}
+        playDelay={5}
         class="brightness-50"
     >
         <div class="flex h-[400px] sm:h-[500px] sm:max-h-[500px] overflow-hidden justify-center items-center flex-col gap-6 px-4 sm:px-8">

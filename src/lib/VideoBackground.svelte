@@ -5,6 +5,7 @@
     export let minHeight: number = 0;
     export let maxScroll: number = 0;
     export let fadeDuration: number = 2;
+    export let playDelay: number = 0;
     export let fadeOnLoop: boolean = false;
     export let verticalParallax = 0;
     export let loop: boolean = false;
@@ -135,7 +136,10 @@
     $: mounted = false;
 
     function onLoadListener() {
-        mounted = true;
+        setTimeout(
+            () => mounted = true,
+            playDelay * 1000
+        )
     }
 </script>
 
