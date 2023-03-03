@@ -2,7 +2,7 @@
   import MapIcon from "$lib/icons/MapIcon.svelte";
   import MessengerIcon from "$lib/icons/MessengerIcon.svelte";
   import PhoneIcon from "$lib/icons/PhoneIcon.svelte";
-import Review from "$lib/Review.svelte";
+  import Review from "$lib/Review.svelte";
   import Section from "$lib/Section.svelte";
   import VideoBackground from "$lib/VideoBackground.svelte";
   import DeviceDetector from "svelte-device-detector";
@@ -37,7 +37,7 @@ import Review from "$lib/Review.svelte";
             <a class="button button-brand" use:scrollTo={{section: "contact"}} href="/">Book An Appointment</a>
         </div>
         <div>
-            <Section scrollRef="about" heading="About Us" image="/img/wagons.webp">
+            <Section scrollRef="about" heading="About Us" image={{src: "/img/wagons.webp", alt: "Two Jeep Grand Wagoneers, parked next to one another"}}>
                 <p class="text-justify">
                     Harold Prescott started Prescott's Garage in 2005 with one mission:
                     to provide reliable, honest auto repair services to the Greater Machias area.
@@ -52,7 +52,7 @@ import Review from "$lib/Review.svelte";
 
                 <a class="button button-brand w-full"  use:scrollTo={{section: "contact"}} href="/">Get In Touch</a>
             </Section>
-            <Section scrollRef="services" heading="Services" image="/img/jeep.webp">
+            <Section scrollRef="services" heading="Services" image={{src: '/img/jeep.webp', alt: 'Jeep Wrangler body suspended in the air on lift, with frame and motor below'}}>
                 <p class="text-justify">
                     Prescott's Garage offers a range of services to help
                     keep your vehicle running smoothly and efficiently.

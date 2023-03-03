@@ -79,7 +79,6 @@
 
     function stateChange(event: CustomEvent<{target: PlayerObject, data?: number}>) {
         const { data: state } = event.detail;
-        console.log(state);
         player = event.detail.target;
         iframe = player.getIframe();
         if (state === -1) {

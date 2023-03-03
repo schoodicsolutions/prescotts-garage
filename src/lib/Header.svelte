@@ -36,7 +36,7 @@
                 {:else if sm}
                     <div class="w-16 h-12 pl-4"/>
                 {/if}
-                <a href="/">
+                <a href="/" aria-label="Prescott's Garage">
                     <Logo class="w-20 sm:w-36 shrink-0 hover:text-white transition" />
                 </a>
                 {#if xxl}
@@ -47,7 +47,7 @@
                 />
                 {:else if sm}
                     <div class="w-16 pr-4">
-                        <button class="button button-icon" on:click={toggleMobileNav}>
+                        <button class="button button-icon" on:click={toggleMobileNav} aria-label="Toggle Navigation">
                             <MenuIcon />
                         </button>
                     </div>

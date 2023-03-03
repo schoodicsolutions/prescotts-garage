@@ -2,7 +2,10 @@
     import { scrollRef } from "svelte-scroll-nav";
     import Image from "./Image.svelte";
 
-    export let image: string | undefined = undefined;
+    export let image: {
+        src: string;
+        alt: string;
+    } | undefined = undefined;
     export let heading: string | undefined = undefined;
 
     let scrollRefName: string | undefined = undefined;
@@ -12,7 +15,7 @@
     <div class="flex flex-col lg:flex-row gap-12 max-w-[1000px] m-auto lg:items-center">
         {#if image}
             <div class="section-image">
-                <Image src={image} aspect="10:9" width="100%"/>
+                <Image src={image.src} alt={image.alt} aspect="10:9" width="100%"/>
             </div>
         {/if}
         <div class="flex flex-col gap-4">

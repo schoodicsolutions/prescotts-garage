@@ -10,7 +10,7 @@
     <div class=" text-white">
         <div class="flex flex-col lg:flex-row justify-center lg:items-start gap-10 md:gap-20 xl:gap-40 py-12 h-full">
             <section class="flex flex-col items-center lg:order-1 gap-4">
-                <a href="/">
+                <a href="/" aria-label="Back to Top">
                     <Logo class="w-28 shrink-0 hover:text-white transition" />
                 </a>
                 <div>

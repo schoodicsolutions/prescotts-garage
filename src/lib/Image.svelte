@@ -1,6 +1,6 @@
 <script lang="ts">
     export let src: string;
-    export let alt: string | undefined = undefined;
+    export let alt: string;
     export let aspect: string = '16:9';
     export let width: number | string | undefined = 0;
     export let height: number | string | undefined = 0;
