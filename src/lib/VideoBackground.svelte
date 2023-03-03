@@ -11,6 +11,7 @@
     export let loop: boolean = false;
     export let videoId: string;
     export let downSample: number = 1;
+    export let deferLoad = false;
 
     $: quality = Math.min(1, 1 / downSample);
 
@@ -135,11 +136,20 @@
 
     $: mounted = false;
 
-    function onLoadListener() {
+    function setMounted() {
         setTimeout(
             () => mounted = true,
             playDelay * 1000
         )
+    }
+    function onLoadListener() {
+        if (deferLoad) {
+            setMounted();
+        }
+    }
+
+    if (!deferLoad) {
+        setMounted();
     }
 </script>
 
