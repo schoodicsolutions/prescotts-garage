@@ -96,6 +96,7 @@
 
     function onResize() {
         if (iframe) {
+            iframe.tabIndex = -1;
             iframe.style.position = 'absolute';
             iframe.style.left = '50%';
             iframe.style.top = '50%';
@@ -137,8 +138,11 @@
     $: mounted = false;
 
     function setMounted() {
-        setTimeout(
-            () => mounted = true,
+        timeout = setTimeout(
+            () => {
+                mounted = true;
+                timeout = 0;
+            },
             playDelay * 1000
         )
     }
@@ -151,6 +155,11 @@
     if (!deferLoad) {
         setMounted();
     }
+
+    onDestroy(() => {
+        clearTimeout(timeout);
+        timeout = 0;
+    })
 </script>
 
 <svelte:window 
