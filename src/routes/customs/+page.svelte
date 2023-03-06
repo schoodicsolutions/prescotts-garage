@@ -1,5 +1,6 @@
 <script>
-    import Gallery from 'svelte-image-gallery'
+    import Gallery from 'svelte-image-gallery';
+    import { Lightbox } from 'svelte-lightbox';
     let imgs = [
         '45',
         '79',
@@ -31,7 +32,9 @@
     <div class = 'max-w-screen-xl m-auto px-3 py-5'>
         <Gallery>
             {#each imgs as img}
-                <img src = {`img/${img}.webp`} alt = 'In gallery'/>
+                <Lightbox description='test'>
+                    <img src = {`img/${img}.webp`} alt = 'In gallery'/>
+                </Lightbox>
             {/each}
         </Gallery>
     </div>
