@@ -14,6 +14,7 @@ specifiers:
   svelte: ^3.54.0
   svelte-check: ^3.0.1
   svelte-device-detector: ^0.2.2
+  svelte-image-gallery: ^1.7.0
   svelte-media-queries: ^1.5.2
   svelte-scroll-nav: ^1.0.8
   svelte-youtube: ^0.0.2
@@ -41,6 +42,7 @@ devDependencies:
   postcss: 8.4.21
   svelte: 3.55.1
   svelte-check: 3.0.3_pehl75e5jsy22vp33udjja4soi
+  svelte-image-gallery: 1.7.0
   tailwindcss: 3.2.4_postcss@8.4.21
   tslib: 2.5.0
   typescript: 4.9.5
@@ -1088,6 +1090,10 @@ packages:
       svelte: '>=3.19.0'
     dependencies:
       svelte: 3.55.1
+
+  /svelte-image-gallery/1.7.0:
+    resolution: {integrity: sha512-BLlxyYh4MPi8CU2UZrSQ7W5NfHmsA6M1r0uw0ES9hz31/Tf+H2VnJhrjM2urE9ZM3/LP0jJSJX7TqzwfNkdncQ==}
+    dev: true
 
   /svelte-media-queries/1.5.2:
     resolution: {integrity: sha512-/E3NSpxVF+ObjhpkU3wv5xhRaA/Irqic0eN/LqBNPANIic8uWu9pjVMgjMZRXpsU3SMdbK0e6c62Z78bT7TL7w==}

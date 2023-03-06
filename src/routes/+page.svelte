@@ -15,14 +15,14 @@
 
 <svelte:window bind:scrollY />
 
-<MediaQuery query={['(min-width: 1600px)', '(max-width: 640px)']} let:matchesArray={[xxl, sm]}>
+<MediaQuery query={['(min-width: 800px)', '(max-width: 640px)']} let:matchesArray={[md, sm]}>
     <VideoBackground
         videoId="Lupj8t_N03I"
         poster="/img/bg-shop.webp"
         fadeOnLoop={true}
         loop={true}
         minHeight={sm ? 600 : 800}
-        topOffset={sm ? '-75px' : 0}
+        topOffset={sm ? '-100px' : md ? '-200px' : 0}
         maxScroll={1200}
         verticalParallax={-200}
         downSample={4}

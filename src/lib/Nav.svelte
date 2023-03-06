@@ -36,8 +36,8 @@
                     {navItem.label}
                 </a>
                 <div 
-                    class="h-0.5 w-full -mt-0.5 bg-[currentColor] transition-all"
-                    class:w-0={$page.url.pathname !== navItem.pathname || $section !== navItem.scrollTo}
+                    class="h-0.5 w-0 -mt-0.5 bg-[currentColor] transition-all"
+                    class:w-full={$page.url.pathname === navItem.pathname && (!navItem.scrollTo || $section === navItem.scrollTo)}
                 />
             </li>
         {/each}
