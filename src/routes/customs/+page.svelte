@@ -22,12 +22,13 @@
         '8136'
     ]
 </script>
-<main>
+<main class = 'bg-black'>
     <div class = {`w-full flex justify-center items-center min-h-[200px] bg-[url('/img/8162.webp')] bg-center bg-no-repeat`}>
-        
-        <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Customs</h1>
+        <div class = 'w-full min-h-[200px] flex justify-center items-center bg-black/50'>
+            <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Customs</h1>
+        </div>
     </div>
-    <div class = 'max-w-screen-xl m-auto px-3 my-5'>
+    <div class = 'max-w-screen-xl m-auto px-3 py-5'>
         <Gallery>
             {#each imgs as img}
                 <img src = {`img/${img}.webp`} alt = 'In gallery'/>

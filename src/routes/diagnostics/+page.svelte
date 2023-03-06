@@ -2,13 +2,14 @@
     import { scrollTo } from "svelte-scroll-nav";
     import Image from "$lib/Image.svelte";
 </script>
-<main>
+<main class = 'bg-black'>
     <div class = {`w-full flex justify-center items-center min-h-[200px] bg-[url('/img/8414.webp')] bg-center bg-no-repeat`}>
-        
-        <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Diagnostics</h1>
+        <div class = 'w-full min-h-[200px] flex justify-center items-center bg-black/50'>
+            <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Diagnostics</h1>
+        </div>
     </div>
-    <div class = 'flex md:flex-row flex-col max-w-screen-xl m-auto px-3 my-5 gap-1'>
-        <div class = 'flex-1'>
+    <div class = 'flex md:flex-row flex-col max-w-screen-xl m-auto px-3 py-5 gap-1'>
+        <div class = 'flex-1 text-white'>
             <p>
                 Our expert technicians use state-of-the-art diagnostic equipment and techniques to accurately diagnose and repair any issues with your vehicle. We understand that automotive problems can be frustrating and time-consuming, which is why we strive to make the diagnostic process as efficient and transparent as possible.
                 <br/><br/>

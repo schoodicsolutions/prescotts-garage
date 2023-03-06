@@ -2,13 +2,14 @@
     import { scrollTo } from "svelte-scroll-nav";
     import Image from "$lib/Image.svelte";
 </script>
-<main>
+<main class = 'bg-black'>
     <div class = {`w-full flex justify-center items-center min-h-[200px] bg-[url('/img/bg-shop.webp')] bg-center bg-no-repeat`}>
-        
-        <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Air Conditioning</h1>
+        <div class = 'w-full min-h-[200px] flex justify-center items-center bg-black/50'>
+            <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Air Conditioning</h1>
+        </div>
     </div>
-    <div class = 'flex md:flex-row flex-col max-w-screen-xl m-auto px-3 my-5 gap-1'>
-        <div class = 'flex-1'>
+    <div class = 'flex md:flex-row flex-col max-w-screen-xl m-auto px-3 py-5 gap-1'>
+        <div class = 'flex-1 text-white'>
             <p>
                 We understand how important a properly functioning air conditioning system is for your comfort while driving. That's why we offer expert air conditioning services to help keep your vehicle cool and comfortable, no matter how hot it gets outside.
                 <br/><br/>

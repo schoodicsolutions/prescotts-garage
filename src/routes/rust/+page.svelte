@@ -2,13 +2,14 @@
     import { scrollTo } from "svelte-scroll-nav";
     import Image from "$lib/Image.svelte";
 </script>
-<main>
+<main class = 'bg-black'>
     <div class = {`w-full flex justify-center items-center min-h-[200px] bg-[url('/img/5619.webp')] bg-center bg-no-repeat`}>
-        
-        <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Rust Repair</h1>
+        <div class = 'w-full min-h-[200px] flex justify-center items-center bg-black/50'>
+            <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Rust Repair</h1>
+        </div>
     </div>
-    <div class = 'flex md:flex-row flex-col max-w-screen-xl m-auto px-3 my-5 gap-1'>
-        <div class = 'flex-1'>
+    <div class = 'flex md:flex-row flex-col max-w-screen-xl m-auto px-3 py-5 gap-1'>
+        <div class = 'flex-1 text-white'>
             <p>
                 At Prescott's Garage, we understand how frustrating and unsightly rust can be on your vehicle. That's why we offer expert rust repair services to help restore your vehicle's appearance and protect it from further damage.
                 <br/><br/>

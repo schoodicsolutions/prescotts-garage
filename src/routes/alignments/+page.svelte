@@ -2,13 +2,15 @@
     import { scrollTo } from "svelte-scroll-nav";
     import Image from "$lib/Image.svelte";
 </script>
-<main>
-    <div class = {`w-full flex justify-center items-center min-h-[200px] bg-[url('/img/8162.webp')] bg-center bg-no-repeat`}>
+<main class = 'bg-black'>
+    <div class = {`w-full min-h-[200px] bg-[url('/img/8162.webp')] bg-center bg-no-repeat`}>
+        <div class = 'w-full min-h-[200px] flex justify-center items-center bg-black/50'>
+            <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Alignments</h1>
+        </div>
         
-        <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Alignments</h1>
     </div>
-    <div class = 'flex md:flex-row flex-col max-w-screen-xl m-auto px-3 my-5 gap-1'>
-        <div class = 'flex-1'>
+    <div class = 'flex md:flex-row flex-col max-w-screen-xl m-auto px-3 py-5 gap-1'>
+        <div class = 'flex-1 text-white'>
             <p>
                 Proper wheel alignment is essential for ensuring that your vehicle handles correctly, maximizes fuel efficiency, and extends the life of your tires. At our shop, we offer expert alignment services using the latest technology and techniques to ensure that your vehicle is performing at its best.
                 <br/><br/>
