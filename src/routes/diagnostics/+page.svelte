@@ -20,7 +20,7 @@
             <a class="button button-brand w-full"  use:scrollTo={{section: "contact"}} href="/">Get In Touch</a>
         </div>
         <div class = 'flex-1'>
-            <Image src = '/img/6343.webp' alt = 'Car that might have problems' width='100%'/>
+            <Image src = '/img/gallery/6343.webp' alt = 'Car that might have problems' width='100%'/>
         </div>
     </div>
 </main>

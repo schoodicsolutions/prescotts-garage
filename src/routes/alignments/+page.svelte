@@ -21,7 +21,7 @@
             <a class="button button-brand w-full"  use:scrollTo={{section: "contact"}} href="/">Get In Touch</a>
         </div>
         <div class = 'flex-1'>
-            <Image src = '/img/4241.webp' alt = 'Car that needs alignment' width='100%'/>
+            <Image src = '/img/gallery/4241.webp' alt = 'Car that needs alignment' width='100%'/>
         </div>
     </div>
 </main>
