@@ -9,16 +9,14 @@
             <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Customs</h1>
         </div>
     </div>
-    <div class="columns-3 gap-4">
+    <div class="columns-1 sm:columns-2 xl:columns-3 gap-4">
         <LightboxGallery>
             <svelte:fragment slot="thumbnail">
-                <div class="sample-class-1">
-                    {#each images as src, index}
-                        <GalleryThumbnail id={index}>
-                            <img {src} class="mb-4" alt="" />
-                        </GalleryThumbnail>
-                    {/each}
-                </div>
+                {#each images as src, index}
+                    <GalleryThumbnail id={index}>
+                        <img {src} class="mb-4" alt="" />
+                    </GalleryThumbnail>
+                {/each}
             </svelte:fragment>
             {#each images as src}
                 <GalleryImage>
