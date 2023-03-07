@@ -10,22 +10,21 @@
         </div>
     </div>
     <div class="columns-3 gap-4">
-        
         <LightboxGallery>
             <svelte:fragment slot="thumbnail">
                 <div class="sample-class-1">
                     {#each images as src, index}
                         <GalleryThumbnail id={index}>
-                            <img {src} class="mb-4" />
+                            <img {src} class="mb-4" alt="" />
                         </GalleryThumbnail>
                     {/each}
                 </div>
             </svelte:fragment>
-        {#each images as src}
-            <GalleryImage>
-                <img {src} class="mb-4" />
-            </GalleryImage>
-        {/each}
+            {#each images as src}
+                <GalleryImage>
+                    <img {src} class="mb-4" alt="" />
+                </GalleryImage>
+            {/each}
         </LightboxGallery>
     </div>
 </main>
