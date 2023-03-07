@@ -12,12 +12,11 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
+		"@types/node": "^18.14.6",
 		"autoprefixer": "^10.4.13",
 		"postcss": "^8.4.21",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
-		"svelte-image-gallery": "^1.7.0",
-		"svelte-lightbox": "^1.1.1",
 		"tailwindcss": "^3.2.4",
 		"tslib": "^2.4.1",
 		"typescript": "^4.9.3",
@@ -32,6 +31,7 @@
 		"@fontsource/rubik": "^4.5.14",
 		"@sveltejs/adapter-netlify": "^2.0.5",
 		"svelte-device-detector": "^0.2.2",
+		"svelte-lightbox": "^1.1.1",
 		"svelte-media-queries": "^1.5.2",
 		"svelte-scroll-nav": "^1.0.8",
 		"svelte-youtube": "^0.0.2"

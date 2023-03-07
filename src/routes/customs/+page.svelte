@@ -1,41 +1,31 @@
-<script>
-    import Gallery from 'svelte-image-gallery';
-    import { Lightbox } from 'svelte-lightbox';
-    let imgs = [
-        '45',
-        '79',
-        '163',
-        '0633',
-        '741',
-        '2315',
-        '2530',
-        '3076',
-        '3664',
-        '3732',
-        '4210',
-        '4241',
-        '4844',
-        '5619',
-        '6343',
-        '6690',
-        '6900',
-        '7049',
-        '8136'
-    ]
+<script lang="ts">
+  import { page } from "$app/stores";
+  import { LightboxGallery, GalleryThumbnail, GalleryImage } from "svelte-lightbox";
+  const images = $page.data.images as string[];
 </script>
 <main class = 'bg-black'>
-    <div class = {`w-full flex justify-center items-center min-h-[200px] bg-[url('/img/8162.webp')] bg-center bg-no-repeat`}>
+    <div class = {`w-full flex justify-center items-center min-h-[200px] bg-[url('/img/gallery/8162.webp')] bg-center bg-no-repeat`}>
         <div class = 'w-full min-h-[200px] flex justify-center items-center bg-black/50'>
             <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Customs</h1>
         </div>
     </div>
-    <div class = 'max-w-screen-xl m-auto px-3 py-5'>
-        <Gallery>
-            {#each imgs as img}
-                <Lightbox description='test'>
-                    <img src = {`img/${img}.webp`} alt = 'In gallery'/>
-                </Lightbox>
-            {/each}
-        </Gallery>
+    <div class="columns-3 gap-4">
+        
+        <LightboxGallery>
+            <svelte:fragment slot="thumbnail">
+                <div class="sample-class-1">
+                    {#each images as src, index}
+                        <GalleryThumbnail id={index}>
+                            <img {src} class="mb-4" />
+                        </GalleryThumbnail>
+                    {/each}
+                </div>
+            </svelte:fragment>
+        {#each images as src}
+            <GalleryImage>
+                <img {src} class="mb-4" />
+            </GalleryImage>
+        {/each}
+        </LightboxGallery>
     </div>
 </main>
