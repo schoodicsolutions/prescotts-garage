@@ -3,7 +3,7 @@
     import Image from "$lib/Image.svelte";
 </script>
 <main class = 'bg-black'>
-    <div class = {`w-full min-h-[200px] bg-[url('/img/8162.webp')] bg-center bg-no-repeat`}>
+    <div class = {`w-full min-h-[200px] bg-[url('/img/gallery/8162.webp')] bg-center bg-no-repeat`}>
         <div class = 'w-full min-h-[200px] flex justify-center items-center bg-black/50'>
             <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Alignments</h1>
         </div>
