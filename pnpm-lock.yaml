@@ -9,12 +9,13 @@ specifiers:
   '@sveltejs/adapter-auto': ^2.0.0
   '@sveltejs/adapter-netlify': ^2.0.5
   '@sveltejs/kit': ^1.5.0
+  '@types/node': ^18.14.6
   autoprefixer: ^10.4.13
   postcss: ^8.4.21
   svelte: ^3.54.0
   svelte-check: ^3.0.1
   svelte-device-detector: ^0.2.2
-  svelte-image-gallery: ^1.7.0
+  svelte-lightbox: ^1.1.1
   svelte-media-queries: ^1.5.2
   svelte-scroll-nav: ^1.0.8
   svelte-youtube: ^0.0.2
@@ -31,6 +32,7 @@ dependencies:
   '@fontsource/rubik': 4.5.14
   '@sveltejs/adapter-netlify': 2.0.5_@sveltejs+kit@1.5.0
   svelte-device-detector: 0.2.2
+  svelte-lightbox: 1.1.1_svelte@3.55.1
   svelte-media-queries: 1.5.2
   svelte-scroll-nav: 1.0.8
   svelte-youtube: 0.0.2_svelte@3.55.1
@@ -38,15 +40,15 @@ dependencies:
 devDependencies:
   '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.0
   '@sveltejs/kit': 1.5.0_svelte@3.55.1+vite@4.1.1
+  '@types/node': 18.15.3
   autoprefixer: 10.4.13_postcss@8.4.21
   postcss: 8.4.21
   svelte: 3.55.1
   svelte-check: 3.0.3_pehl75e5jsy22vp33udjja4soi
-  svelte-image-gallery: 1.7.0
   tailwindcss: 3.2.4_postcss@8.4.21
   tslib: 2.5.0
   typescript: 4.9.5
-  vite: 4.1.1
+  vite: 4.1.1_@types+node@18.15.3
 
 packages:
 
@@ -332,7 +334,7 @@ packages:
       svelte: 3.55.1
       tiny-glob: 0.2.9
       undici: 5.18.0
-      vite: 4.1.1
+      vite: 4.1.1_@types+node@18.15.3
     transitivePeerDependencies:
       - supports-color
 
@@ -349,7 +351,7 @@ packages:
       magic-string: 0.27.0
       svelte: 3.55.1
       svelte-hmr: 0.15.1_svelte@3.55.1
-      vite: 4.1.1
+      vite: 4.1.1_@types+node@18.15.3
       vitefu: 0.2.4_vite@4.1.1
     transitivePeerDependencies:
       - supports-color
@@ -357,9 +359,8 @@ packages:
   /@types/cookie/0.5.1:
     resolution: {integrity: sha512-COUnqfB2+ckwXXSFInsFdOAWQzCCx+a5hq2ruyj+Vjund94RJQd4LG2u9hnvJrTgunKAaax7ancBYlDrNYxA0g==}
 
-  /@types/node/18.11.19:
-    resolution: {integrity: sha512-YUgMWAQBWLObABqrvx8qKO1enAvBUdjZOAWQ5grBAkp5LQv45jBvYKZ3oFS9iKRCQyFjqw6iuEa1vmFqtxYLZw==}
-    dev: true
+  /@types/node/18.15.3:
+    resolution: {integrity: sha512-p6ua9zBxz5otCmbpb5D3U4B5Nanw6Pk3PPyX05xnxbB/fRv71N7CPmORg7uAD5P70T0xmx1pzAx/FUfa5X+3cw==}
 
   /@types/pug/2.0.6:
     resolution: {integrity: sha512-SnHmG9wN1UVmagJOnyo/qkk0Z7gejYxOYYmaAwr5u2yFYfsupN3sg10kyzN8Hep/2zbHxCnsumxOoRIRMBwKCg==}
@@ -368,7 +369,7 @@ packages:
   /@types/sass/1.43.1:
     resolution: {integrity: sha512-BPdoIt1lfJ6B7rw35ncdwBZrAssjcwzI5LByIrYs+tpXlj/CAkuVdRsgZDdP4lq5EjyWzwxZCqAoFyHKFwp32g==}
     dependencies:
-      '@types/node': 18.11.19
+      '@types/node': 18.15.3
     dev: true
 
   /acorn-node/1.8.2:
@@ -1091,9 +1092,13 @@ packages:
     dependencies:
       svelte: 3.55.1
 
-  /svelte-image-gallery/1.7.0:
-    resolution: {integrity: sha512-BLlxyYh4MPi8CU2UZrSQ7W5NfHmsA6M1r0uw0ES9hz31/Tf+H2VnJhrjM2urE9ZM3/LP0jJSJX7TqzwfNkdncQ==}
-    dev: true
+  /svelte-lightbox/1.1.1_svelte@3.55.1:
+    resolution: {integrity: sha512-/64GAAQyueVLNriu4ssyal5Cl6v642Q9RcsYCxxrdzwlwmW687UXehfP7jd1O1UwhtSCUBhvHiu8DHTGDpz2lg==}
+    peerDependencies:
+      svelte: ^3.25.0
+    dependencies:
+      svelte: 3.55.1
+    dev: false
 
   /svelte-media-queries/1.5.2:
     resolution: {integrity: sha512-/E3NSpxVF+ObjhpkU3wv5xhRaA/Irqic0eN/LqBNPANIic8uWu9pjVMgjMZRXpsU3SMdbK0e6c62Z78bT7TL7w==}
@@ -1253,7 +1258,7 @@ packages:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
 
-  /vite/4.1.1:
+  /vite/4.1.1_@types+node@18.15.3:
     resolution: {integrity: sha512-LM9WWea8vsxhr782r9ntg+bhSFS06FJgCvvB0+8hf8UWtvaiDagKYWXndjfX6kGl74keHJUcpzrQliDXZlF5yg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -1278,6 +1283,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 18.15.3
       esbuild: 0.16.17
       postcss: 8.4.21
       resolve: 1.22.1
@@ -1293,7 +1299,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.1.1
+      vite: 4.1.1_@types+node@18.15.3
 
   /wrappy/1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
