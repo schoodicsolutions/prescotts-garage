@@ -3,13 +3,13 @@
     import Image from "$lib/Image.svelte";
 </script>
 <main class = 'bg-black'>
-    <div class = {`w-full flex justify-center items-center min-h-[200px] bg-[url('/img/gallery/5619.webp')] bg-center bg-no-repeat`}>
-        <div class = 'w-full min-h-[200px] flex justify-center items-center bg-black/50'>
+    <div class = {`w-full min-h-[325px] flex justify-center items-center bg-[url('/img/gallery/5619.webp')] bg-center bg-no-repeat`}>
+        <div class = 'w-full min-h-[325px] flex justify-center items-center bg-black/50'>
             <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Rust Repair</h1>
         </div>
     </div>
-    <div class = 'flex md:flex-row flex-col max-w-screen-xl m-auto px-3 py-5 gap-1'>
-        <div class = 'flex-1 text-white'>
+    <div class = 'flex md:flex-row flex-col max-w-screen-xl m-auto px-3 py-7 gap-5'>
+        <div class = 'flex-1 text-white flex gap-3 flex-col'>
             <p>
                 At Prescott's Garage, we understand how frustrating and unsightly rust can be on your vehicle. That's why we offer expert rust repair services to help restore your vehicle's appearance and protect it from further damage.
                 <br/><br/>
@@ -20,7 +20,7 @@
             <a class="button button-brand w-full"  use:scrollTo={{section: "contact"}} href="/">Get In Touch</a>
         </div>
         <div class = 'flex-1'>
-            <Image src = '/img/gallery/9770.webp' alt = 'Car with Rust' width='100%'/>
+            <Image src = '/img/gallery/9770.webp' alt = 'Car with Rust' width='100%' height="100%"/>
         </div>
     </div>
 </main>
