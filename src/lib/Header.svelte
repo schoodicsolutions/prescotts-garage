@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { ALL_NAV_ITEMS, LEFT_NAV_ITEMS, RIGHT_NAV_ITEMS } from "../constants";
+    import { ALL_NAV_ITEMS, BOTTOM_NAV_ITEMS, SERVICES_DROPDOWN_ITEMS, BOTTOM_NAV_ITEMS_WITHOUT_DROPDOWN } from "../constants";
     import Logo from "./Logo.svelte";
     import Nav from "./Nav.svelte";
     
@@ -26,24 +26,15 @@
 
 <MediaQuery query={['(min-width: 1600px)', '(max-width: 1599px) and (min-width: 641px)', '(max-width: 640px)']} let:matchesArray={[xxl, between, sm]}>
     <header class="main-header" aria-label="Main Header">
-        <div class="flex gap-16 items-center justify-between sm:justify-center">
-                {#if xxl}
-                <Nav
-                    class="flank-nav"
-                    navItems={LEFT_NAV_ITEMS}
-                    ariaLabel='Left Main Nav' 
-                />
-                {:else if sm}
-                    <div class="w-16 h-12 pl-4"/>
-                {/if}
+        <div class="flex flex-col gap-10 items-center justify-between sm:justify-center">
                 <a href="/" aria-label="Prescott's Garage">
                     <Logo class="w-20 sm:w-36 shrink-0 hover:text-white transition" />
                 </a>
                 {#if xxl}
                 <Nav
                     class="flank-nav"
-                    navItems={RIGHT_NAV_ITEMS}
-                    ariaLabel='Right Main Nav' 
+                    navItems={BOTTOM_NAV_ITEMS}
+                    ariaLabel='Main Nav' 
                 />
                 {:else if sm}
                     <div class="w-16 pr-4">
@@ -56,7 +47,7 @@
         {#if between}
             <Nav
                 class="below-nav"
-                navItems={ALL_NAV_ITEMS}
+                navItems={BOTTOM_NAV_ITEMS}
                 ariaLabel='Main Nav' 
             />
         {/if}
@@ -70,7 +61,7 @@
         >
             <Nav
                 class="floating-nav"
-                navItems={ALL_NAV_ITEMS}
+                navItems={BOTTOM_NAV_ITEMS_WITHOUT_DROPDOWN}
                 ariaLabel='Main Nav'
             />
         </header>
@@ -90,7 +81,7 @@
         >
             <Nav
                 class="mobile-nav"
-                navItems={ALL_NAV_ITEMS}
+                navItems={BOTTOM_NAV_ITEMS}
                 ariaLabel='Main Nav'
                 on:navigate={toggleMobileNav}
             />
