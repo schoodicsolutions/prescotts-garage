@@ -24,7 +24,7 @@ body {
 
 @layer components {
     .main-header {
-        @apply shadow-xl h-20 sm:h-auto bg-midnight text-white py-4 sm:py-8 flex-col items-center sticky top-0 sm:relative w-full z-50;
+        @apply shadow-xl h-20 sm:h-auto max-h-64 bg-midnight text-white py-4 sm:py-8 flex-col items-center sticky top-0 sm:relative w-full z-50;
     }
 
     nav {
@@ -44,7 +44,7 @@ body {
     }
 
     .below-nav {
-        @apply gap-x-12 gap-y-4 pt-8 px-8 flex-wrap items-center justify-center;
+        @apply gap-x-12 gap-y-4 pt-8 px-8 flex-wrap items-center justify-center max-h-20;
     }
 
     .floating-nav {
@@ -105,5 +105,9 @@ body {
 
     .image-order-even .section-image {
         @apply order-1 lg:order-1;
+    }
+
+    .sp {
+        @apply transition-all gap-2 text-red-600 h-32 w-32 flex flex-col items-center justify-center border-red-600 border-2 hover:border-red-400 hover:text-red-400;
     }
 }
