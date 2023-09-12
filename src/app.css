@@ -95,8 +95,8 @@ body {
 
     section.section {
         @apply odd:bg-midnight bg-storm text-white even:image-order-even;
-        @apply flex flex-col py-12 px-8 sm:px-12 justify-center items-center;
-        @apply scroll-m-24
+        @apply flex flex-row sm:flex-col gap-24 justify-center items-center;
+        @apply py-16 px-4;
     }
 
     .section-image {
@@ -108,6 +108,12 @@ body {
     }
 
     .sp {
-        @apply transition-all gap-2 text-red-600 h-32 w-32 flex flex-col items-center justify-center border-red-600 border-2 hover:border-red-400 hover:text-red-400;
+        @apply transition-all gap-2 text-red-600 h-36 w-36 flex flex-col items-center justify-center border-red-600 border-2 hover:border-red-400 hover:text-red-400;
     }
+
+    .text-smb-mid {
+        font-size: 0.9375rem;
+        line-height: 1.375rem;
+    }
+    
 }

@@ -40,18 +40,20 @@
             <a class="button button-brand" use:scrollTo={{section: "contact"}} href="/">Book An Appointment</a>
         </div>
         <div>
-            <Section scrollRef="about" heading="About Us" image={{src: "/img/wagons.webp", alt: "Two Jeep Grand Wagoneers, parked next to one another"}}>
-                <p class="text-justify">
-                    Harold Prescott started Prescott's Garage in 2005 with one mission:
-                    to provide reliable, honest auto repair services to the Greater Machias area.
-                    Since then, our shop has become a trusted name in the community, 
-                    thanks to Harold's dedication to his customers and his passion for his work. 
-                </p>
-                <p class="text-justify">
-                    We take pride in providing top-quality auto services at affordable prices.
-                    From routine maintenance to complex repairs, our skilled mechanics have the
-                    expertise to get you back on the road safely and efficiently. 
-                </p>
+            <Section scrollRef="about" heading="About Us" image={{src: "/img/wagons.webp", alt: "Two Jeep Grand Wagoneers, parked next to one another",}}>
+                <div class="flex flex-col items-center justify-center gap-4">
+                    <p class="text-justify text-base">
+                        Harold Prescott started Prescott's Garage in 2005 with one mission:
+                        to provide reliable, honest auto repair services to the Greater Machias area.
+                        Since then, our shop has become a trusted name in the community, 
+                        thanks to Harold's dedication to his customers and his passion for his work. 
+                    </p>
+                    <p class="text-justify text-base">
+                        We take pride in providing top-quality auto services at affordable prices.
+                        From routine maintenance to complex repairs, our skilled mechanics have the
+                        expertise to get you back on the road safely and efficiently. 
+                    </p>
+                </div>
 
                 <a class="button button-brand w-full"  use:scrollTo={{section: "contact"}} href="/">Get In Touch</a>
             </Section>
@@ -61,7 +63,7 @@
                     keep your vehicle running smoothly and efficiently.
                     Here are some of the services we offer:
                 </p>
-                <ul class="w-full text-left marker:text-orange-500 list-disc font-bold text-lg grid grid-cols-1 sm:grid-cols-2 sm:text-lg gap-y-4">
+                <ul class="w-full text-left marker:text-orange-500 list-square font-bold text-lg grid grid-cols-1 sm:grid-cols-2 sm:text-lg gap-y-4 gap-x-6">
                     <li>Oil Changes</li>
                     <li>State Inspections</li>
                     <li>Brake Service</li>
@@ -74,9 +76,12 @@
                     <li>Custom & Performance</li>
                 </ul>
                 <a class="button button-brand w-full" use:scrollTo={{section: "contact"}} href="/">Get In Touch</a>
-            </Section>
-            <Section heading="More on...">
-                <div class="h-40 text-base flex flex-row gap-5 justify-evenly items-center">
+
+                <h2 class="font-poppins text-4xl sm:text-3xl lg:text-5xl font-bold text-left">
+                    More on...
+                </h2>
+                
+                <nav class="h-40  text-base flex flex-row gap-5 justify-evenly items-center">
                     <a href="/customs" class="sp">
                         <svg width="54" height="50" viewBox="0 0 81 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M63.1666 20.0334C62.5 18.0667 60.6333 16.6667 58.4333 16.6667H21.7666C19.5666 16.6667 17.7333 18.0667 17.0333 20.0334L10.1 40V66.6667C10.1 68.5 11.6 70 13.4333 70H16.7666C18.6 70 20.1 68.5 20.1 66.6667V63.3334H60.1V66.6667C60.1 68.5 61.6 70 63.4333 70H66.7666C68.6 70 70.1 68.5 70.1 66.6667V40L63.1666 20.0334ZM22.9333 23.3334H57.2333L60.8333 33.7H19.3333L22.9333 23.3334ZM63.4333 56.6667H16.7666V40H63.4333V56.6667Z" fill="#F85F00"/>
@@ -110,7 +115,7 @@
                         </svg>                            
                         <span>Diagnostics</span>
                     </a>
-                </div>
+                </nav>
             </Section>
             <Section scrollRef="testimonials" heading="Testimonials">
                 <div class="flex flex-col max-w-full lg:flex-row lg:py-12 gap-10">
@@ -133,18 +138,6 @@
                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
                     <div class="flex flex-col gap-4 flex-1">
                         <p class="text-center font-poppins text-2xl">Ready to book?</p>
-                        <div>
-                            <p class="text-center font-poppins text-lg">Hours of Operation</p>
-                            <div class="grid grid-cols-2 text-center">
-                                <p class="font-bold">Sunday</p> <p class="font-medium">CLOSED</p>
-                                <p class="font-bold">Monday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
-                                <p class="font-bold">Tuesday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
-                                <p class="font-bold">Wednesday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
-                                <p class="font-bold">Thursday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
-                                <p class="font-bold">Friday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
-                                <p class="font-bold">Saturday</p> <p class="font-medium">CLOSED</p>
-                            </div>  
-                        </div>
 
                         <DeviceDetector showInDevice="mobile">
                             <a class="button button-shrink button-brand w-full" href="tel:12072593360">
@@ -165,7 +158,23 @@
                             Connect with us on Messenger
                         </a>
 
+                        <div>
+                            <p class="text-center font-poppins text-lg">Hours of Operation</p>
+                            <div class="grid grid-cols-2 gap-2 text-center">
+                                <p class="font-bold">Sunday</p> <p class="font-medium">CLOSED</p>
+                                <p class="font-bold">Monday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
+                                <p class="font-bold">Tuesday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
+                                <p class="font-bold">Wednesday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
+                                <p class="font-bold">Thursday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
+                                <p class="font-bold">Friday</p> <p class="font-medium">8 AM &ndash; 5 PM</p>
+                                <p class="font-bold">Saturday</p> <p class="font-medium">CLOSED</p>
+                            </div>  
+                        </div>
+
                     </div>
+
+                    <p class="rounded-none border min-h-40 max-h-auto border-solid border-slate-500"></p>
+
                     <div class="flex-1">
                         <p class="text-center font-poppins text-2xl">Come visit us!</p>
                         <address class="text-center text-xl">
