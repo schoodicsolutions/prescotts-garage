@@ -5,19 +5,23 @@
     export let image: {
         src: string;
         alt: string;
+        // height: string | number;
     } | undefined = undefined;
+
     export let heading: string | undefined = undefined;
     export let headingOnSide: boolean = false;
+    let clazz: null | string = null;
+    export { clazz as class };
 
     let scrollRefName: string | undefined = undefined;
     export { scrollRefName as scrollRef };
 </script>
 
-<section use:scrollRef={scrollRefName} class="section">
+<section use:scrollRef={scrollRefName} class="section {clazz}">
     <div class="flex flex-col lg:flex-row gap-24 max-w-[1000px] items-center justify-center">
         {#if image}
             <div class="section-image">
-                <Image src={image.src} alt={image.alt} aspect="371:491" width="95%"/>
+                <Image src={image.src} alt={image.alt} aspect="371:491" width="95%" />
             </div>
         {/if}
         <div class="flex flex-col gap-8">

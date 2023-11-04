@@ -1,3 +1,4 @@
+/*
 import { PUBLIC_BASEURL } from '$env/static/public';
 
 export const prerender = true;
@@ -9,3 +10,4 @@ export function load({ url }: { url: URL }) {
         canonical: `${PUBLIC_BASEURL}${url.pathname}`
     }
 }
+*/
