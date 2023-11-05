@@ -118,8 +118,8 @@
                     </a>
                 </nav>
             </Section>
-            <Section scrollRef="testimonials" heading="Testimonials">
-                <div class="flex flex-col max-w-full lg:flex-row lg:py-12 gap-10">
+            <Section scrollRef="testimonials" heading="Testimonials" wide>
+                <div class="flex flex-col max-w-full lg:flex-row lg:py-12 lg:gap-32 gap-10 justify-between px-10">
                     <Review rating={5} author="John N.">
                         Last year, my car broke
                         down in the middle of town, I was towed to Prescott's Garage.
