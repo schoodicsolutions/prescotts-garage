@@ -108,7 +108,7 @@ body {
     }
 
     .sp {
-        @apply transition-all gap-2 text-red-600 h-36 w-36 flex flex-col items-center justify-center border-red-600 border-2 hover:border-red-400 hover:text-red-400;
+        @apply transition-all text-brand w-44 pt-11 pb-8 flex flex-col gap-5 items-center justify-center border-brand border-2 hover:border-red-400 hover:text-red-400 bg-black/30 hover:bg-black/50;
     }
 
     .text-smb-mid {
