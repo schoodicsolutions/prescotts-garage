@@ -67,10 +67,22 @@
             <Section 
                 scrollRef="services" 
                 heading="Services" 
+                headingOnSide={true}
                 image={{
                     src: '/img/jeep.webp', 
                     alt: 'Jeep Wrangler body suspended in the air on lift, with frame and motor below',
                 }}>
+                <!--- image={{
+                    src: '/img/jeep.webp', 
+                    alt: 'Jeep Wrangler body suspended in the air on lift, with frame and motor below',
+                }} --->
+                <!---
+                <img 
+                    class="order-1 lg:order-none lg:w-1/2 shrink-0"
+                    src="/img/jeep.webp" 
+                    alt="Jeep Wrangler body suspended in the air on lift, with frame and motor below" 
+                />
+                ---> 
                 <p class="text-justify">
                     Prescott's Garage offers a range of services to help
                     keep your vehicle running smoothly and efficiently.
@@ -136,31 +148,18 @@
                 </div>
             </Section>
             <!--- confused on <Section> styling --->
-            <Section scrollRef="contact" heading="Contact Us">
+            <Section scrollRef="contact" heading="Contact Us" headingOnSide={true}>
                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
                     <div class="flex flex-col gap-5 flex-1">
                         <!---<h1 class="text-left font-poppins text-5xl">Contact Us</h1>--->
                         <h2 class="text-left font-poppins text-2xl">Ready to book?</h2>
                         <h3 class="font-bold text-2xl text-left">Call us at: </h3>
                         
+                        <p class="text-2xl font-black text-left hidden sm:block tracking-tight font-poppins">(207) 259-3360</p>
+                        <p class="text-2xl font-black text-left block sm:hidden tracking-tight font-poppins">(207) 259-3360</p>
 
-                        <DeviceDetector showInDevice="mobile">
-                            <a class="button button-shrink button-brand w-full" href="tel:12072593360">
-                                <PhoneIcon width="32" height="32"/>
-                                <!--- confused on phone number styling --->
-                                Call (207) 259-3360
-                            </a>
-                        </DeviceDetector>
-                
-                        <DeviceDetector showInDevice="desktop">
-                            <div class="mb-0.5">
-                                <!---<h3 class="text-lg font-medium text-center">Call us at</h3>--->
-                                <p class="text-3xl font-black text-center tracking-tight font-poppins">(207) 259-3360</p>
-                            </div>
-                        </DeviceDetector>
-            
                         <a class="button button-shrink button-messenger w-full" href="https://m.me/100057455889767">
-                            <MessengerIcon width="32" height="32"/>
+                            <MessengerIcon width="32" height="32" />
                             Connect With Us
                         </a>
                         <br />

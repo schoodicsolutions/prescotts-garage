@@ -27,25 +27,20 @@
     >
         {#each navItems as navItem}
             {#if navItem.dropdown}
-                <!-- svelte-ignore a11y-mouse-events-have-key-events -->
                 <Menu class="w-32 flex flex-col -mt-1 transition items-center">
-                    <MenuButton
-                        onMouseEnter={() => (openMenu = true)}
-                        onMouseLeave={() => (openMenu = false)}
+
+                    <a
+                        class="navlink hv:hover:text-brand"
+                        href={navItem.pathname}
+                        use:scrollTo={navItem.scrollTo ? {
+                            section: navItem.scrollTo,
+                            onNavigate: () => {
+                                dispatch('navigate', navItem)
+                            },
+                        } : undefined}
                     >
-                        <a
-                            class="navlink hv:hover:text-brand"
-                            href={navItem.pathname}
-                            use:scrollTo={navItem.scrollTo ? {
-                                section: navItem.scrollTo,
-                                onNavigate: () => {
-                                    dispatch('navigate', navItem)
-                                },
-                            } : undefined}
-                        >
-                            <p class="navlink hv:hover:text-brand flex flex-row items-center justify-center gap-1">{navItem.label} <ChevronDown /></p>
-                        </a>
-                    </MenuButton>
+                    <p class="navlink hv:hover:text-brand flex flex-row items-center justify-center gap-1">{navItem.label}</p>
+                    </a>
                     <MenuItems class="enabled:hover:bg-white/25 w-36 h-48 flex flex-col justify-center items-center bg-storm z-40 gap-2">
                         {#each navItem.dropdown as dropItem}
                         <MenuItem let:active class="flex flex-col -mt-1 transition hv:hover:text-brand items-center">

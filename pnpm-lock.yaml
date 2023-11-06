@@ -1147,7 +1147,7 @@ packages:
   /svelte-device-detector@0.2.2:
     resolution: {integrity: sha512-b74tlGK/kBVXQODgjOOGM/Fos8nJxBNjnI/axaVvgULl0r3wmf5SJuVvUYFybz3T0v8qe9CDzsMDdhQm/S8xXQ==}
     dependencies:
-      ua-parser-js: 0.7.36
+      ua-parser-js: 0.7.37
     dev: false
 
   /svelte-hmr@0.15.3(svelte@3.59.2):
@@ -1365,8 +1365,8 @@ packages:
     hasBin: true
     dev: true
 
-  /ua-parser-js@0.7.36:
-    resolution: {integrity: sha512-CPPLoCts2p7D8VbybttE3P2ylv0OBZEAy7a12DsulIEcAiMtWJy+PBgMXgWDI80D5UwqE8oQPHYnk13tm38M2Q==}
+  /ua-parser-js@0.7.37:
+    resolution: {integrity: sha512-xV8kqRKM+jhMvcHWUKthV9fNebIzrNy//2O9ZwWcfiBFR5f25XVZPLlEajk/sf3Ra15V92isyQqnIEXRDaZWEA==}
     dev: false
 
   /undici@5.26.4:

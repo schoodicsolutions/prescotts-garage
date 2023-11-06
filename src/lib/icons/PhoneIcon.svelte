@@ -4,7 +4,7 @@
     export let height: string | number | null | undefined = '24px';
 
     let className: string | null | undefined = undefined;
-    export {className as class};
+    export { className as class };
 </script>
 
 <SvgIcon
