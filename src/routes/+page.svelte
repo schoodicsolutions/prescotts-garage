@@ -31,7 +31,7 @@
         fadeOnLoop={true}
         loop={true}
         minHeight={sm ? 600 : 800}
-        topOffset={sm ? '-100px' : md ? '-200px' : 0}
+        topOffset={'-80px'}
         maxScroll={1200}
         verticalParallax={-200}
         downSample={4}

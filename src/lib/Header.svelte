@@ -26,8 +26,8 @@
 
 <MediaQuery query={['(min-width: 1600px)', '(max-width: 1599px) and (min-width: 641px)', '(max-width: 640px)']} let:matchesArray={[xxl, between, sm]}>
     <header class="main-header" aria-label="Main Header">
-        <div class="flex flex-col gap-10 items-center justify-between sm:justify-center">
-                <a href="/" aria-label="Prescott's Garage">
+        <div class="flex flex-row sm:flex-col gap-10 items-center justify-between sm:justify-center">
+                <a href="/" aria-label="Prescott's Garage" class="pl-8 sm:pl-0">
                     <Logo class="w-20 sm:w-36 shrink-0 hover:text-white transition" />
                 </a>
                 {#if xxl}

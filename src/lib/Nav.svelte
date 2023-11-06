@@ -27,7 +27,7 @@
     >
         {#each navItems as navItem}
             {#if navItem.dropdown}
-                <Menu class="w-32 flex flex-col -mt-1 transition items-center">
+                <Menu class="flex flex-col -mt-1 transition items-center">
 
                     <a
                         class="navlink hv:hover:text-brand"
