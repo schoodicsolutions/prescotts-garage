@@ -14,7 +14,7 @@
     import VideoBackground from "$lib/VideoBackground.svelte";
     import DeviceDetector from "svelte-device-detector";
     import MediaQuery from "svelte-media-queries";
-    import { scrollTo } from "svelte-scroll-nav";
+    import { scrollRef, scrollTo } from "svelte-scroll-nav";
   
   
     const sections = ['about', 'portfolio', 'testimonials', 'contact', 'customs', 'alignments', 'rust', 'maintenance', 'diagnostics']
@@ -64,7 +64,8 @@
   
                   <a class="button button-brand w-full"  use:scrollTo={{section: "contact"}} href="/">Get In Touch</a>
               </Section>
-              <div class="container mx-auto p-6 odd:bg-midnight bg-storm text-white even:image-order-even w-full">
+              <section class="bg-storm section" use:scrollRef={"services"}>
+              <div class="container mx-auto p-6  text-white even:image-order-even w-full">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
                       <h2 class="text-3xl font-bold mb-6">Services</h2>
@@ -92,33 +93,33 @@
                     </div>
                   </div>
                   <div class="mt-12">
-                    <h3 class="font-poppins text-4xl sm:text-3xl lg:text-5xl font-bold text-left">More on...</h3>
-                      <div class="h-40 text-base flex flex-row gap-12 justify-evenly items-center">
-                      <div class="flex flex-col items-center p-4">
+                    <h3 class="font-poppins text-4xl sm:text-3xl lg:text-5xl font-bold text-left mb-4">More on...</h3>
+                      <div class="text-base flex flex-row gap-12 justify-evenly items-center">
                           <a href="/customs" class="transition-all text-brand w-44 pt-11 pb-8 flex flex-col gap-5 items-center justify-center border-brand border-2 hover:border-red-400 hover:text-red-400 bg-black/30 hover:bg-black/50">
-                          <CarIcon width="60" height="60" />
-                          <a href="/customs"><span>Customs</span></a>
+                            <CarIcon width="60" height="60" />
+                            <span>Customs</span>
                           </a>
-                      </div>
-                      <div class="flex flex-col items-center p-4 border rounded-lg">
-                          <TireIcon width="60" height="60" />
-                          <a href="/customs"><span>Customs</span></a>
-                      </div>
-                      <div class="flex flex-col items-center p-4 border rounded-lg">
-                          <WrenchIcon width="60" height="60" />
-                          <a href="/customs"><span>Customs</span></a>
-                      </div>
-                      <div class="flex flex-col items-center p-4 border rounded-lg">
-                          <AirPurifierIcon width="60" height="60" />
-                          <a href="/customs"><span>Customs</span></a>
-                      </div>
-                      <div class="flex flex-col items-center p-4 border rounded-lg">
-                          <HeartMonitorIcon width="60" height="60" />
-                          <a href="/customs"><span>Customs</span></a>
-                      </div>
+                          <a href="/alignments" class="transition-all text-brand w-44 pt-11 pb-8 flex flex-col gap-5 items-center justify-center border-brand border-2 hover:border-red-400 hover:text-red-400 bg-black/30 hover:bg-black/50">
+                            <TireIcon width="60" height="60" />
+                            <span>Alignments</span>
+                          </a>
+                          <a href="/rust" class="transition-all text-brand w-44 pt-11 pb-8 flex flex-col gap-5 items-center justify-center border-brand border-2 hover:border-red-400 hover:text-red-400 bg-black/30 hover:bg-black/50">
+                            <WrenchIcon width="60" height="60" />
+                            <span>Rust Repair</span>
+                          </a>
+                          <a href="/maintenance" class="transition-all text-brand w-44 pt-11 pb-8 flex flex-col gap-5 items-center justify-center border-brand border-2 hover:border-red-400 hover:text-red-400 bg-black/30 hover:bg-black/50">
+                            <AirPurifierIcon width="60" height="60" />
+                            <span>Air Conditioning</span>
+                          </a>
+                          <a href="/customs" class="transition-all text-brand w-44 pt-11 pb-8 flex flex-col gap-5 items-center justify-center border-brand border-2 hover:border-red-400 hover:text-red-400 bg-black/30 hover:bg-black/50">
+                            <HeartMonitorIcon width="60" height="60" />
+                            <span>Diagnostics</span>
+                          </a>
+                  
                     </div>
                   </div>
                 </div>
+            </section>
               <!---
               <Section 
                   scrollRef="services" 
