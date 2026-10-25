@@ -53,10 +53,9 @@
     class="brightness-50"
 >
     <div class="flex min-h-[460px] sm:min-h-[540px] justify-center items-center flex-col gap-8 px-5 sm:px-8 py-16">
-        <h1 class="text-white font-kameron text-4xl sm:text-6xl lg:text-7xl font-bold text-center leading-tight drop-shadow-hero">
-            We're Your #1 For<br />
-            Auto Repair In The<br/>
-            Machias Bay Area
+        <h1 class="text-white font-kameron text-5xl sm:text-7xl lg:text-8xl font-bold text-center leading-tight drop-shadow-hero">
+            Fixed Right.<br />
+            Priced Fair.
         </h1>
         <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <a class="button button-brand w-full sm:w-auto" use:scrollTo={{section: "contact"}} href="/">Book An Appointment</a>
