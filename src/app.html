@@ -7,6 +7,12 @@
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />
 		<meta name="theme-color" content="#10080F" />
 		<meta name="viewport" content="width=device-width" />
+		<!-- Hide the "Powered by Netlify" badge Netlify injects on deploy -->
+		<style>
+			#nl-badge-frame {
+				display: none !important;
+			}
+		</style>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
