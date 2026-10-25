@@ -7,10 +7,40 @@
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />
 		<meta name="theme-color" content="#10080F" />
 		<meta name="viewport" content="width=device-width" />
-		<!-- Hide the "Powered by Netlify" badge Netlify injects on deploy -->
+		<!--
+			Hide the badge Netlify injects on deploy. Its script adds an iframe:
+			#nl-badge-frame for visitors, #nl-hud-frame for the logged-in site owner.
+			It has changed selector before, so match by id, id prefix, class and iframe
+			src, then hide it several independent ways so a wrapper can't bring it back.
+			It only exists on the deployed site, never locally.
+		-->
 		<style>
-			#nl-badge-frame {
+			#nl-badge-frame,
+			#nl-hud-frame,
+			#netlify-badge,
+			[id^="nl-badge"],
+			[id^="nl-hud"],
+			[class*="nl-badge"],
+			[class*="netlify-badge"],
+			iframe[src*="netlify"][src*="badge"] {
 				display: none !important;
+				visibility: hidden !important;
+				opacity: 0 !important;
+				width: 0 !important;
+				height: 0 !important;
+				max-width: 0 !important;
+				max-height: 0 !important;
+				min-width: 0 !important;
+				min-height: 0 !important;
+				margin: 0 !important;
+				padding: 0 !important;
+				border: 0 !important;
+				overflow: hidden !important;
+				position: absolute !important;
+				inset: auto !important;
+				clip-path: inset(100%) !important;
+				pointer-events: none !important;
+				z-index: -2147483647 !important;
 			}
 		</style>
 		%sveltekit.head%
