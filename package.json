@@ -38,7 +38,6 @@
     "@sveltejs/adapter-netlify": "^7.0.1",
     "svelte-lightbox": "^1.1.9",
     "svelte-media-queries": "^1.6.2",
-    "svelte-scroll-nav": "^1.0.9",
-    "youtube-player": "^5.6.0"
+    "svelte-scroll-nav": "^1.0.9"
   }
 }

@@ -12,6 +12,7 @@
     import Review from "#lib/Review.svelte";
     import Section from "#lib/Section.svelte";
     import VideoBackground from "#lib/VideoBackground.svelte";
+    import { PUBLIC_MEDIA_URL } from "$app/env/public";
     import MediaQuery from "svelte-media-queries";
     import { scrollRef, scrollTo } from "svelte-scroll-nav";
   
@@ -26,7 +27,7 @@
   <MediaQuery query={['(min-width: 800px)', '(max-width: 640px)']} >
       {#snippet children({ matchesArray: [md, sm] }: { matchesArray: boolean[] })}
     <VideoBackground
-            videoId="Lupj8t_N03I"
+            src={`${PUBLIC_MEDIA_URL}/pgarage-banner.mp4`}
             poster="/img/bg-shop.webp"
             fadeOnLoop={true}
             loop={true}
@@ -34,8 +35,6 @@
             topOffset={sm ? '-100px' : md ? '-200px' : 0}
             maxScroll={1200}
             verticalParallax={-200}
-            downSample={4}
-            playDelay={5}
             class="brightness-50"
         >
             <div class="flex h-[400px] sm:h-[500px] sm:max-h-[500px] overflow-hidden justify-center items-center flex-col gap-6 px-4 sm:px-8">
