@@ -7,6 +7,7 @@ export function load({ url }: { url: URL }) {
         title: 'Diagnostics',
         suffix: 'East Machias, Maine',
         description: "Vehicle diagnostics in East Machias, ME. Check engine light or strange noises? We find the root cause and give you a clear report before any repair.",
-        canonical: `${PUBLIC_BASEURL}${url.pathname}`
+        canonical: `${PUBLIC_BASEURL}${url.pathname}`,
+        image: '/og/diagnostics.jpg'
     }
 }

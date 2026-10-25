@@ -7,6 +7,7 @@ export function load({ url }: { url: URL }) {
         title: 'Alignments',
         suffix: 'East Machias, Maine',
         description: "Wheel alignments in East Machias, ME. We inspect your suspension, steering and tires, then align to manufacturer specs for better handling and tire life.",
-        canonical: `${PUBLIC_BASEURL}${url.pathname}`
+        canonical: `${PUBLIC_BASEURL}${url.pathname}`,
+        image: '/og/alignments.jpg'
     }
 }

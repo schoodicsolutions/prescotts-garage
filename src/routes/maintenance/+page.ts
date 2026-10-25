@@ -7,6 +7,7 @@ export function load({ url }: { url: URL }) {
         title: 'Air Conditioning',
         suffix: 'East Machias, Maine',
         description: "Auto air conditioning repair in East Machias, ME. We diagnose and fix leaks, compressors and clogged filters, and offer A/C inspections and recharges.",
-        canonical: `${PUBLIC_BASEURL}${url.pathname}`
+        canonical: `${PUBLIC_BASEURL}${url.pathname}`,
+        image: '/og/maintenance.jpg'
     }
 }

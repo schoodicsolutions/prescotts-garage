@@ -7,6 +7,7 @@ export function load({ url }: { url: URL }) {
         title: 'Rust Repair',
         suffix: 'East Machias, Maine',
         description: "Rust repair and prevention in East Machias, ME. From fender spots to undercarriage damage, plus undercoating and rust inhibitors to stop corrosion.",
-        canonical: `${PUBLIC_BASEURL}${url.pathname}`
+        canonical: `${PUBLIC_BASEURL}${url.pathname}`,
+        image: '/og/rust.jpg'
     }
 }

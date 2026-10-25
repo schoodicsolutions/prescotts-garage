@@ -21,7 +21,11 @@ module.exports = {
         archivo: ["Archivo"],
       },
       dropShadow: {
-        hero: "0 0 2px rgba(0, 0, 0, 1)",
+        hero: [
+          "0 0 2px rgba(0, 0, 0, 1)",
+          "0 3px 6px rgba(0, 0, 0, 0.7)",
+          "0 10px 30px rgba(0, 0, 0, 0.6)",
+        ],
       },
       backgroundImage: {
         shop: "url('/bg-placeholder.jpg')",

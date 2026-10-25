@@ -8,6 +8,7 @@
     import MessengerIcon from "#lib/icons/MessengerIcon.svelte";
     import PhoneIcon from "#lib/icons/PhoneIcon.svelte";
     import Hours from "#lib/Hours.svelte";
+    import LocalBusinessSchema from "#lib/LocalBusinessSchema.svelte";
     import Review from "#lib/Review.svelte";
     import Section from "#lib/Section.svelte";
     import VideoBackground from "#lib/VideoBackground.svelte";
@@ -40,6 +41,8 @@
         { href: '/diagnostics', label: 'Diagnostics', icon: HeartMonitorIcon },
     ];
 </script>
+
+<LocalBusinessSchema />
 
 <VideoBackground
     src={`${PUBLIC_MEDIA_URL}/pgarage-banner.mp4`}
