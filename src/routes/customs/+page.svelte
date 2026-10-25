@@ -1,9 +1,14 @@
 <script lang="ts">
+  import JsonLd from "#lib/JsonLd.svelte";
   import PageBanner from "#lib/PageBanner.svelte";
+  import { servicePage } from "#lib/schema.ts";
+  import { page } from "$app/state";
   import { LightboxGallery, GalleryThumbnail, GalleryImage } from "svelte-lightbox";
   let { data } = $props();
   const images = $derived(data.images);
 </script>
+
+<JsonLd nodes={servicePage({ name: "Custom Car Builds", description: page.data.description, pathname: page.url.pathname })} />
 
 <PageBanner title="Customs" image="/img/gallery/8162.webp" />
 

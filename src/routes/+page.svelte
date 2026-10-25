@@ -8,30 +8,18 @@
     import MessengerIcon from "#lib/icons/MessengerIcon.svelte";
     import PhoneIcon from "#lib/icons/PhoneIcon.svelte";
     import Hours from "#lib/Hours.svelte";
-    import LocalBusinessSchema from "#lib/LocalBusinessSchema.svelte";
+    import JsonLd from "#lib/JsonLd.svelte";
+    import { business, website } from "#lib/schema.ts";
     import Review from "#lib/Review.svelte";
     import Section from "#lib/Section.svelte";
     import VideoBackground from "#lib/VideoBackground.svelte";
-    import { ADDRESS, DIRECTIONS_HREF, MESSENGER_HREF, PHONE_DISPLAY, PHONE_HREF } from "#constants";
+    import { ADDRESS, DIRECTIONS_HREF, MESSENGER_HREF, PHONE_DISPLAY, PHONE_HREF, SERVICES } from "#constants";
     import { PUBLIC_MEDIA_URL } from "$app/env/public";
     import { MediaQuery } from "svelte/reactivity";
     import { scrollRef, scrollTo } from "svelte-scroll-nav";
 
     const sm = new MediaQuery('max-width: 640px');
     const md = new MediaQuery('min-width: 800px');
-
-    const services = [
-        'Oil Changes',
-        'State Inspections',
-        'Brake Service',
-        'Tire Rotation & Balance',
-        'Tire Repair & Replacement',
-        'Electrical System Repair',
-        'Suspension & Steering',
-        'Air Conditioning Service',
-        'Exhaust System Repair',
-        'Custom & Performance',
-    ];
 
     const moreServices = [
         { href: '/customs', label: 'Customs', icon: CarIcon },
@@ -42,7 +30,7 @@
     ];
 </script>
 
-<LocalBusinessSchema />
+<JsonLd nodes={[business, website]} />
 
 <VideoBackground
     src={`${PUBLIC_MEDIA_URL}/pgarage-banner.mp4`}
@@ -101,7 +89,7 @@
                             Here are some of the services we offer:
                         </p>
                         <ul class="w-full text-left marker:text-brand list-square pl-5 font-bold text-lg grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8">
-                            {#each services as service}
+                            {#each SERVICES as service}
                                 <li class="pl-1">{service}</li>
                             {/each}
                         </ul>

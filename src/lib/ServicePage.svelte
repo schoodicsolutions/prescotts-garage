@@ -1,8 +1,11 @@
 <script lang="ts">
     import type { Snippet } from "svelte";
+    import { page } from "$app/state";
     import { scrollTo } from "svelte-scroll-nav";
     import Image from "./Image.svelte";
+    import JsonLd from "./JsonLd.svelte";
     import PageBanner from "./PageBanner.svelte";
+    import { servicePage } from "./schema";
 
     interface Props {
         title: string;
@@ -13,6 +16,8 @@
 
     let { title, banner, image, children }: Props = $props();
 </script>
+
+<JsonLd nodes={servicePage({ name: title, description: page.data.description, pathname: page.url.pathname })} />
 
 <PageBanner {title} image={banner} />
 

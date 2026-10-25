@@ -5,6 +5,21 @@ export const PHONE_HREF = 'tel:+12072593360';
 export const MESSENGER_HREF = 'https://m.me/100057455889767';
 export const ADDRESS = '67 Main St, East Machias, ME 04630';
 export const DIRECTIONS_HREF = 'https://maps.apple.com/?daddr=Prescott%27s+Garage,+67+Main+Street,+East+Machias,+ME';
+// The shop's Google Maps listing (the CID from the embedded map)
+export const GOOGLE_MAPS_HREF = 'https://www.google.com/maps?cid=11658073277995221610';
+
+export const SERVICES = [
+    'Oil Changes',
+    'State Inspections',
+    'Brake Service',
+    'Tire Rotation & Balance',
+    'Tire Repair & Replacement',
+    'Electrical System Repair',
+    'Suspension & Steering',
+    'Air Conditioning Service',
+    'Exhaust System Repair',
+    'Custom & Performance',
+];
 
 // Indexed by Date.getDay(); open/close are 24h hours, in the shop's local time
 export const HOURS: { day: string; open?: number; close?: number }[] = [
