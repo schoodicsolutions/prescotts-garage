@@ -1,13 +1,15 @@
 import { sveltekit } from "@sveltejs/kit/vite";
+import adapter from "@sveltejs/adapter-auto";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { defineConfig } from "vite";
-import path from "path";
 
 export default defineConfig({
-  plugins: [sveltekit()],
-  resolve: {
-    alias: {
-      $types: path.resolve("src/types"),
-      $constants: path.resolve("src/constants"),
-    },
-  },
+  plugins: [
+    sveltekit({
+      // Consult https://svelte.dev/docs/kit/integrations
+      // for more information about preprocessors
+      preprocess: vitePreprocess(),
+      adapter: adapter(),
+    }),
+  ],
 });

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { page } from "$app/stores";
   import { LightboxGallery, GalleryThumbnail, GalleryImage } from "svelte-lightbox";
-  const images = $page.data.images as string[];
+  let { data } = $props();
+  const images = $derived(data.images);
 </script>
 <main class = 'bg-black'>
     <div class = {`w-full flex justify-center items-center min-h-[200px] bg-[url('/img/gallery/8162.webp')] bg-center bg-no-repeat`}>

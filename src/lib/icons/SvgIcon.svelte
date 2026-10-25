@@ -1,8 +1,18 @@
 <script lang="ts">
-    export let width: string | number | null | undefined = '24px';
-    export let height: string | number | null | undefined  = '24px';
-    let className: string | null | undefined;
-    export {className as class};
+  interface Props {
+    width?: string | number | null | undefined;
+    height?: string | number | null | undefined;
+    class: string | null | undefined;
+    children?: import('svelte').Snippet;
+  }
+
+  let {
+    width = '24px',
+    height = '24px',
+    class: className,
+    children
+  }: Props = $props();
+    
 </script>
 
 <svg
@@ -11,5 +21,5 @@
   class={[className, 'inline-block'].join('')}
   viewBox="0 0 24 24"
 >
-  <slot></slot>
+  {@render children?.()}
 </svg>

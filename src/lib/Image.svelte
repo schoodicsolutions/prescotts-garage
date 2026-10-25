@@ -1,16 +1,27 @@
 <script lang="ts">
-    export let src: string;
-    export let alt: string;
-    export let aspect: string = '16:9';
-    export let width: number | string | undefined = 0;
-    export let height: number | string | undefined = 0;
-    let className: string | null = null;
-    export { className as class};
-    // For this to work, aspect NEEDS to be a value like "16:9"
-    $: [aspectWidth = 16, aspectHeight = 9] = aspect.split(':').map(value => Number(value));
+    interface Props {
+        src: string;
+        alt: string;
+        aspect?: string;
+        width?: number | string | undefined;
+        height?: number | string | undefined;
+        class?: string | null;
+    }
 
-    $: paddingBottom = !(width && height) && width ? `calc(${width} / ${aspectWidth / aspectHeight})` : 0;
-    $: paddingRight = !(width && height) && height ? `calc(${height} * ${aspectWidth / aspectHeight})` : 0; 
+    let {
+        src,
+        alt,
+        aspect = '16:9',
+        width = 0,
+        height = 0,
+        class: className = null
+    }: Props = $props();
+    
+    // For this to work, aspect NEEDS to be a value like "16:9"
+    let [aspectWidth = 16, aspectHeight = 9] = $derived(aspect.split(':').map(value => Number(value)));
+
+    let paddingBottom = $derived(!(width && height) && width ? `calc(${width} / ${aspectWidth / aspectHeight})` : 0);
+    let paddingRight = $derived(!(width && height) && height ? `calc(${height} * ${aspectWidth / aspectHeight})` : 0); 
 
 </script>
 

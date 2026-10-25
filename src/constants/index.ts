@@ -1,4 +1,4 @@
-import type { NavItem } from "$types/NavItem";
+import type { NavItem } from "#types/NavItem";
 
 export const SERVICES_DROPDOWN_ITEMS: NavItem[] = [
     { label: 'Customs', pathname: '/customs' },

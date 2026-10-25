@@ -1,10 +1,14 @@
 <script lang="ts">
 	import SvgIcon from './SvgIcon.svelte';
-    export let width: string | number | null | undefined = '24px';
-    export let height: string | number | null | undefined = '24px';
 
-    let className: string | null | undefined = undefined;
-    export { className as class };
+    interface Props {
+        width?: string | number | null | undefined;
+        height?: string | number | null | undefined;
+        class?: string | null | undefined;
+    }
+
+    let { width = '24px', height = '24px', class: className = undefined }: Props = $props();
+    
 </script>
 
 <SvgIcon

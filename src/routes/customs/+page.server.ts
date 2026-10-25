@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-import { PUBLIC_BASEURL } from '$env/static/public';
+import { PUBLIC_BASEURL } from '$app/env/public';
 
 export const prerender = true;
 

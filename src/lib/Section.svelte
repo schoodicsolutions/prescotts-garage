@@ -2,22 +2,35 @@
     import { scrollRef } from "svelte-scroll-nav";
     import Image from "./Image.svelte";
 
-    export let image: {
+
+
+
+    
+
+    interface Props {
+        image?: {
         src: string;
         alt: string;
         // height: string | number;
-    } | undefined = undefined;
+    } | undefined;
+        heading?: string | undefined;
+        headingOnSide?: boolean;
+        wide?: boolean;
+        class?: null | string;
+        scrollRef?: string | undefined;
+        children?: import('svelte').Snippet;
+    }
 
-    export let heading: string | undefined = undefined;
-    export let headingOnSide: boolean = false;
-
-    export let wide: boolean = false;
-
-    let clazz: null | string = null;
-    export { clazz as class };
-
-    let scrollRefName: string | undefined = undefined;
-    export { scrollRefName as scrollRef };
+    let {
+        image = undefined,
+        heading = undefined,
+        headingOnSide = false,
+        wide = false,
+        class: clazz = null,
+        scrollRef: scrollRefName = undefined,
+        children
+    }: Props = $props();
+    
 </script>
 
 <section use:scrollRef={scrollRefName} class="section {clazz}">
@@ -34,7 +47,7 @@
                 </h2>
             {/if}
             <div class="flex flex-col gap-8">
-                <slot />
+                {@render children?.()}
             </div>
         </div>
     </div>

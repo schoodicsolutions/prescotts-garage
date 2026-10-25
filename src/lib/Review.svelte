@@ -1,10 +1,15 @@
 <script lang="ts">
-    export let rating: number = 0;
-    export let author: string = '';
+    interface Props {
+        rating?: number;
+        author?: string;
+        children?: import('svelte').Snippet;
+    }
 
-    $: ratingToFixed = rating.toFixed(1);
-    $: solidStars = '★'.repeat(Math.min(5, rating));
-    $: emptyStars = '✩'.repeat(5 - rating);
+    let { rating = 0, author = '', children }: Props = $props();
+
+    let ratingToFixed = $derived(rating.toFixed(1));
+    let solidStars = $derived('★'.repeat(Math.min(5, rating)));
+    let emptyStars = $derived('✩'.repeat(5 - rating));
 </script>
 
 <div class="flex-1 flex flex-col justify-between h-full max-w-sm">
@@ -17,12 +22,12 @@
 
     <div class="flex gap-2 my-4 -ml-4">
         <div class="flex flex-col text-brand justify-center items-center">
-            <div class="w-0.5 bg-[currentColor] grow" />
+            <div class="w-0.5 bg-[currentColor] grow"></div>
             <span class="text-4xl -mt-5 mb-1">&bdquo;</span>
-            <div class="w-0.5 bg-[currentColor] grow" />
+            <div class="w-0.5 bg-[currentColor] grow"></div>
         </div>
         <blockquote class="text-justify text-md md:text-lg">
-            <slot />
+            {@render children?.()}
         </blockquote>
     </div>
 

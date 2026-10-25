@@ -1,41 +1,59 @@
 <script lang="ts">
-    export let poster: string | undefined = undefined;
-    export let leftOffset: number | string = 0;
-    export let topOffset: number | string = 0;
-    export let minHeight: number = 0;
-    export let maxScroll: number = 0;
-    export let fadeDuration: number = 2;
-    export let playDelay: number = 0;
-    export let fadeOnLoop: boolean = false;
-    export let verticalParallax = 0;
-    export let loop: boolean = false;
-    export let videoId: string;
-    export let downSample: number = 1;
-    export let deferLoad = false;
+    import YouTubePlayer, { type PlayerObject } from 'youtube-player';
+    import { onDestroy, onMount, type Snippet } from 'svelte';
 
-    $: quality = Math.min(1, 1 / downSample);
+    interface Props {
+        poster?: string | undefined;
+        leftOffset?: number | string;
+        topOffset?: number | string;
+        minHeight?: number;
+        maxScroll?: number;
+        fadeDuration?: number;
+        playDelay?: number;
+        fadeOnLoop?: boolean;
+        verticalParallax?: number;
+        loop?: boolean;
+        videoId: string;
+        downSample?: number;
+        deferLoad?: boolean;
+        class?: string | undefined;
+        children?: Snippet;
+    }
 
-    let className: string | undefined;
-    export { className as class };
-    
-    import YouTube, { type PlayerObject } from 'svelte-youtube';
-    import { onDestroy, onMount } from 'svelte';
+    let {
+        poster = undefined,
+        leftOffset = 0,
+        topOffset = 0,
+        minHeight = 0,
+        maxScroll = 0,
+        fadeDuration = 2,
+        playDelay = 0,
+        fadeOnLoop = false,
+        verticalParallax = 0,
+        loop = false,
+        videoId,
+        downSample = 1,
+        deferLoad = false,
+        class: className = undefined,
+        children
+    }: Props = $props();
 
-    $: opacity = 1;
-    
-    $: playing = false;
+    let quality = $derived(Math.min(1, 1 / downSample));
+
+    let opacity = $state(1);
+    let playing = false;
+    let mounted = $state(false);
 
     let player: PlayerObject | null = null;
-    $: player;
-
     let iframe: HTMLIFrameElement | null = null;
-    $: iframe;
-    
-    let innerHeight: number;
-    let innerWidth: number;
+    let playerElem: HTMLDivElement | undefined = $state();
 
-    $: calculatedScaledHeight = Math.max((innerWidth * 0.5625) * quality, minHeight * quality) + 'px';
-    $: calculatedHeight = Math.max((innerWidth * 0.5625), minHeight) + 'px';
+    let innerWidth: number = $state(0);
+    let scrollY: number = $state(0);
+
+    let calculatedScaledHeight = $derived(Math.max((innerWidth * 0.5625) * quality, minHeight * quality) + 'px');
+    let calculatedHeight = $derived(Math.max((innerWidth * 0.5625), minHeight) + 'px');
+    let vParallaxAmount = $derived(verticalParallax ? (verticalParallax * (Math.min(scrollY, maxScroll) / maxScroll)) : 0);
 
     function restartVideo() {
         if (player) {
@@ -45,43 +63,75 @@
         }
     }
 
-    let timeout: NodeJS.Timeout | number;
+    let timeout: ReturnType<typeof setTimeout> | 0 = 0;
+    let interval: ReturnType<typeof setInterval>;
 
-    const interval = setInterval(
-        () => {
-            // Poor man's loop / fade-out
-            if (!timeout && player) {
-                const endstop = loop && !fadeOnLoop ? 1 : fadeDuration;
-                const aboutToEnd = (player.getDuration() - player.getCurrentTime()) <= endstop;
-                if (aboutToEnd) {
-                    if (loop) {
-                        if (fadeOnLoop) {
-                            opacity = 1;
-                            timeout = setTimeout(() => {
-                                restartVideo();
-                                clearTimeout(timeout);
-                                timeout = 0;
-                            }, fadeDuration * 2000);
+    onMount(() => {
+        interval = setInterval(
+            () => {
+                // Poor man's loop / fade-out
+                if (!timeout && player) {
+                    const endstop = loop && !fadeOnLoop ? 1 : fadeDuration;
+                    const aboutToEnd = (player.getDuration() - player.getCurrentTime()) <= endstop;
+                    if (aboutToEnd) {
+                        if (loop) {
+                            if (fadeOnLoop) {
+                                opacity = 1;
+                                timeout = setTimeout(() => {
+                                    restartVideo();
+                                    timeout = 0;
+                                }, fadeDuration * 2000);
+                            } else {
+                                timeout = setTimeout(() => {
+                                    restartVideo();
+                                    timeout = 0;
+                                }, 0.5);
+                            }
                         } else {
-                            timeout = setTimeout(() => {
-                                restartVideo();
-                                clearTimeout(timeout);
-                                timeout = 0;
-                            }, 0.5);
+                            opacity = 1;
                         }
-                    } else {
-                        opacity = 1;
                     }
                 }
             }
+        , 100);
+
+        if (!deferLoad) {
+            setMounted();
         }
-    , 100);
+    });
 
-    onDestroy(() => clearInterval(interval));
+    onDestroy(() => {
+        clearInterval(interval);
+        if (timeout) clearTimeout(timeout);
+        timeout = 0;
+    });
 
-    function stateChange(event: CustomEvent<{target: PlayerObject, data?: number}>) {
-        const { data: state } = event.detail;
-        player = event.detail.target;
+    // Create the YouTube player once the delayed mount kicks in
+    $effect(() => {
+        if (!mounted || !playerElem) return;
+
+        const ytPlayer = YouTubePlayer(playerElem, {
+            videoId,
+            playerVars: {
+                disablekb: 1,
+                controls: 0,
+                fs: 0,
+                modestbranding: 1,
+            }
+        });
+        ytPlayer.on('ready', () => ytPlayer.cueVideoById(videoId));
+        ytPlayer.on('stateChange', stateChange);
+
+        return () => {
+            ytPlayer.destroy();
+            player = null;
+            iframe = null;
+        };
+    });
+
+    function stateChange(event: { target: PlayerObject, data?: number }) {
+        const { data: state } = event;
+        player = event.target;
         iframe = player.getIframe();
         if (state === -1) {
             onResize();
@@ -126,16 +176,11 @@
         }
     }
 
-    let scrollY: number;
-    $: vParallaxAmount = verticalParallax ? (verticalParallax * (Math.min(scrollY, maxScroll) / maxScroll)) : 0;
-
     function calculateParallax() {
         if (iframe) {
             iframe.style.transform = `translate(-50%, -50%) translate(${leftOffset}, ${topOffset}) translateY(${vParallaxAmount}px) scale(${downSample})`;
         }
     }
-
-    $: mounted = false;
 
     function setMounted() {
         timeout = setTimeout(
@@ -146,47 +191,28 @@
             playDelay * 1000
         )
     }
+
     function onLoadListener() {
         if (deferLoad) {
             setMounted();
         }
     }
-
-    if (!deferLoad) {
-        setMounted();
-    }
-
-    onDestroy(() => {
-        clearTimeout(timeout);
-        timeout = 0;
-    })
 </script>
 
-<svelte:window 
-    on:resize={onResize}
-    on:scroll|passive={onScroll}
-    on:load={onLoadListener}
+<svelte:window
+    onresize={onResize}
+    onscroll={onScroll}
+    onload={onLoadListener}
     bind:scrollY
-    bind:innerHeight
     bind:innerWidth
 />
 
 <div class={['fixed top-0 h-screen w-screen overflow-hidden', className].join(' ')}>
-    <div class='w-full h-full'>  
+    <div class='w-full h-full'>
         {#if mounted}
-            <YouTube
-                {videoId}
-                class="w-full h-full relative"
-                options={{
-                    playerVars: {
-                        disablekb: 1,
-                        controls: 0,
-                        fs: 0,
-                        modestbranding: 1,
-                    }
-                }}
-                on:stateChange={stateChange}
-            />
+            <div class="w-full h-full relative">
+                <div bind:this={playerElem}></div>
+            </div>
         {/if}
         <div
             class='w-screen absolute top-0 bg-cover bg-center'
@@ -195,9 +221,9 @@
             style:filter={`opacity(${opacity})`}
             style:transition={`filter ${fadeDuration}s`}
             style:transform={`translate(${leftOffset}, ${topOffset}) translateY(${vParallaxAmount}px)`}
-        />
+        ></div>
     </div>
 </div>
 <div class="relative">
-    <slot />
+    {@render children?.()}
 </div>

@@ -1,5 +1,4 @@
 <script>
-	import { page } from '$app/stores';
   import SchoodicIcon from './icons/SchoodicIcon.svelte';
   import Logo from './Logo.svelte';
 

@@ -1,6 +1,6 @@
 <script>
     import { scrollTo } from "svelte-scroll-nav";
-    import Image from "$lib/Image.svelte";
+    import Image from "#lib/Image.svelte";
 </script>
 <main class = 'bg-black'>
     <div class = {`w-full min-h-[325px] flex justify-center items-center bg-[url('/img/gallery/5619.webp')] bg-center bg-no-repeat`}>

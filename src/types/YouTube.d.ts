@@ -1,6 +1,4 @@
-declare module 'svelte-youtube' {
-    import type { SvelteComponentTyped } from 'svelte';
-
+declare module 'youtube-player' {
     export interface PlayerVars {
         autoplay?: 0 | 1;
         cc_lang_pref?: string;
@@ -86,19 +84,23 @@ declare module 'svelte-youtube' {
         destroy(): void;
     }
 
-    import { default as YouTubeComponent } from 'svelte-youtube';
+    export interface Options {
+        videoId?: string;
+        width?: number | string;
+        height?: number | string;
+        playerVars?: PlayerVars;
+    }
 
-    class YouTubeComponent extends SvelteComponentTyped<
-        YouTubeProps,
-        { 
-            ready: CustomEvent<{target: PlayerObject}>;
-            error: CustomEvent<{target: PlayerObject}>;
-            stateChange: CustomEvent<{target: PlayerObject, data?: number}>;
-            playbackRateChange: CustomEvent<{target: PlayerObject}>;
-            playbackQualityChange: CustomEvent<{target: PlayerObject}>;
-        },
-        {}
-    > {};
+    export interface YouTubePlayerInstance {
+        on(event: string, listener: (event: { target: PlayerObject, data?: number }) => void): void;
+        cueVideoById(videoId: string, startSeconds?: number): Promise<void>;
+        loadVideoById(videoId: string, startSeconds?: number): Promise<void>;
+        destroy(): Promise<void>;
+    }
 
-    export default YouTubeComponent;
+    export default function YouTubePlayer(
+        elementId: HTMLElement | string,
+        options?: Options,
+        strictState?: boolean
+    ): YouTubePlayerInstance;
 }
