@@ -1,4 +1,3 @@
-/*
 import { PUBLIC_BASEURL } from '$app/env/public';
 
 export const prerender = true;
@@ -7,8 +6,7 @@ export function load({ url }: { url: URL }) {
     return {
         title: 'Alignments',
         suffix: 'East Machias, Maine',
-        description: 'Your Go-To Auto Body Shop for Top-Quality Repairs and Services. Trust Our Experienced Technicians for all Your Vehicle Needs. Contact Us Today!',
+        description: "Wheel alignments in East Machias, ME. We inspect your suspension, steering and tires, then align to manufacturer specs for better handling and tire life.",
         canonical: `${PUBLIC_BASEURL}${url.pathname}`
     }
 }
-*/

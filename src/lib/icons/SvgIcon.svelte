@@ -18,7 +18,8 @@
 <svg
   {width}
   {height}
-  class={[className, 'inline-block'].join('')}
+  class={['inline-block shrink-0', className].filter(Boolean).join(' ')}
+  aria-hidden="true"
   viewBox="0 0 24 24"
 >
   {@render children?.()}

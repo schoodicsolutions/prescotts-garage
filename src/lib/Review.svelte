@@ -9,29 +9,23 @@
 
     let ratingToFixed = $derived(rating.toFixed(1));
     let solidStars = $derived('★'.repeat(Math.min(5, rating)));
-    let emptyStars = $derived('✩'.repeat(5 - rating));
+    let emptyStars = $derived('☆'.repeat(Math.max(0, 5 - rating)));
 </script>
 
-<div class="flex-1 flex flex-col justify-between h-full max-w-sm">
+<figure class="card relative flex flex-col gap-6 p-8 pt-10 h-full">
+    <span aria-hidden="true" class="absolute -top-6 left-8 font-kameron text-7xl leading-none text-brand">&ldquo;</span>
 
-    <div class="text-center flex items-center justify-center">
-        <span class="text-yellow-200 text-2xl text-center">{ solidStars }</span>
-        <span class="text-gray-700 text-2xl text-center">{ emptyStars }</span>
-        <span class="text-sm">&nbsp;( { ratingToFixed } )</span>
+    <div class="flex items-center gap-2" aria-label="Rated {ratingToFixed} out of 5">
+        <span aria-hidden="true" class="text-yellow-300 text-xl tracking-wider">{solidStars}<span class="text-white/20">{emptyStars}</span></span>
+        <span aria-hidden="true" class="text-sm text-white/60">{ratingToFixed}</span>
     </div>
 
-    <div class="flex gap-2 my-4 -ml-4">
-        <div class="flex flex-col text-brand justify-center items-center">
-            <div class="w-0.5 bg-[currentColor] grow"></div>
-            <span class="text-4xl -mt-5 mb-1">&bdquo;</span>
-            <div class="w-0.5 bg-[currentColor] grow"></div>
-        </div>
-        <blockquote class="text-justify text-md md:text-lg">
-            {@render children?.()}
-        </blockquote>
-    </div>
+    <blockquote class="text-lg leading-relaxed text-white/90">
+        {@render children?.()}
+    </blockquote>
 
-
-    <cite class="w-full block text-right font-medium text-lg md:text-xl">&mdash; { author }</cite>
-
-</div>
+    <figcaption class="mt-auto flex items-center gap-3 border-t border-white/10 pt-5">
+        <span aria-hidden="true" class="grid size-10 place-items-center rounded-full bg-brand/15 font-poppins font-semibold text-brand">{author.charAt(0)}</span>
+        <cite class="not-italic font-semibold text-lg">{author}</cite>
+    </figcaption>
+</figure>

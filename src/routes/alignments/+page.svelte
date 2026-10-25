@@ -1,27 +1,19 @@
-<script>
-    import { scrollTo } from "svelte-scroll-nav";
-    import Image from "#lib/Image.svelte";
+<script lang="ts">
+    import ServicePage from "#lib/ServicePage.svelte";
 </script>
-<main class='bg-black'>
-    <div class={`w-full min-h-[325px] bg-[url('/img/gallery/8162.webp')] bg-center bg-no-repeat`}>
-        <div class='w-full min-h-[325px] flex justify-center items-center bg-black/50'>
-            <h1 class='font-kameron sm:text-5xl lg:text-7x text-white'>Alignments</h1>
-        </div>
-        
-    </div>
-    <div class='flex md:flex-row flex-col max-w-screen-xl m-auto px-3 py-7 gap-5'>
-        <div class='flex-1 text-white flex gap-3 flex-col'>
-            <p>
-                Proper wheel alignment is essential for ensuring that your vehicle handles correctly, maximizes fuel efficiency, and extends the life of your tires. At our shop, we offer expert alignment services using the latest technology and techniques to ensure that your vehicle is performing at its best.
-                <br/><br/>
-                Our experienced technicians use state-of-the-art equipment to measure and adjust your vehicle's alignment to manufacturer specifications. We'll inspect your vehicle's suspension, steering, and tires to identify any issues that may be affecting your alignment. We'll then make any necessary adjustments to ensure that your vehicle is properly aligned, providing you with a smoother ride and better handling.
-                <br/><br/>
-                At Prescott's Garage, we understand that a properly aligned vehicle is essential for your safety and comfort on the road. That's why we take great care in our alignment services, using only the highest quality equipment and techniques. We pride ourselves on our commitment to customer satisfaction and quality workmanship, so you can trust us to provide you with the best possible alignment services. Contact us today to schedule an appointment or to learn more about our alignment services.
-            </p>
-            <a class="button button-brand w-full"  use:scrollTo={{section: "contact"}} href="/">Get In Touch</a>
-        </div>
-        <div class='flex-1'>
-            <Image src='/img/gallery/4241.webp' alt='Car that needs alignment' width="100%" height="100%"/>
-        </div>
-    </div>
-</main>
+
+<ServicePage
+    title="Alignments"
+    banner="/img/gallery/8162.webp"
+    image={{ src: '/img/gallery/4241.webp', alt: "Car that needs alignment" }}
+>
+    <p>
+        Proper wheel alignment is essential for ensuring that your vehicle handles correctly, maximizes fuel efficiency, and extends the life of your tires. At our shop, we offer expert alignment services using the latest technology and techniques to ensure that your vehicle is performing at its best.
+    </p>
+    <p>
+        Our experienced technicians use state-of-the-art equipment to measure and adjust your vehicle's alignment to manufacturer specifications. We'll inspect your vehicle's suspension, steering, and tires to identify any issues that may be affecting your alignment. We'll then make any necessary adjustments to ensure that your vehicle is properly aligned, providing you with a smoother ride and better handling.
+    </p>
+    <p>
+        At Prescott's Garage, we understand that a properly aligned vehicle is essential for your safety and comfort on the road. That's why we take great care in our alignment services, using only the highest quality equipment and techniques. We pride ourselves on our commitment to customer satisfaction and quality workmanship, so you can trust us to provide you with the best possible alignment services. Contact us today to schedule an appointment or to learn more about our alignment services.
+    </p>
+</ServicePage>

@@ -6,7 +6,7 @@ export function load({ url }: { url: URL }) {
     return {
         title: 'Rust Repair',
         suffix: 'East Machias, Maine',
-        description: 'Your Go-To Auto Body Shop for Top-Quality Repairs and Services. Trust Our Experienced Technicians for all Your Vehicle Needs. Contact Us Today!',
+        description: "Rust repair and prevention in East Machias, ME. From fender spots to undercarriage damage, plus undercoating and rust inhibitors to stop corrosion.",
         canonical: `${PUBLIC_BASEURL}${url.pathname}`
     }
 }

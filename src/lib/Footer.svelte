@@ -1,22 +1,23 @@
 <script>
-  import SchoodicIcon from './icons/SchoodicIcon.svelte';
-  import Logo from './Logo.svelte';
+    import { ADDRESS, PHONE_DISPLAY, PHONE_HREF } from '#constants';
+    import SchoodicIcon from './icons/SchoodicIcon.svelte';
+    import Logo from './Logo.svelte';
 
     const year = new Date().getFullYear();
 </script>
 
-<footer class="text-center bg-midnight z-40 relative">
-    <div class=" text-white">
-        <div class="flex flex-col lg:flex-row justify-center lg:items-start gap-10 md:gap-20 xl:gap-40 py-12 h-full">
-            <section class="flex flex-col items-center lg:order-1 gap-4">
-                <a href="/" aria-label="Back to Top">
-                    <Logo class="w-28 shrink-0 hover:text-white transition" />
-                </a>
-                <div>
-                    <h1>Copyright &copy; {year} Prescott's Garage</h1>
-                    <p>Designed by <a href="https://schoodic.io"><SchoodicIcon /> <span class="-ml-2 font-bold">Schoodic Media</span></a></p>
-                </div>
-            </section>
+<footer class="relative z-40 bg-midnight text-white border-t border-white/10">
+    <div class="mx-auto flex max-w-screen-lg flex-col items-center gap-6 px-5 py-14 text-center">
+        <a href="/" aria-label="Back to Top">
+            <Logo class="w-28 shrink-0 hv:hover:text-white transition" />
+        </a>
+        <address class="flex flex-col sm:flex-row gap-x-6 gap-y-1 text-white/80">
+            <span>{ADDRESS}</span>
+            <a class="hv:hover:text-brand transition-colors" href={PHONE_HREF}>{PHONE_DISPLAY}</a>
+        </address>
+        <div class="text-sm text-white/60">
+            <p>Copyright &copy; {year} Prescott's Garage</p>
+            <p>Designed by <a class="text-white/80 hv:hover:text-white transition-colors" href="https://schoodic.io"><SchoodicIcon /> <span class="-ml-2 font-bold">Schoodic</span></a></p>
         </div>
     </div>
 </footer>

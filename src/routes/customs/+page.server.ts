@@ -15,7 +15,7 @@ export async function load({ url }: { url: URL }) {
         images,
         title: 'Customs',
         suffix: 'East Machias, Maine',
-        description: 'Your Go-To Auto Body Shop for Top-Quality Repairs and Services. Trust Our Experienced Technicians for all Your Vehicle Needs. Contact Us Today!',
+        description: "Custom car builds from Prescott's Garage in East Machias, Maine. Browse photos of custom and performance work from our shop, then tell us about your project.",
         canonical: `${PUBLIC_BASEURL}${url.pathname}`
     }
 }

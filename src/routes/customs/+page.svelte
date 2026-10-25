@@ -1,28 +1,25 @@
 <script lang="ts">
+  import PageBanner from "#lib/PageBanner.svelte";
   import { LightboxGallery, GalleryThumbnail, GalleryImage } from "svelte-lightbox";
   let { data } = $props();
   const images = $derived(data.images);
 </script>
-<main class = 'bg-black'>
-    <div class = {`w-full flex justify-center items-center min-h-[200px] bg-[url('/img/gallery/8162.webp')] bg-center bg-no-repeat`}>
-        <div class = 'w-full min-h-[200px] flex justify-center items-center bg-black/50'>
-            <h1 class = 'font-kameron sm:text-5xl lg:text-7x text-white'>Customs</h1>
-        </div>
-    </div>
-    <div class="columns-1 sm:columns-2 xl:columns-3 gap-4 px-4 py-12">
-        <LightboxGallery>
-            <svelte:fragment slot="thumbnail">
-                {#each images as src, index}
-                    <GalleryThumbnail id={index}>
-                        <img {src} class="mb-4" alt="" />
-                    </GalleryThumbnail>
-                {/each}
-            </svelte:fragment>
-            {#each images as src}
-                <GalleryImage>
-                    <img {src} class="mb-4" alt="" />
-                </GalleryImage>
+
+<PageBanner title="Customs" image="/img/gallery/8162.webp" />
+
+<div class="mx-auto max-w-screen-2xl columns-1 sm:columns-2 xl:columns-3 gap-4 px-5 sm:px-8 py-12">
+    <LightboxGallery>
+        <svelte:fragment slot="thumbnail">
+            {#each images as src, index}
+                <GalleryThumbnail id={index}>
+                    <img {src} loading="lazy" decoding="async" class="mb-4 w-full rounded-xl ring-1 ring-white/10 transition hv:hover:brightness-110" alt="" />
+                </GalleryThumbnail>
             {/each}
-        </LightboxGallery>
-    </div>
-</main>
+        </svelte:fragment>
+        {#each images as src}
+            <GalleryImage>
+                <img {src} alt="" />
+            </GalleryImage>
+        {/each}
+    </LightboxGallery>
+</div>

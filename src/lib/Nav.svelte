@@ -24,27 +24,14 @@
     aria-label={ariaLabel}
     aria-hidden={ariaHidden}
 >
-    <ul
-        class={className}
-    >
+    <ul class={className}>
         {#each navItems as navItem}
-            {#if navItem.dropdown}
-                <li class="flex flex-col -mt-1 transition items-center">
-                    <a
-                        class="navlink hv:hover:text-brand"
-                        href={navItem.pathname}
-                        use:scrollTo={navItem.scrollTo ? {
-                            section: navItem.scrollTo,
-                            onNavigate: () => onnavigate?.(navItem),
-                        } : undefined}
-                    >
-                    <p class="navlink hv:hover:text-brand flex flex-row items-center justify-center gap-1">{navItem.label}</p>
-                    </a>
-                </li>
-            {:else}
-            <li class="flex flex-col -mt-1 transition hv:hover:text-brand items-center">
+            {@const active = page.url.pathname === navItem.pathname && (!navItem.scrollTo || $section === navItem.scrollTo)}
+            <li class="flex flex-col transition-colors hv:hover:text-brand items-center">
                 <a
-                    class="navlink"
+                    class="navlink py-1"
+                    class:text-brand={active}
+                    aria-current={active ? 'location' : undefined}
                     href={navItem.pathname}
                     use:scrollTo={navItem.scrollTo ? {
                         section: navItem.scrollTo,
@@ -54,11 +41,10 @@
                     {navItem.label}
                 </a>
                 <div
-                    class="h-0.5 w-0 -mt-0.5 bg-[currentColor] transition-all"
-                    class:w-full={page.url.pathname === navItem.pathname && (!navItem.scrollTo || $section === navItem.scrollTo)}
+                    class="h-0.5 w-0 rounded-full bg-brand transition-all"
+                    class:w-full={active}
                 ></div>
             </li>
-            {/if}
         {/each}
     </ul>
 </nav>

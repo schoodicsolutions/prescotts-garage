@@ -6,7 +6,7 @@ export function load({ url }: { url: URL }) {
     return {
         title: 'Diagnostics',
         suffix: 'East Machias, Maine',
-        description: 'Your Go-To Auto Body Shop for Top-Quality Repairs and Services. Trust Our Experienced Technicians for all Your Vehicle Needs. Contact Us Today!',
+        description: "Vehicle diagnostics in East Machias, ME. Check engine light or strange noises? We find the root cause and give you a clear report before any repair.",
         canonical: `${PUBLIC_BASEURL}${url.pathname}`
     }
 }
