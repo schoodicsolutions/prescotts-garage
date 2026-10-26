@@ -11,6 +11,7 @@
         <a href="/" aria-label="Back to Top">
             <Logo class="w-28 shrink-0 hv:hover:text-white transition" />
         </a>
+        <p class="font-poppins font-bold text-white/90">Family owned &amp; operated</p>
         <address class="flex flex-col sm:flex-row gap-x-6 gap-y-1 text-white/80">
             <span>{ADDRESS}</span>
             <a class="hv:hover:text-brand transition-colors" href={PHONE_HREF}>{PHONE_DISPLAY}</a>

@@ -8,9 +8,17 @@ export const BUSINESS_ID = `${PUBLIC_BASEURL}/#business`;
 const WEBSITE_ID = `${PUBLIC_BASEURL}/#website`;
 
 export const BUSINESS_DESCRIPTION =
-    "Prescott's Garage is an independent auto repair shop in East Machias, Maine, " +
-    "founded by Harold Prescott in 2005. It provides reliable, honest auto repair " +
-    "for the Greater Machias area, from routine maintenance to complex repairs.";
+    "Prescott's Garage is a family-owned and operated auto repair shop in East Machias, Maine, " +
+    "founded by Harold Prescott in 2005. Harold and his son work in the shop every day, " +
+    "providing reliable, honest auto repair for the Greater Machias area, from routine " +
+    "maintenance to complex repairs.";
+
+const harold = {
+    '@type': 'Person',
+    '@id': `${PUBLIC_BASEURL}/#harold`,
+    name: 'Harold Prescott',
+    jobTitle: 'Owner',
+};
 
 const hoursSpecification = HOURS
     .filter(({ open, close }) => open !== undefined && close !== undefined)
@@ -31,7 +39,8 @@ export const business = {
     logo: `${PUBLIC_BASEURL}/apple-touch-icon.png`,
     telephone: '+1-207-259-3360',
     foundingDate: '2005',
-    founder: { '@type': 'Person', name: 'Harold Prescott' },
+    slogan: 'Family owned & operated since 2005',
+    founder: harold,
     address: {
         '@type': 'PostalAddress',
         streetAddress: '67 Main St',

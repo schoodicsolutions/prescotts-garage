@@ -57,18 +57,23 @@
         </div>
     </div>
     <div>
-        <Section scrollRef="about" eyebrow="Since 2005" heading="About Us" headingOnSide image={{src: "/img/wagons.webp", alt: "Two Jeep Grand Wagoneers, parked next to one another"}}>
+        <Section scrollRef="about" eyebrow="Family Owned & Operated" heading="About Us" headingOnSide image={{src: "/img/wagons.webp", alt: "Two Jeep Grand Wagoneers, parked next to one another"}}>
             <div class="flex flex-col gap-5 text-lg leading-relaxed text-white/85">
                 <p>
-                    Harold Prescott started Prescott's Garage in 2005 with one mission:
-                    to provide reliable, honest auto repair services to the Greater Machias area.
-                    Since then, our shop has become a trusted name in the community,
-                    thanks to Harold's dedication to his customers and his passion for his work.
+                    Prescott's Garage is a family business. Harold Prescott
+                    opened the shop in 2005 with one mission: to provide reliable, honest
+                    auto repair to the Greater Machias area. Since then, it has become a
+                    trusted name in the community.
                 </p>
                 <p>
-                    We take pride in providing top-quality auto services at affordable prices.
-                    From routine maintenance to complex repairs, our skilled mechanics have the
-                    expertise to get you back on the road safely and efficiently.
+                    Today, Harold and his son are in the shop every day. When you bring
+                    your car in, you're dealing with the family whose name is on the sign,
+                    and we treat every vehicle like it belongs to one of our own.
+                </p>
+                <p>
+                    From routine maintenance to complex repairs, we take pride in
+                    top-quality work at fair prices, and in getting you back on the road
+                    safely and quickly.
                 </p>
             </div>
 
