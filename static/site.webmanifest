@@ -1,0 +1,14 @@
+{
+	"name": "Prescott's Garage",
+	"short_name": "Prescott's",
+	"start_url": "/",
+	"scope": "/",
+	"display": "standalone",
+	"background_color": "#10080F",
+	"theme_color": "#10080F",
+	"icons": [
+		{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+		{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+		{ "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+	]
+}
